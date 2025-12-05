@@ -1,0 +1,77 @@
+---
+import Layout from '../../layouts/layout.astro';
+import ContentBlock from '../../components/content-block.astro';
+import Cta from '../../components/cta.astro';
+---
+
+<Layout title="menopauze begeleiding | sarah bogaerts" description="begeleiding tijdens de overgang">
+	<main>
+		<!-- hero section -->
+		<section class="service-hero">
+			<div class="service-hero__container">
+				<h1>Menopauze begeleiding</h1>
+				<p class="service-hero__subtitle">De menopauze is geen "probleem" dat opgelost moet worden. het is een levensfase waarin je hormonen, je emoties en jouw waarheid samen aan tafel gaan zitten en "jij" het hoofdgerecht bent.</p>
+			</div>
+		</section>
+
+		<!-- welkom in de fase -->
+		<ContentBlock
+			leftWidth="60%"
+			rightWidth="40%"
+			gap="large"
+			padding="large"
+			verticalAlign="center"
+		>
+			<div slot="left">
+				<h2>Welkom in de fase waarin je lichaam geen bullshit meer pikt</h2>
+				<p>Inderdaad..., vapeurs, moodswings en vermoeidheid zijn reëel. Maar net zo reëel zijn de oude emoties, ingeslikte frustraties en overlevingsstrategieën die zich al jaren in je lijf hebben genesteld. en geloof me, tijdens de menopauze gaan die niet langer braaf in hun hoekje zitten. Ze kloppen aan de deur. Hard. Soms met een megafoon.</p>
+				<p>Wanneer de klassieke middeltjes niet werken, komt dat vaak omdat je lichaam eigenlijk iets wil zeggen zoals: "hey, schat… we hebben nog wat onverwerkt materiaal liggen. Tijd om op te ruimen."</p>
+			</div>
+			<img slot="right" src="/Images/services/menopauze.jpg" alt="menopauze begeleiding" style="border-radius: var(--radius-md);" />
+		</ContentBlock>
+
+		<!-- in mijn praktijk -->
+		<section class="service-text-section">
+			<div class="service-text-section__container">
+				<p>In mijn praktijk gaan we verder dan symptoombestrijding. we combineren:</p>
+				<ul>
+					<li class="icon-list__item">
+						<img src="/icons/heart.svg" alt="" class="icon-list__icon" />
+						<p>Hormonale en detox-ondersteuning die wél klopt</p>
+					</li>
+					<li class="icon-list__item">
+						<img src="/icons/heart.svg" alt="" class="icon-list__icon" />
+						<p>Lichaams- en borstweefseltherapie om spanning los te maken</p>
+					</li>
+					<li class="icon-list__item">
+						<img src="/icons/heart.svg" alt="" class="icon-list__icon" />
+						<p>Energetisch werk om je systeem te resetten</p>
+					</li>
+					<li class="icon-list__item">
+						<img src="/icons/heart.svg" alt="" class="icon-list__icon" />
+						<p>Gesprekken die je liefdevol confronteren met datgene wat je mag loslaten</p>
+					</li>
+				</ul>
+			</div>
+		</section>
+
+		<!-- bewuste fase -->
+		<section class="service-text-section service-text-section--no-bg">
+			<div class="service-text-section__container">
+				<p>Want als je deze fase bewust aangaat, wordt ze zelfs verrassend leuk: helderder, vrijer, eerlijker… en soms zelfs hilarisch herkenbaar.</p>
+				<p>De menopauze is geen fase om te vrezen. Het is het moment waarop je vrouwelijke kracht eindelijk uit de verpakking mag.</p>
+			</div>
+		</section>
+
+		<!-- cta -->
+		<Cta
+			layout="split"
+			title="Hot flashes? mood swings?"
+			description="Laten we ze samen omzetten in kracht. 💥"
+			ctaText="start je begeleiding"
+			ctaLink="/contact"
+			ctaStyle="primary"
+			padding="large"
+		/>
+	</main>
+</Layout>

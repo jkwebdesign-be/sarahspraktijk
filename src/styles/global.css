@@ -1,0 +1,403 @@
+@import "tailwindcss";
+
+/* Fonts */
+@font-face { font-family:'Poppins'; src:url('/fonts/Poppins-Regular.woff2') format('woff2'); font-weight:400; font-style:normal; font-display:swap; }
+@font-face { font-family:'Poppins'; src:url('/fonts/Poppins-Bold.woff2') format('woff2'); font-weight:700; font-style:normal; font-display:swap; }
+@font-face { font-family:'Poppins'; src:url('/fonts/Poppins-Light.woff2') format('woff2'); font-weight:300; font-style:normal; font-display:swap; }
+@font-face { font-family:'Magnolia'; src:url('/fonts/magnolia-script.woff2') format('woff2'); font-weight:400; font-style:normal; font-display:swap; }
+@font-face { font-family:'allura'; src:url('/fonts/allura.woff2') format('woff2'); font-weight:400; font-style:normal; font-display:swap; }
+
+/* Base styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+  color: var(--color-text);
+  background-color: var(--color-background);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Remove default margins */
+h1, h2, h3, h4, h5, h6, p, ul, ol, figure {
+  margin: 0;
+}
+
+/* Heading styles */
+h1 {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-regular);
+  font-family: var(--font-family-serif);
+  line-height: var(--line-height-tight);
+  color: var(--color-text);
+}
+
+h2 {
+  font-size: var(--font-size-3xl);
+  font-family: var(--font-family-serif);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-tight);
+  color: var(--color-text);
+}
+
+h3 {
+  font-size: var(--font-size-2xl);
+  font-family: var(--font-family-serif);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-tight);
+  color: var(--color-text);
+}
+
+h4 {
+  font-size: var(--font-size-xl);
+  font-family: var(--font-family-serif);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-normal);
+  color: var(--color-text);
+}
+
+p {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+  color: var(--color-text);
+}
+
+/* Improve media defaults */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Remove default button styles */
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+/* Improve form element defaults */
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* Remove list styles on ul, ol elements with a list role */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+  padding: 0;
+}
+
+/* Utility classes using tokens */
+.container {
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+/* Typography utilities */
+.heading-1 {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+}
+
+.heading-2 {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+}
+
+.heading-3 {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-snug);
+}
+
+.body-large {
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-normal);
+}
+
+.body-small {
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-normal);
+}
+
+/* Button styles */
+.btn {
+  display: inline-block;
+  padding: var(--space-4) var(--space-8);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  border-style: solid;
+  transition: all var(--transition-base);
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn--primary {
+  border-color: var(--color-border);
+  border-width: 5px;
+  color: var(--color-border);
+}
+
+.btn--primary:hover {
+  transform: translateY(-2px);
+}
+
+.btn--accent {
+  background-color: var(--color-accent);
+  color: #fff;
+}
+
+.btn--accent:hover {
+  background-color: var(--color-accent-hover);
+  transform: translateY(-2px);
+}
+
+.btn--outline {
+  background-color: transparent;
+  color: var(--color-text);
+  border: 2px solid var(--color-border);
+}
+
+.btn--outline:hover {
+  background-color: var(--color-surface);
+  transform: translateY(-2px);
+}
+
+/* Content text wrapper - for flexible content blocks */
+.content-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/* Title and subtitle combo */
+.content-text h2,
+.content-text h3 {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-tight);
+  color: var(--color-text);
+  margin: 0;
+}
+
+.content-text h3 {
+  font-size: var(--font-size-2xl);
+}
+
+.content-text .subtitle {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text);
+  font-family: var(--font-family-serif);
+  margin: 0;
+  margin-bottom: var(--space-6);
+}
+
+.content-text p:not(.subtitle) {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+  color: var(--color-text);
+  margin: 0;
+}
+
+.content-text .btn {
+  margin-top: var(--space-2);
+  align-self: flex-start;
+}
+
+/* Icon list styles */
+.icon-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+}
+
+.sticky-content-section__right .icon-list {
+  gap: var(--space-8);
+}
+
+.sticky-content-section__left .btn {
+  align-self: flex-end;
+}
+
+.icon-list__item {
+  display: flex;
+  gap: var(--space-6);
+  align-items: flex-start;
+}
+
+.icon-list__icon {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+}
+
+.icon-list__item p {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+  color: var(--color-text);
+  margin: 0;
+}
+
+/* responsive icon list */
+@media (max-width: 768px) {
+  .icon-list__icon {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* Icon list group - for categorized icon lists with titles */
+.icon-list-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.icon-list-group + .icon-list-group {
+  margin-top: var(--space-12);
+}
+
+.icon-list-group h3 {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-tight);
+  color: var(--color-text);
+  margin: 0;
+}
+
+/* Service page common styles */
+.service-hero {
+  width: 100%;
+  padding: var(--space-24) 0 var(--space-12) 0;
+}
+
+.service-hero__container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+.service-hero h1 {
+  margin-bottom: var(--space-6);
+}
+
+.service-hero__subtitle {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.service-hero__tagline {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+  margin: 0;
+}
+
+.service-text-section {
+  width: 100%;
+  padding: var(--space-16) 0;
+  background-color: var(--color-background-secondary);
+}
+
+.service-text-section__container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+.service-text-section--no-bg {
+  background-color: transparent;
+}
+
+.service-text-section--centered {
+  background-color: transparent;
+}
+
+.service-text-section--centered .service-text-section__container {
+  max-width: 800px;
+  text-align: center;
+}
+
+.service-text-section--alt {
+  background-color: transparent;
+}
+
+.service-text-section h2 {
+  margin-bottom: var(--space-6);
+}
+
+.service-text-section p {
+  margin-bottom: var(--space-4);
+}
+
+.service-text-section p:last-child {
+  margin-bottom: 0;
+}
+
+.service-text-section ul {
+  margin: var(--space-6) 0;
+  padding-left: var(--space-8);
+  list-style-type: disc;
+}
+
+.service-text-section li {
+  margin-bottom: var(--space-3);
+  line-height: var(--line-height-normal);
+}
+
+.service-text-section li:last-child {
+  margin-bottom: 0;
+}
+
+.icon-list__icon{
+  filter: invert(74%) sepia(26%) saturate(1836%) hue-rotate(299deg) brightness(101%) contrast(101%);
+  justify-self: center;
+}
+
+.icon-list__item {
+  display: grid;
+  grid-template-columns: 30px 1fr; /* Icon width + remaining space */
+  gap: 1rem; /* Adjust spacing between icon and text */
+  align-items: center; /* Centers icon vertically in the middle */
+}
+
+.accent-1{
+  color: var(--text-accent-1);
+}
+
+.accent-2{
+  color: var(--text-accent-2);
+}
+
+.accent-3{
+  color: var(--text-accent-3);
+}
+
+.accent-4{
+  color: var(--text-accent-4);
+}

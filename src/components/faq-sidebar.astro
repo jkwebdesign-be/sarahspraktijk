@@ -1,0 +1,166 @@
+---
+interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  title: string;
+  description?: string;
+  faqs: FaqItem[];
+  backgroundColor?: string;
+}
+
+const {
+  title,
+  description,
+  faqs,
+  backgroundColor = 'transparent'
+} = Astro.props;
+---
+
+<section class="faq-sidebar" style={`background-color: ${backgroundColor};`}>
+  <div class="faq-sidebar__container">
+    <div class="faq-sidebar__sidebar">
+      <h2>{title}</h2>
+      {description && <p>{description}</p>}
+    </div>
+
+    <div class="faq-sidebar__list">
+      {faqs.map((faq, index) => (
+        <div class="faq-sidebar__item" data-faq-item>
+          <button class="faq-sidebar__question" aria-expanded="false" data-faq-button>
+            <span>{faq.question}</span>
+            <svg class="faq-sidebar__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+          <div class="faq-sidebar__answer" data-faq-answer>
+            <p>{faq.answer}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const faqButtons = document.querySelectorAll('[data-faq-button]');
+    
+    faqButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const item = button.closest('[data-faq-item]');
+        const answer = item?.querySelector('[data-faq-answer]');
+        const isExpanded = button.getAttribute('aria-expanded') === 'true';
+        
+        // Toggle this item
+        button.setAttribute('aria-expanded', (!isExpanded).toString());
+        item?.classList.toggle('is-open');
+        
+        if (answer) {
+          if (isExpanded) {
+            answer.style.maxHeight = '0';
+          } else {
+            answer.style.maxHeight = answer.scrollHeight + 'px';
+          }
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  .faq-sidebar {
+    width: 100%;
+    padding: var(--space-16) 0;
+  }
+
+  .faq-sidebar__container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: var(--space-16);
+    align-items: start;
+  }
+
+  .faq-sidebar__sidebar h2 {
+    margin-bottom: var(--space-4);
+  }
+
+  .faq-sidebar__sidebar p {
+    font-size: var(--font-size-base);
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  .faq-sidebar__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .faq-sidebar__item {
+    border-bottom: 1px solid var(--color-border);
+    overflow: hidden;
+  }
+
+  .faq-sidebar__item:last-child {
+    border-bottom: none;
+  }
+
+  .faq-sidebar__question {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-4);
+    padding: var(--space-6);
+    background: transparent;
+    border: none;
+    text-align: left;
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text);
+    cursor: pointer;
+    transition: opacity var(--transition-base);
+  }
+
+  .faq-sidebar__question:hover {
+    opacity: 0.7;
+  }
+
+  .faq-sidebar__icon {
+    flex-shrink: 0;
+    color: var(--color-primary);
+    transition: transform var(--transition-base);
+    transform: rotate(45deg);
+  }
+
+  .faq-sidebar__item.is-open .faq-sidebar__icon {
+    transform: rotate(0deg);
+  }
+
+  .faq-sidebar__answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .faq-sidebar__answer p {
+    padding: 0 var(--space-6) var(--space-6) var(--space-6);
+    margin: 0;
+    line-height: var(--line-height-normal);
+    color: var(--color-text);
+  }
+
+  @media (max-width: 768px) {
+    .faq-sidebar__container {
+      grid-template-columns: 1fr;
+      gap: var(--space-12);
+    }
+  }
+</style>

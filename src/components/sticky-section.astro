@@ -1,0 +1,137 @@
+---
+interface Props {
+  leftWidth?: string;
+  rightWidth?: string;
+  rightBackgroundColor?: string;
+  gap?: 'small' | 'medium' | 'large' | 'xlarge';
+  padding?: 'none' | 'small' | 'medium' | 'large';
+}
+
+const {
+  leftWidth = '40%',
+  rightWidth = '60%',
+  rightBackgroundColor = 'var(--color-surface)',
+  gap = 'large',
+  padding = 'large'
+} = Astro.props;
+
+const gapMap = {
+  'small': 'var(--space-6)',
+  'medium': 'var(--space-12)',
+  'large': 'var(--space-16)',
+  'xlarge': 'var(--space-24)',
+};
+
+const paddingMap = {
+  'none': '0',
+  'small': 'var(--space-8)',
+  'medium': 'var(--space-16)',
+  'large': 'var(--space-24)',
+};
+---
+
+<section 
+  class="sticky-content-section"
+  style={`
+    --left-width: ${leftWidth};
+    --right-width: ${rightWidth};
+    --gap: ${gapMap[gap]};
+    --padding: ${paddingMap[padding]};
+    --right-bg: ${rightBackgroundColor};
+  `}
+>
+  <div class="sticky-content-section__container">
+    <div class="sticky-content-section__left">
+      <div class="sticky-content-section__left-inner">
+        <slot name="left" />
+      </div>
+    </div>
+    <div class="sticky-content-section__right">
+      <div class="sticky-content-section__right-inner">
+        <slot name="right" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .sticky-content-section {
+    position: relative;
+    width: 100%;
+    padding: var(--padding) 0;
+    overflow-x: clip;
+  }
+
+  .sticky-content-section__container {
+    display: grid;
+    grid-template-columns: var(--left-width) var(--right-width);
+    gap: var(--gap);
+    max-width: var(--container-max-wide);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+    position: relative;
+  }
+
+  .sticky-content-section__left {
+    position: relative;
+    text-align: right;
+
+  }
+
+  .sticky-content-section__left-inner {
+    position: sticky;
+    top: 80px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sticky-content-section__right {
+    position: relative;
+    padding: var(--space-16);
+  }
+
+  /* full-width background for right column */
+  .sticky-content-section__right::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: -100vw;
+    background-color: var(--color-background-secondary);
+    z-index: -1;
+    border-radius: var(--radius-2xl) 0 0 var(--radius-2xl);
+  }
+
+  .sticky-content-section__right-inner {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* responsive behavior */
+  @media (max-width: 768px) {
+    .sticky-content-section__container {
+      grid-template-columns: 1fr;
+      gap: var(--space-8);
+    }
+
+    .sticky-content-section__left-inner {
+      position: static;
+    }
+
+    .sticky-content-section__right::before {
+      right: calc(-50vw + 50%);
+      left: calc(-50vw + 50%);
+    }
+  }
+
+  /* Icon list styles */
+.icon-list {
+  gap: var(--space-8);
+}
+
+.sticky-content-section__left :global(h2) {
+  font-size: clamp(2rem, 1.75rem + 1.5vw, 2.5rem); /* or any size you want */
+}
+
+</style>

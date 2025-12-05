@@ -1,0 +1,311 @@
+---
+import Layout from '../layouts/layout.astro';
+import Hero from '../components/hero.astro';
+import ContentBlock from '../components/content-block.astro';
+import StickyContentSection from '../components/sticky-section.astro';
+import Banner from '../components/banner.astro';
+import Timeline from '../components/timeline.astro';
+import ThreeCards from '../components/ThreeCards.astro';
+import Cta from '../components/cta.astro';
+---
+
+<Layout title="Home | Your Site Name" description="Your homepage description" transparentHeader={true}>
+	<main>
+		<Hero 
+			backgroundImage="/Images/Main/hero.jpg"
+			title="Echte aandacht, Diepgaande verandering"
+			subtitle="Voor lichaam, geest en gevoel."
+			textPosition="center"
+			ctaText="Een vraag of gevoel delen? Ik luister graag"
+  			ctaLink="/contact"
+  			ctaStyle="primary"
+		/>
+		<ContentBlock leftWidth="40%" rightWidth="60%" gap="large" matchHeight={true}>
+  			<img slot="left" src="/Images/other/1.jpeg" alt=""/>
+			<div slot="right" class="content-text">
+				<h2>Maar <span class="accent-1">wie</span> is sarah?</h2>
+				<p class="subtitle">over mezelf</p>
+				<p>Ik ben sarah bogaerts, een gevoelige en spontane vrouw, moeder van twee kinderen, geboren in 1972 en grotendeels opgegroeid in het zuiden van india. van kleins af toonde ik veel belangstelling voor gezondheid en voor alles wat met persoonlijke ontwikkeling te maken heeft.</p>
+				<p>Ik ben leergierig, ontdek en observeer graag en noem mezelf een verzamelaarster en doorgeefster van ervaringen, kennis en inzichten. op die manier ben ik creatief en word hierbij geinspireerd door de schoonheid van de natuur, mijn gezin en de liefde voor eenvoud en stilte.</p>
+				<a href="#" class="btn btn--primary">Meer over wie ik ben</a>
+			</div>
+		</ContentBlock>
+		<!-- icon section with title/subtitle + icon list -->
+		<ContentBlock 
+			leftWidth="40%" 
+			rightWidth="60%" 
+			gap="large" 
+			padding="large"
+			backgroundColor="var(--color-background-secondary)"
+			verticalAlign="center"
+		>
+			<div slot="left" class="content-text icon-section-left">
+				<h2>Gezondheids- en <br>levensbegeleiding<br> voor vrouwen</h2>
+				<p class="subtitle">Wat ik doe</p>
+			</div>
+			<ul slot="right" class="icon-list">
+				<li class="icon-list__item">
+					<img src="/icons/heart.svg" alt="" class="icon-list__icon" />
+					<p>Ik ondersteun en begeleid vrouwen in de (peri)menopauze en vrouwen die worstelen met stress en hormonale onevenwichtigheden. Ik ben hier om vrouwen te inspireren om beter of anders voor zichzelf te zorgen. </p>
+				</li>
+				<li class="icon-list__item">
+					<img src="/icons/heart.svg" alt="" class="icon-list__icon" />
+					<p>Door al mijn kostbare inzichten verworven door ervaring, jaren van medische en andere opleidingen met vrouwen te delen die streven naar gezond en natuurlijk ouder worden. Vermengd met een tikkeltje ondeugendheid en speelsheid omdat het nu eenmaal in mijn DNA zit.</p>
+				</li>
+				<li class="icon-list__item">
+					<img src="/icons/heart.svg" alt="" class="icon-list__icon" />
+					<p>Als kers op de taart ben ik gepassioneerd bezig met borstgezondheid. Vrouwen bewust maken wat ze zelf kunnen doen om hun borsten gezond en vitaal te houden is één van de dingen die ik het liefste doe.</p>
+				</li>
+			</ul>
+		</ContentBlock>
+
+		<StickyContentSection 
+			leftWidth="33%" 
+			rightWidth="65%"
+			rightBackgroundColor="var(--color-background-secondary)"
+			gap="large"
+			padding="large"
+		>
+			<div slot="left" class="content-text">
+				<h2>Met welke klachten kan je bij mij terecht?</h2>
+				<p>Je lichaam en geest geven signalen als er iets uit balans is. Misschien voel je je al een tijd uitgeput, gespannen of ben je het contact met jezelf wat kwijt. Of je worstelt met hormonale schommelingen of verlangt gewoon naar meer rust en helderheid, je hoeft het niet alleen te dragen.</p>
+				<a href="#" class="btn btn--primary">Bekijk mijn aanbod</a>
+			</div>
+
+			<div slot="right">
+				<div class="icon-list-group">
+					<h3>Stressklachten</h3>
+					<ul class="icon-list">
+						<li class="icon-list__item">
+							<img src="/icons/heart.svg" alt="" class="icon-list__icon" />
+							<p>Je verlangt naar meer structuur in je leven, maar je krijgt er geen vat op.</p>
+						</li>
+						<li class="icon-list__item">
+							<img src="/icons/heart.svg" alt="" class="icon-list__icon" />
+							<p>Je droomt ervan om een ontspannen vrouw te zijn en je goed te voelen in je vel.</p>
+						</li>
+						<li class="icon-list__item">
+							<img src="/icons/heart.svg" alt="" class="icon-list__icon" />
+							<p>Je wil graag rust vinden en beter naar jezelf luisteren.</p>
+						</li>
+						<li class="icon-list__item">
+							<img src="/icons/heart.svg" alt="" class="icon-list__icon" />
+							<p>Je wil weten welke keuzes echt bij je passen.</p>
+						</li>
+						<li class="icon-list__item">
+							<img src="/icons/heart.svg" alt="" class="icon-list__icon" />
+							<p>Je wil meer kunnen vertrouwen op jezelf en de kwaliteit van je leven verhogen.</p>
+						</li>
+						<li class="icon-list__item">
+							<img src="/icons/heart.svg" alt="" class="icon-list__icon" />
+							<p>Je hebt zin om zorgelozer door het leven te gaan, maar het piekeren houdt je vast.</p>
+						</li>
+						<li class="icon-list__item">
+							<img src="/icons/heart.svg" alt="" class="icon-list__icon" />
+							<p>Je wil meer kunnen vertrouwen op jezelf en de kwaliteit van je leven verhogen.</p>
+						</li>
+						<li class="icon-list__item">
+							<img src="/icons/heart.svg" alt="" class="icon-list__icon" />
+							<p>Je wil je zwangerschap zo ontspannen mogelijk beleven.</p>
+						</li>
+					</ul>
+				</div>
+
+				<div class="icon-list-group">
+					<h3>Persoonlijkheid</h3>
+					<ul class="icon-list">
+						<li class="icon-list__item">
+							<img src="/icons/heart.svg" alt="" class="icon-list__icon" />
+							<p>Je gaat door een moeilijke periode.</p>
+						</li>
+						<li class="icon-list__item">
+							<img src="/icons/heart.svg" alt="" class="icon-list__icon" />
+							<p>Je verlangt naar een liefdevolle relatie met jezelf en anderen.</p>
+						</li>
+						<li class="icon-list__item">
+							<img src="/icons/heart.svg" alt="" class="icon-list__icon" />
+							<p>Je wil je zelfkennis vergroten en je persoonlijke ontwikkeling boosten.</p>
+						</li>
+						<li class="icon-list__item">
+							<img src="/icons/heart.svg" alt="" class="icon-list__icon" />
+							<p>Je ervaart moeite om te switchen van je hoofd- naar relaxmodus.</p>
+						</li>
+						<li class="icon-list__item">
+							<img src="/icons/heart.svg" alt="" class="icon-list__icon" />
+							<p>Je hebt behoefte om je angsten te ontmaskeren en anders om te gaan met verdriet, twijfels, schaamte, pijn en woede.</p>
+						</li>
+						<li class="icon-list__item">
+							<img src="/icons/heart.svg" alt="" class="icon-list__icon" />
+							<p>Je verlangt er naar om je eigen behoeften ernstiger te nemen.</p>
+						</li>
+					</ul>
+				</div>
+
+				<div class="icon-list-group">
+					<h3>Hormonale disbalans</h3>
+					<ul class="icon-list">
+						<li class="icon-list__item">
+							<img src="/icons/heart.svg" alt="" class="icon-list__icon" />
+							<p>Hoofdpijn, weinig energie</p>
+						</li>
+						<li class="icon-list__item">
+							<img src="/icons/heart.svg" alt="" class="icon-list__icon" />
+							<p>Gespannen en of pijnlijke borsten</p>
+						</li>
+						<li class="icon-list__item">
+							<img src="/icons/heart.svg" alt="" class="icon-list__icon" />
+							<p>Stemmingswisselingen, libido daalt</p>
+						</li>
+						<li class="icon-list__item">
+							<img src="/icons/heart.svg" alt="" class="icon-list__icon" />
+							<p>Moeite met afvallen - eetbuien</p>
+						</li>
+						<li class="icon-list__item">
+							<img src="/icons/heart.svg" alt="" class="icon-list__icon" />
+							<p>Opgejaagdheid, flauwtes, hartkloppingen, concentratie moeilijkheden</p>
+						</li>
+						<li class="icon-list__item">
+							<img src="/icons/heart.svg" alt="" class="icon-list__icon" />
+							<p>Spijsverteringsklachten, opgeblazen buik, prikkelbare darmen</p>
+						</li>
+						<li class="icon-list__item">
+							<img src="/icons/heart.svg" alt="" class="icon-list__icon" />
+							<p>Broze nagels, haaruitval, huidveranderingen</p>
+						</li>
+						<li class="icon-list__item">
+							<img src="/icons/heart.svg" alt="" class="icon-list__icon" />
+							<p>Emotionele opwellingen, slechte nachtrust</p>
+						</li>
+						<li class="icon-list__item">
+							<img src="/icons/heart.svg" alt="" class="icon-list__icon" />
+							<p>Verminderde stresstolerantie</p>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</StickyContentSection>
+			<Banner 
+			backgroundImage="/Images/Main/vlow.jpg"
+			cardWidth="500px"
+			cardPosition="left"
+			cardBackgroundColor="#f9fafb"
+			overlayOpacity={0.4}
+			>
+			<div class="content-text">
+				<h3>VLOW sessies</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.</p>
+				<a href="#" class="btn btn--accent">Meer over VLOW</a>
+			</div>
+		</Banner>
+		<Timeline
+      title="Wat kan je verwachten van therapie?"
+      subtitle="Hoe ga ik te werk"
+      lineColor="#FFA500"
+      secondaryBackgroundColor="var(--color-background-secondary)"
+      ctaText="Kom meer te weten over hoe ik te werk ga"
+      ctaLink="/contact"
+      steps={[
+        {
+          image: "/Images/Main/timeline1.png",
+          title: "Sessie 1",
+          description: "In het eerste contact maken we kennis met elkaar. Er wordt gepeild naar jouw motivatie, we verkennen de hulpvraag en leggen verbanden met jouw klachten"
+        },
+        {
+          image: "/Images/Main/timeline2.png",
+          title: "Sessie 2-4",
+          description: "Doorgaans zijn een minimum van vier contacten noodzakelijk om een proces op te starten en in goede banen te leiden"
+        },
+        {
+          image: "/Images/Main/timeline3.png",
+          title: "Verdere sessies",
+          description: "In samenspraak evalueren we hoe frequent de contacten nodig zijn om jouw gezondheid of persoonlijke ontwikkeling optimaal tot stand te brengen."
+        }
+      ]}
+    />
+<ContentBlock 
+  title="Ik begeleid je succesvol naar een betere gezondheid en hormonale balans"
+  leftWidth="30%" 
+  rightWidth="70%" 
+  gap="large"
+  padding="large"
+  backgroundColor="var(--color-background-secondary)"
+  verticalAlign="center"
+>
+  <img slot="left" src="/Images/sarah/therapie.jpg" alt="" style="border-radius: 10px;" />
+  
+  <ul slot="right" class="icon-list">
+    <li class="icon-list__item">
+      <img src="/icons/heart.svg" alt="" class="icon-list__icon" />
+      <p>Door alle aspecten van jezelf dieper te gaan onderzoeken. Niet alleen je ongemakken, maar ook je staat van zijn, denken, voelen en je overtuigingen bepalen de kwaliteit van je leven en hebben een grote impact op jouw hormonen, spanningen en welbevinden.</p>
+    </li>
+	<li class="icon-list__item">
+      <img src="/icons/heart.svg" alt="" class="icon-list__icon" />
+      <p>Door je te helpen gezonde keuzes te leren maken, je te inspireren en goed te informeren tracht ik je te bevrijden van al jouw innerlijke beperkingen. Dit is waarvoor ik me graag inzet, omdat ik ervan overtuigd ben dat als alles goed gaat met vrouwen, dan gaat het goed met iedereen.</p>
+    </li>
+	<li class="icon-list__item">
+      <img src="/icons/heart.svg" alt="" class="icon-list__icon" />
+      <p>Je ontvangt van mij adviezen op maat, waardoor je je vrijer gaat voelen en meer vanuit een positieve flow kan leven en werken. Hiervoor maak ik gebruik van mijn medische kennis, gezondheidsadviezen, relaxatie, revitaliserend lichaamswerk, gesprek-en opdrachten-therapie.</p>
+    </li>
+  </ul>
+</ContentBlock>
+<!-- with split background (like your screenshot) -->
+    <ThreeCards
+      title="Kies het moment dat bij je past"
+      subtitle="Tarieven"
+      splitBackground={true}
+      backgroundColor="var(--color-background-secondary)"
+      cardBackgroundColor="var(--color-surface)"
+      cards={[
+        {
+          title: "Therapeutische massage",
+          description: "Een diepgaande massage die lichamelijke spanningen verzacht en het natuurlijke herstelproces ondersteunt. Ideaal bij stress, hormonale disbalans of aanhoudende klachten.",
+          price: "€95/uur",
+          ctaText: "Ontdek meer →",
+          ctaLink: "/diensten/therapeutische"
+        },
+        {
+          title: "Relaxatiesessie",
+          description: "Via zachte aanrakingen en eenvoudige ademhalingstechnieken begeleid ik je naar een diepe staat van ontspanning. Voor wie verlangt naar rust in hoofd en lijf.",
+          price: "€85/uur",
+          ctaText: "Ontdek meer →",
+          ctaLink: "/diensten/relaxatie"
+        },
+        {
+          title: "Vlow sessie",
+          description: "Een intuïtieve combinatie van gesprek, aanraking en energetisch werk. Vlow helpt je om blokkades los te laten en opnieuw in verbinding te komen met jezelf.",
+          price: "€150/sessie",
+          ctaText: "Ontdek meer →",
+          ctaLink: "/diensten/vlow"
+        }
+      ]}
+    />
+    <Cta
+      layout="split"
+      title="Zet vandaag de eerste stap naar meer rust en balans"
+      description="Bel me gerust, samen bekijken we hoe therapie jou kan ondersteunen in dit moment van je leven."
+      ctaText="Bel nu voor een afspraak"
+      ctaLink="/contact"
+      ctaStyle="outline"
+      padding="medium"
+    />
+
+
+	</main>
+</Layout>
+
+<style>
+	/* page-specific: right-align and center the left column text */
+	.icon-section-left {
+		text-align: right;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	/* responsive: left-align on mobile */
+		@media (max-width: 768px) {
+		.icon-section-left {
+			text-align: left;
+		}
+	}
+</style>

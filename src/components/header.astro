@@ -1,0 +1,271 @@
+---
+interface NavItem {
+  href: string;
+  label: string;
+}
+
+interface Props {
+  logoSrc: string;
+  logoAlt?: string;
+  navItems: NavItem[];
+  transparentOnTop?: boolean;
+}
+
+const {
+  logoSrc,
+  logoAlt = 'logo',
+  navItems,
+  transparentOnTop = false
+} = Astro.props;
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class={`header ${transparentOnTop ? 'header--transparent' : ''}`}>
+  <div class="header__inner">
+    <a class="header__brand" href="/" aria-label="home">
+      <img class="header__logo" src={logoSrc} alt={logoAlt} />
+    </a>
+    
+    <button class="header__toggle" aria-label="menu openen" aria-controls="primary-nav" aria-expanded="false">
+      <span class="burger">
+        <span class="burger__line"></span>
+        <span class="burger__line"></span>
+        <span class="burger__line"></span>
+      </span>
+    </button>
+    
+    <nav id="primary-nav" class="header__nav" aria-label="hoofdnavigatie">
+      <ul class="header__menu">
+        {navItems.map((item) => {
+          const isActive = currentPath === item.href;
+          return (
+            <li class="header__menu-item">
+              <a class={`header__link ${isActive ? 'is-active' : ''}`} href={item.href}>
+                {item.label}
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const header = document.querySelector('.header');
+  const toggle = document.querySelector('.header__toggle');
+  const nav = document.getElementById('primary-nav');
+  
+  // scroll behavior for transparent header
+  if (header?.classList.contains('header--transparent')) {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        header.classList.add('header--scrolled');
+      } else {
+        header.classList.remove('header--scrolled');
+      }
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+  }
+  
+  // mobile menu
+  if (toggle && nav) {
+    toggle.addEventListener('click', () => {
+      const isOpen = nav.classList.contains('is-open');
+      
+      if (isOpen) {
+        nav.classList.remove('is-open');
+        toggle.classList.remove('is-active');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', 'menu openen');
+      } else {
+        nav.classList.add('is-open');
+        toggle.classList.add('is-active');
+        toggle.setAttribute('aria-expanded', 'true');
+        toggle.setAttribute('aria-label', 'menu sluiten');
+      }
+    });
+    
+    nav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.matchMedia('(max-width: 768px)').matches) {
+          nav.classList.remove('is-open');
+          toggle.classList.remove('is-active');
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.setAttribute('aria-label', 'menu openen');
+        }
+      });
+    });
+    
+    window.addEventListener('resize', () => {
+      if (window.matchMedia('(min-width: 769px)').matches) {
+        nav.classList.remove('is-open');
+        toggle.classList.remove('is-active');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+</script>
+
+<style>
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: var(--color-background);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+
+  .header--transparent {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: transparent;
+    box-shadow: none;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .header--transparent.header--scrolled {
+    background-color: var(--color-background);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8px);
+  }
+
+  .header__inner {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: var(--space-5) var(--container-padding);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .header__brand {
+    display: flex;
+    align-items: center;
+    z-index: 2;
+  }
+
+  .header__logo {
+    height: clamp(32px, 4vw, 70px);
+    width: auto;
+  }
+
+  .header__toggle {
+    display: none;
+    background: transparent;
+    border: 0;
+    padding: var(--space-2);
+    cursor: pointer;
+    z-index: 2;
+  }
+
+  .burger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 28px;
+    height: 22px;
+  }
+
+  .burger__line {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: var(--color-text);
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  .header__toggle.is-active .burger__line:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .header__toggle.is-active .burger__line:nth-child(2) {
+    opacity: 0;
+  }
+
+  .header__toggle.is-active .burger__line:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .header__menu {
+    display: flex;
+    gap: var(--space-8);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+  }
+
+  .header__link {
+    text-decoration: none;
+    color: var(--color-text);
+    font-weight: var(--font-weight-medium);
+    font-size: var(--font-size-lg);
+    font-family: var(--font-family-serif);
+    transition: color var(--transition-base);
+  }
+
+  .header__link:hover {
+    color: var(--color-primary);
+  }
+
+  .header__link.is-active {
+    color: var(--color-primary);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  @media (max-width: 768px) {
+    .header__toggle {
+      display: block;
+    }
+
+    .header__nav {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 100%;
+      background: var(--color-background);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .header__nav.is-open {
+      max-height: 500px;
+    }
+
+    .header__menu {
+      flex-direction: column;
+      gap: 0;
+      padding: var(--space-4) var(--container-padding);
+      align-items: stretch;
+    }
+
+    .header__menu-item {
+      padding: var(--space-4) 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .header__menu-item:last-child {
+      border-bottom: none;
+    }
+
+    .header__link {
+      display: block;
+      font-size: var(--font-size-xl);
+    }
+  }
+
+  @media (min-width: 769px) {
+    .header__nav {
+      display: block;
+    }
+  }
+</style>

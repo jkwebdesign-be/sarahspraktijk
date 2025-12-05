@@ -1,0 +1,96 @@
+---
+import '../styles/tokens.css';
+import '../styles/global.css';
+import Header from '../components/header.astro';
+import Footer from '../components/footer.astro';
+
+interface Props {
+	title?: string;
+	description?: string;
+	ogImage?: string;
+	transparentHeader?: boolean;
+}
+
+const {
+	title = 'Sarahs Praktijk',
+	description = 'your site description',
+	ogImage = '/og-image.jpg',
+	transparentHeader = false
+} = Astro.props;
+
+const canonicalURL = Astro.site ? new URL(Astro.url.pathname, Astro.site) : null;
+
+const navItems = [
+	{ href: '/', label: 'Home' },
+	{ href: '/therapie', label: 'Therapie' },
+	{ href: '/aanbod', label: 'Aanbod' },
+	{ href: '/about', label: 'Over Sarah' },
+	{ href: '/contact', label: 'contact' },
+];
+
+const footerNavLinks = [
+	{ href: '/', label: 'home' },
+	{ href: '/therapie', label: 'Therapie' },
+	{ href: '/aanbod', label: 'Aanbod' },
+	{ href: '/about', label: 'Over Sarah' },
+	{ href: '/contact', label: 'contact' },
+];
+
+const socialLinks = [
+	{ href: 'https://facebook.com/yourpage', icon: '/Images/icon/facebook.svg', label: 'facebook' },
+	{ href: 'https://instagram.com/yourpage', icon: '/Images/icon/instagram.svg', label: 'instagram' },
+];
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		
+		<!-- SEO -->
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		{canonicalURL && <link rel="canonical" href={canonicalURL} />}
+		
+		<!-- Open Graph / Social Media -->
+		<meta property="og:type" content="website" />
+		{canonicalURL && <meta property="og:url" content={canonicalURL} />}
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={new URL(ogImage, Astro.url)} />
+		
+		<meta property="twitter:card" content="summary_large_image" />
+		{canonicalURL && <meta property="twitter:url" content={canonicalURL} />}
+		<meta property="twitter:title" content={title} />
+		<meta property="twitter:description" content={description} />
+		<meta property="twitter:image" content={new URL(ogImage, Astro.url)} />
+		
+		<!-- Preload fonts if using custom fonts -->
+		<!-- <link rel="preload" href="/fonts/your-font.woff2" as="font" type="font/woff2" crossorigin> -->
+	</head>
+	<body>
+		<Header 
+			logoSrc="/logo/sarahspraktijk.png"
+			logoAlt="Sarahs Praktijk Logo"
+			navItems={navItems}
+			transparentOnTop={transparentHeader}
+		/>
+		
+		<slot />
+		
+		<Footer
+			logoSrc="/logo/sarahspraktijk.png"
+			companyName=""
+			address="Bollostraat 104  - 3140 Keerbergen"
+			phone="0468 48 93 73"
+			navLinks={footerNavLinks}
+			socialLinks={socialLinks}
+			copyrightText="© 2025 Sarahs Praktijk. all rights reserved."
+			privacyPolicyLink="/privacy-policy"
+			backgroundColor="var(--color-surface)"
+		/>
+	</body>
+</html>

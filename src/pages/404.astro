@@ -1,0 +1,77 @@
+---
+import Layout from '../layouts/layout.astro';
+import Cta from '../components/cta.astro';
+---
+
+<Layout title="pagina niet gevonden | sarah bogaerts" description="deze pagina bestaat niet">
+	<main>
+		<section class="error-404">
+			<div class="error-404__container">
+				<h1>404</h1>
+				<h2>pagina niet gevonden</h2>
+				<p>de pagina die je zoekt bestaat niet of is verplaatst.</p>
+				<div class="error-404__actions">
+					<a href="/" class="btn btn--primary">terug naar home</a>
+					<a href="/contact" class="btn btn--secondary">neem contact op</a>
+				</div>
+			</div>
+		</section>
+	</main>
+</Layout>
+
+<style>
+	.error-404 {
+		width: 100%;
+		min-height: 60vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: var(--space-32) 0;
+	}
+
+	.error-404__container {
+		max-width: 600px;
+		margin: 0 auto;
+		padding: 0 var(--container-padding);
+		text-align: center;
+	}
+
+	.error-404__container h1 {
+		font-size: 120px;
+		font-weight: var(--font-weight-bold);
+		color: var(--color-primary);
+		margin: 0 0 var(--space-6) 0;
+		line-height: 1;
+	}
+
+	.error-404__container h2 {
+		margin-bottom: var(--space-4);
+	}
+
+	.error-404__container p {
+		font-size: var(--font-size-lg);
+		color: var(--color-text-muted);
+		margin-bottom: var(--space-12);
+	}
+
+	.error-404__actions {
+		display: flex;
+		gap: var(--space-4);
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+
+	@media (max-width: 768px) {
+		.error-404__container h1 {
+			font-size: 80px;
+		}
+
+		.error-404__actions {
+			flex-direction: column;
+		}
+
+		.error-404__actions .btn {
+			width: 100%;
+		}
+	}
+</style>

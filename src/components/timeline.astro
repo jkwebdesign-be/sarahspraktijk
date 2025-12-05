@@ -1,0 +1,195 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+  steps: Array<{
+    image: string;
+    title: string;
+    description: string;
+  }>;
+  ctaText?: string;
+  ctaLink?: string;
+  secondaryBackgroundColor?: string;
+  lineColor?: string;
+}
+
+const {
+  title,
+  subtitle,
+  steps,
+  ctaText,
+  ctaLink,
+  secondaryBackgroundColor = 'var(--color-background-secondary)',
+  lineColor = 'var(--color-primary)'
+} = Astro.props;
+---
+
+<section 
+  class="timeline"
+  style={`
+    --secondary-bg: ${secondaryBackgroundColor};
+    --line-color: ${lineColor};
+  `}
+>
+  <div class="timeline__header">
+    <h2>{title}</h2>
+    {subtitle && <p class="subtitle">{subtitle}</p>}
+  </div>
+
+  <div class="timeline__content">
+    <div class="timeline__images">
+      {steps.map((step) => (
+        <div class="timeline__image-wrapper">
+          <img src={step.image} alt={step.title} class="timeline__image" />
+        </div>
+      ))}
+    </div>
+
+    <div class="timeline__steps">
+      {steps.map((step) => (
+        <div class="timeline__step">
+          <h3 class="timeline__step-title">{step.title}</h3>
+          <p class="timeline__step-description">{step.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  {ctaText && ctaLink && (
+    <div class="timeline__cta">
+      <a href={ctaLink} class="btn btn--primary">{ctaText}</a>
+    </div>
+  )}
+
+  <!-- split background -->
+  <div class="timeline__background"></div>
+</section>
+
+<style>
+  .timeline {
+    position: relative;
+    width: 100%;
+    padding: var(--space-16) 0;
+  }
+
+  .timeline__background {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--secondary-bg);
+    z-index: -1;
+  }
+
+  .timeline__header {
+    text-align: center;
+    max-width: 1000px;
+    margin: 0 auto var(--space-16) auto;
+    padding: 0 var(--container-padding);
+  }
+
+  .timeline__header h2 {
+    font-size: var(--font-size-3xl);
+    line-height: var(--line-height-tight);
+    color: var(--color-text);
+    margin: 0 0 var(--space-3) 0;
+    font-family: var(--font-family-serif); 
+  }
+
+  .timeline__header .subtitle {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-regular);
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  .timeline__content {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+    position: relative;
+    z-index: 1;
+  }
+
+  .timeline__images {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    gap: var(--space-8);
+    margin-bottom: var(--space-8);
+  }
+
+  .timeline__image-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .timeline__image {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+  }
+
+  .timeline__steps {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-8);
+    position: relative;
+  }
+
+  .timeline__step {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .timeline__step-title {
+    font-size: var(--font-size-lg);
+    line-height: var(--line-height-snug);
+    color: var(--color-text);
+    margin: 0;
+  }
+
+  .timeline__step-description {
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-normal);
+    color: var(--color-text);
+    margin: 0;
+  }
+
+  .timeline__cta {
+    margin-top: var(--space-16);
+    text-align: center;
+  }
+
+  /* responsive */
+  @media (max-width: 968px) {
+    .timeline__images {
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+    }
+
+    .timeline__line {
+      width: 3px;
+      height: 60px;
+      margin: 0 auto;
+    }
+
+    .timeline__steps {
+      grid-template-columns: 1fr;
+      gap: var(--space-10);
+    }
+
+    .timeline__image {
+      width: 150px;
+      height: 150px;
+    }
+
+    .timeline__background {
+      top: 40%;
+    }
+  }
+</style>

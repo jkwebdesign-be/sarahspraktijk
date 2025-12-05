@@ -1,0 +1,46 @@
+---
+import Layout from '../layouts/layout.astro';
+import ContactInfo from '../components/contact-info.astro';
+import FaqSidebar from '../components/faq-sidebar.astro';
+---
+
+<Layout title="contact | sarah bogaerts" description="neem contact op met sarah">
+	<main>
+		<ContactInfo
+			title="Neem contact op"
+			description="Ik luister graag naar je vragen en help je met plezier verder. bel me gerust voor meer informatie of om een afspraak te maken."
+			phone="+32 468 48 93 73"
+			email="info@sarahscoachingpraktijk.be"
+			address="Bollotstraat 104 - 3140 Keerbergen"
+			mapImageSrc="/Images/other/maps.png"
+			mapLink="https://maps.google.com/?q=ballotstraat+104+keerbergen"
+		/>
+
+		<FaqSidebar
+			title="FAQs"
+			description="Vind hier snel een antwoord op je vraag."
+			faqs={[
+				{
+					question: "Kan ik makkelijk parkeren?",
+					answer: "lorem ipsum dolor sit amet, consectetur adipiscing elit. suspendisse varius enim in eros elementum tristique. duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. nunc ut sem vitae risus tristique posuere."
+				},
+				{
+					question: "Hoe betaal ik mijn sessie?",
+					answer: "lorem ipsum dolor sit amet, consectetur adipiscing elit. suspendisse varius enim in eros elementum tristique. duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. nunc ut sem vitae risus tristique posuere."
+				},
+				{
+					question: "Wat als ik mijn afspraak niet kan nakomen?",
+					answer: "lorem ipsum dolor sit amet, consectetur adipiscing elit. suspendisse varius enim in eros elementum tristique. duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. nunc ut sem vitae risus tristique posuere."
+				},
+				{
+					question: "Werk je met terugbetaling via de mutualiteit?",
+					answer: "lorem ipsum dolor sit amet, consectetur adipiscing elit. suspendisse varius enim in eros elementum tristique. duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. nunc ut sem vitae risus tristique posuere."
+				},
+				{
+					question: "Moet ik iets meenemen naar mijn eerste sessie?",
+					answer: "lorem ipsum dolor sit amet, consectetur adipiscing elit. suspendisse varius enim in eros elementum tristique. duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. nunc ut sem vitae risus tristique posuere."
+				}
+			]}
+		/>
+	</main>
+</Layout>

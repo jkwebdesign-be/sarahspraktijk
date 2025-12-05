@@ -1,0 +1,229 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  phone: string;
+  email: string;
+  address: string;
+  mapImageSrc: string;
+  mapLink: string;
+  headingLevel?: 'h1' | 'h2';
+  backgroundColor?: string;
+}
+
+const {
+  title,
+  description,
+  phone,
+  email,
+  address,
+  mapImageSrc,
+  mapLink,
+  headingLevel = 'h1',
+  backgroundColor = 'transparent'
+} = Astro.props;
+
+const HeadingTag = headingLevel;
+---
+
+<section class="contact-info" style={`background-color: ${backgroundColor};`}>
+  <div class="contact-info__container">
+    <div class="contact-info__header">
+      <HeadingTag>{title}</HeadingTag>
+      {description && <p>{description}</p>}
+    </div>
+
+    <div class="contact-info__content">
+      <div class="contact-info__details">
+        <!-- phone -->
+        <div class="contact-info__item">
+          <div class="contact-info__icon-wrapper">
+            <svg class="contact-info__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            <span class="contact-info__label">{phone}</span>
+          </div>
+          <div class="contact-info__buttons">
+            <a href={`tel:${phone.replace(/\s/g, '')}`} class="btn btn--primary">bel me</a>
+            <a href={`https://wa.me/${phone.replace(/\s/g, '').replace(/^0/, '32')}`} class="btn btn--whatsapp" target="_blank" rel="noopener noreferrer">stuur via whatsapp</a>
+          </div>
+        </div>
+
+        <!-- email -->
+        <div class="contact-info__item">
+          <div class="contact-info__icon-wrapper">
+            <svg class="contact-info__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            <span class="contact-info__label">{email}</span>
+          </div>
+          <a href={`mailto:${email}`} class="btn btn--primary">stuur een email</a>
+        </div>
+
+        <!-- address -->
+        <div class="contact-info__item">
+          <div class="contact-info__icon-wrapper">
+            <svg class="contact-info__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            <span class="contact-info__label">praktijkadres</span>
+          </div>
+          <p class="contact-info__address">{address}</p>
+        </div>
+      </div>
+
+      <!-- map -->
+      <div class="contact-info__map">
+        <a href={mapLink} target="_blank" rel="noopener noreferrer">
+          <img src={mapImageSrc} alt="locatie op kaart" />
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact-info {
+    width: 100%;
+    padding: var(--space-24) 0 var(--space-16) 0;
+  }
+
+  .contact-info__container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+  }
+
+  .contact-info__header {
+    margin-bottom: var(--space-16);
+  }
+
+  .contact-info__header h1 {
+    margin-bottom: var(--space-4);
+  }
+
+  .contact-info__header p {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  .contact-info__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-16);
+  }
+
+  .contact-info__details {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-12);
+  }
+
+  .contact-info__item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    align-items: flex-start;
+  }
+
+  .contact-info__icon-wrapper {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
+  .contact-info__icon {
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+
+  .contact-info__label {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text);
+  }
+
+  .contact-info__buttons {
+    display: flex;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+  }
+
+  .btn--whatsapp {
+    background-color: #25D366;
+    color: white;
+    border: none;
+    padding: var(--space-3) var(--space-6);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+    text-decoration: none;
+    display: inline-flex; /* Changed from inline-block */
+    align-items: center; /* Add this */
+    justify-content: center; /* Add this */
+    cursor: pointer;
+    transition: background-color var(--transition-base);
+  }
+
+  .btn--whatsapp:hover {
+    background-color: #1fb855;
+  }
+
+  .contact-info__address {
+    font-size: var(--font-size-base);
+    color: var(--color-text);
+    margin: 0;
+    line-height: var(--line-height-normal);
+  }
+
+  .contact-info__map {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    height: 100%;
+    min-height: 400px;
+  }
+
+  .contact-info__map a {
+    display: block;
+    height: 100%;
+  }
+
+  .contact-info__map img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity var(--transition-base);
+  }
+
+  .contact-info__map a:hover img {
+    opacity: 0.9;
+  }
+
+  @media (max-width: 768px) {
+    .contact-info {
+      padding: var(--space-16) 0 var(--space-12) 0;
+    }
+
+    .contact-info__content {
+      grid-template-columns: 1fr;
+    }
+
+    .contact-info__map {
+      min-height: 300px;
+    }
+
+    .contact-info__buttons {
+      flex-direction: column;
+    }
+
+    .btn--whatsapp,
+    .contact-info__buttons .btn {
+      width: 100%;
+      text-align: center;
+    }
+  }
+</style>

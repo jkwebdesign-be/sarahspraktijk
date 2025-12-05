@@ -1,0 +1,417 @@
+---
+import Layout from '../layouts/layout.astro';
+import ContentBlock from '../components/content-block.astro';
+import Cta from '../components/cta.astro';
+---
+
+<Layout title="over sarah | your site name" description="maak kennis met sarah">
+	<main>
+		<section class="about-hero">
+			<div class="about-hero__container">
+				<div class="about-hero__content">
+					<h1>Maak kennis met sarah</h1>
+					<p class="about-hero__subtitle">Soms stel ik mezelf de vraag:<br/>wat heeft mij eigenlijk op dit pad gebracht?</p>
+					<p class="about-hero__text">Het antwoord is een samensmelting van levensmomenten, zacht en hard, persoonlijk en professioneel, die mij telkens dichter brachten bij mijn missie namelijk, vrouwen begeleiden naar meer verbinding, zachtheid en kracht.</p>
+				</div>
+				<div class="about-hero__image">
+					<img src="/Images/sarah/about.jpg" alt="sarah" />
+				</div>
+			</div>
+		</section>
+
+		<section class="about-story">
+			<div class="about-story__container">
+				<div class="about-story__left">
+					<h2>Van verpleegkundige naar vrouwenbegeleider</h2>
+					<p>Mijn loopbaan begon in de verpleegkunde. Daar ontdekte ik mijn liefde voor zorg, maar ook hoe vaak de menselijke kant ontbrak zoals; echt luisteren, echt aanwezig zijn.</p>
+					<p>Gaandeweg merkte ik hoeveel vrouwen nood hebben aan emotionele ondersteuning en hoe weinig diepgaande begeleiding er is bij typische, vaak terugkerende vrouwenongemakken zoals menstruatieklachten, huidproblemen, menopauze perkelen, gewichtsproblemen, fertiliteit, pijnlijke of dens borstweefsel en opvolging na borstkanker.</p>
+				</div>
+				
+				<div class="about-story__right">
+					<p>Wat mij onderscheidt van andere paramedici, is dat ik echt de tijd neem om naar jouw verhaal te luisteren. Samen zoeken we naar de handleiding die bij jou past, zodat jouw vitaliteit en veerkracht kan toenemen en je op een natuurlijke, comfortabele manier ouder kunt worden.</p>
+					<p>Dat verlangen naar diepere zorg bracht me op een ander pad, waarin ik mijn medische kennis ben gaan verweven met intuïtief voelen, energetisch lichaamswerk en de helende kracht van aanraking.</p>
+				</div>
+			</div>
+		</section>
+
+		<ContentBlock
+			leftWidth="55%"
+			rightWidth="40%"
+			gap="large"
+			padding="large"
+			verticalAlign="top"
+		>
+			<div slot="left">
+				<h2>India als spiegel</h2>
+				<p>Een belangrijk keerpunt vond ik in het zuiden van india, waar ik langere tijd verbleef. Daar werd ik geconfronteerd met de dubbele realiteit van vrouw-zijn:</p>
+				<ul>
+					<li class="icon-list__item">
+						<img src="/icons/heart.svg" alt="" class="icon-list__icon" />
+						<p>Enerzijds de eeuwenoude natuurlijke wijsheden, de helende kracht van kruiden, rituelen en de vanzelfsprekende verbinding met het lichaam.</p>
+					</li>
+					<li class="icon-list__item">
+						<img src="/icons/heart.svg" alt="" class="icon-list__icon" />
+						<p>Anderzijds de pijnlijke onderwaardering en onveiligheid van vrouwen, vaak gereduceerd tot hun rol als moeder en dienstbare echtgenote.</p>
+					</li>
+				</ul>
+				<p>Terug in het westen zag ik het tegenovergestelde beeld: vrouwen die volop presteren en zich bewijzen, maar in dat streven soms de verbinding verliezen met hun intuïtie, kwetsbaarheid en zachte kracht.</p>
+			</div>
+			
+			<div slot="right" style="border-left: 2px solid var(--color-primary); padding-left: var(--space-6);">
+				<h3>Persoonlijke confrontaties</h3>
+				<p>Door mijn erfelijke belasting voor borstkanker en de nauwe confrontatie met deze ziekte van dichtbij, werd ik diep geraakt. et maakte me vastberaden om te onderzoeken wat we als vrouwen kunnen doen om onze borsten te begrijpen, te verzorgen en te leren 'lezen' naast de bestaande reguliere medische zorg.</p>
+			</div>
+		</ContentBlock>
+
+		<ContentBlock
+			leftWidth="45%"
+			rightWidth="55%"
+			gap="large"
+			padding="large"
+			verticalAlign="center"
+			backgroundColor="var(--color-background-secondary)"
+		>
+			<img slot="left" src="/Images/sarah/massage.jpg" alt="massage sessie" style="border-radius: var(--radius-md);" />
+			
+			<div slot="right">
+				<h2>Wat mij drijft</h2>
+				<p>Uit al deze ervaringen groeide mijn missie om een bedding te creëren waarin vrouwen spanning kunnen loslaten, emoties leren begrijpen en opnieuw verbinding maken met hun lichaam en borsten als innerlijk kompas.</p>
+				<p>Twee talenten lopen als rode draad door mijn werk:</p>
+				<ul>
+					<li class="icon-list__item">
+						<img src="/icons/heart.svg" alt="" class="icon-list__icon" />
+						<p>Op een spontane manier geborgenheid laten voelen,</p>
+					</li>
+					<li class="icon-list__item">
+						<img src="/icons/heart.svg" alt="" class="icon-list__icon" />
+						<p>En het lichaam opnieuw leren ervaren dat het veilig is.</p>
+					</li>
+				</ul>
+				<p>Ik geloof dat emoties geen ruis zijn, maar een innerlijk kompas dat ons de weg wijst. Wanneer we de kern durven aanraken, kan heling beginnen zowel fysiek als emotioneel.</p>
+			</div>
+		</ContentBlock>
+
+		<section class="emotions-timeline">
+			<div class="emotions-timeline__container">
+				<h2 class="emotions-timeline__title">Emoties als kompas</h2>
+				
+				<div class="emotions-timeline__content">
+					<div class="emotions-timeline__item">
+						<h3 class="emotions-timeline__item-title">De kracht van emoties</h3>
+						<div class="emotions-timeline__line">
+							<div class="emotions-timeline__dot"></div>
+						</div>
+						<p class="emotions-timeline__item-text">Wat me steeds is blijven raken, is hoe vaak emoties genegeerd of weggeduwd worden. Afwijzing, niet gezien worden, gebrek aan erkenning of ervaringen van misbruik, zijn emoties die diep in ons lichaam blijven plakken.</p>
+					</div>
+
+					<div class="emotions-timeline__item">
+						<h3 class="emotions-timeline__item-title">Wanneer emoties vast blijven zitten</h3>
+						<div class="emotions-timeline__line">
+							<div class="emotions-timeline__dot"></div>
+						</div>
+						<p class="emotions-timeline__item-text">Emoties hebben bovendien een diepe impact op ons bindweefsel. Wanneer ze te lang vastzitten, kunnen ze zorgen voor stagnatie en ontregeling van de lichaamssappen. Op termijn draagt dit bij aan het ontstaan van klachten en ziektes, een verband dat vaak uit onwetendheid niet erkend wordt.</p>
+					</div>
+
+					<div class="emotions-timeline__item">
+						<h3 class="emotions-timeline__item-title">Lichaamswerk als sleutel tot bevrijding</h3>
+						<div class="emotions-timeline__line">
+							<div class="emotions-timeline__dot"></div>
+						</div>
+						<p class="emotions-timeline__item-text">Hier is het dat lichaamswerk voor mij een sleutel vormt om die gestagneerde energie weer te laten afvloeien, ruimte te creëren en het lichaam opnieuw bevrijding te laten ervaren.</p>
+					</div>
+
+					<div class="emotions-timeline__item">
+						<h3 class="emotions-timeline__item-title">Mijn persoonlijke weg naar heling</h3>
+						<div class="emotions-timeline__line">
+							<div class="emotions-timeline__dot"></div>
+						</div>
+						<p class="emotions-timeline__item-text">Mijn eigen parcours confronteerde me keer op keer met deze dynamiek. Het besef groeide dat heling pas begint als we emoties durven erkennen. Dat inzicht drijft me tot vandaag om vrouwen te begeleiden om hun lichaam weer te ervaren als een veilige thuis.</p>
+					</div>
+
+					<div class="emotions-timeline__item">
+						<h3 class="emotions-timeline__item-title">Vandaag</h3>
+						<div class="emotions-timeline__line">
+							<div class="emotions-timeline__dot"></div>
+						</div>
+						<p class="emotions-timeline__item-text">Vandaag begeleid ik vrouwen die vastlopen door stress, hormonale klachten, emotionele blokkades of onverwerkte ervaringen. Mijn werk rond borstgezondheid heeft hierin een bijzondere plek, maar blijft altijd ingebed in een bredere visie. Het lichaam en de emoties zien als bondgenoot en zachtheid als sleutel tot heling.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<Cta
+			layout="split"
+			title="Klaar om de eerste stap te zetten?"
+			description="Neem gerust contact op voor een vrijblijvend gesprek."
+			ctaText="Neem contact op"
+			ctaLink="/contact"
+			ctaStyle="primary"
+			backgroundImage="/Images/Main/bloemen.jpg"
+			overlayOpacity={0.2}
+			padding="large"
+			textColor="light"
+		/>
+	</main>
+</Layout>
+
+<style>
+	.about-hero {
+		width: 100%;
+		padding: calc(var(--space-32)) 0 var(--space-16) 0;
+	}
+
+	.about-hero__container {
+		max-width: var(--container-max);
+		margin: 0 auto;
+		padding: 0 var(--container-padding);
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: var(--space-16);
+		align-items: center;
+	}
+
+	.about-hero__content {
+		display: flex;
+		flex-direction: column;
+		text-align: right;
+		align-items: flex-end;
+	}
+
+	.about-hero__content h1 {
+		font-size: var(--font-size-4xl);
+		font-weight: var(--font-weight-regular);
+		line-height: var(--line-height-tight);
+		color: var(--color-text);
+		margin: 0 0 var(--space-20) 0;
+		white-space: nowrap;
+	}
+
+	.about-hero__subtitle {
+		font-size: var(--font-size-xl);
+		font-weight: var(--font-weight-medium);
+		line-height: var(--line-height-normal);
+		color: var(--color-text);
+		margin: 0 0 var(--space-4) 0;
+	}
+
+	.about-hero__text {
+		font-size: var(--font-size-base);
+		line-height: var(--line-height-normal);
+		color: var(--color-text);
+		margin: 0;
+		padding-top: var(--space-4);
+		border-top: 2px solid var(--color-primary);
+	}
+
+	.about-hero__image {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+	}
+
+	.about-hero__image img {
+		width: 100%;
+		max-width: 400px;
+		height: auto;
+		border-radius: 50%;
+		object-fit: cover;
+		aspect-ratio: 1 / 1;
+	}
+
+	/* responsive */
+	@media (max-width: 768px) {
+		.about-hero {
+			padding: var(--space-16) 0 var(--space-12) 0;
+		}
+
+		.about-hero__container {
+			grid-template-columns: 1fr;
+			gap: var(--space-12);
+		}
+
+		.about-hero__content {
+			text-align: left;
+			align-items: flex-start;
+		}
+
+		.about-hero__content h1 {
+			font-size: var(--font-size-3xl);
+			white-space: normal;
+		}
+
+		.about-hero__subtitle {
+			font-size: var(--font-size-lg);
+		}
+
+		.about-hero__image img {
+			max-width: 300px;
+		}
+	}
+
+	/* story section */
+	.about-story {
+		width: 100%;
+		padding: var(--space-16) 0;
+		background-color: var(--color-background-secondary);
+	}
+
+	.about-story__container {
+		max-width: var(--container-max);
+		margin: 0 auto;
+		padding: 0 var(--container-padding);
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-12);
+	}
+
+	.about-story__left {
+		max-width: 60%;
+	}
+
+	.about-story__left h2 {
+		font-size: var(--font-size-3xl);
+		font-weight: var(--font-weight-regular);
+		line-height: var(--line-height-tight);
+		color: var(--color-text);
+		margin: 0 0 var(--space-6) 0;
+	}
+
+	.about-story__left p {
+		font-size: var(--font-size-base);
+		line-height: var(--line-height-normal);
+		color: var(--color-text);
+		margin: 0 0 var(--space-4) 0;
+	}
+
+	.about-story__left p:last-child {
+		margin: 0;
+	}
+
+	.about-story__right {
+		max-width: 60%;
+		margin-left: auto;
+	}
+
+	.about-story__right p {
+		font-size: var(--font-size-base);
+		line-height: var(--line-height-normal);
+		color: var(--color-text);
+		margin: 0 0 var(--space-4) 0;
+	}
+
+	.about-story__right p:last-child {
+		margin: 0;
+	}
+
+	@media (max-width: 768px) {
+		.about-story__left,
+		.about-story__right {
+			max-width: 100%;
+			margin-left: 0;
+		}
+
+		.about-story__left h2 {
+			font-size: var(--font-size-2xl);
+		}
+	}
+
+	/* emotions timeline */
+	.emotions-timeline {
+		width: 100%;
+		padding: var(--space-16) 0;
+		background-color: var(--color-background-secondary);
+	}
+
+	.emotions-timeline__container {
+		max-width: var(--container-max);
+		margin: 0 auto;
+		padding: 0 var(--container-padding);
+	}
+
+	.emotions-timeline__title {
+		text-align: center;
+		margin-bottom: var(--space-16);
+	}
+
+	.emotions-timeline__content {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-6);
+	}
+
+	.emotions-timeline__item {
+		display: grid;
+		grid-template-columns: 0.8fr 60px 1.2fr;
+		gap: var(--space-8);
+		align-items: center;
+		position: relative;
+	}
+
+	.emotions-timeline__item:first-child .emotions-timeline__line::before {
+		content: '';
+		position: absolute;
+		bottom: 50%;
+		top: calc(-1 * var(--space-12));
+		left: 50%;
+		transform: translateX(-50%);
+		width: 2px;
+		background-color: var(--color-primary);
+	}
+
+	.emotions-timeline__item:not(:last-child) .emotions-timeline__line::after {
+		content: '';
+		position: absolute;
+		top: 50%;
+		bottom: calc(-1 * var(--space-12));
+		left: 50%;
+		transform: translateX(-50%);
+		width: 2px;
+		background-color: var(--color-primary);
+	}
+
+	.emotions-timeline__item-title {
+		text-align: right;
+		font-size: var(--font-size-xl);
+		font-weight: var(--font-weight-regular);
+		color: var(--color-text);
+		padding-top: var(--space-2);
+	}
+
+	.emotions-timeline__line {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 100%;
+	}
+
+	.emotions-timeline__dot {
+		width: 16px;
+		height: 16px;
+		border-radius: 50%;
+		background-color: var(--color-primary);
+		position: relative;
+		z-index: 1;
+	}
+
+	.emotions-timeline__item-text {
+		font-size: var(--font-size-base);
+		line-height: var(--line-height-normal);
+		color: var(--color-text);
+	}
+
+	@media (max-width: 768px) {
+		.emotions-timeline__item {
+			grid-template-columns: 1fr;
+			gap: var(--space-4);
+		}
+
+		.emotions-timeline__item-title {
+			text-align: left;
+		}
+
+		.emotions-timeline__line {
+			display: none;
+		}
+	}
+</style>

@@ -1,0 +1,87 @@
+---
+import Layout from '../layouts/layout.astro';
+import ServicesGrid from '../components/services-grid.astro';
+---
+
+<Layout title="Aanbod | sarah bogaerts" description="therapie en massage aanbod">
+	<main>
+		<ServicesGrid
+			title="Aanbod therapie & massage"
+			subtitle="Een overzicht van behandelingen en activiteiten die je meer rust, balans en energie brengen."
+			services={[
+				{
+					image: '/Images/services/relaxatie.jpg',
+					title: 'Relaxatie',
+					description: 'Ontspan diep en zooi je energie terug op met zachte technieken voor lichaam en geest.',
+					link: '/diensten/relaxatie',
+					linkText: 'Ontspan nu',
+					layout: 'vertical'
+				},
+				{
+					image: '/Images/services/menopauze.jpg',
+					title: 'meno pauze',
+					description: 'Vind meer balans en verlichting tijdens de overgang met ondersteunende therapie.',
+					link: '/diensten/menopauze',
+					linkText: 'Vind je balans',
+					layout: 'vertical'
+				},
+				{
+					image: '/Images/services/vlow.jpg',
+					title: 'VLOW borstweefsel behandeling',
+					description: 'Een zachte methode om spanning in het borstgebied te laten los en je welzijn te verbeteren.',
+					link: '/diensten/vlow',
+					linkText: 'Lees meer over VLOW',
+					layout: 'horizontal'
+				},
+				{
+					image: '/Images/services/zwangerschap.jpg',
+					title: 'Zwangerschaps massage',
+					description: 'Ervaar rust, comfort en verlichting tijdens je zwangerschap.',
+					link: '/diensten/zwangerschap',
+					linkText: 'Plan een sessie',
+					layout: 'vertical'
+				},
+				{
+					image: '/Images/services/therapeutische.png',
+					title: 'Therapeutische massages',
+					description: 'Gericht op het verlichten van klachten en stimuleren van aandoeningen en het herstelproces van balans.',
+					link: '/diensten/therapeutische',
+					linkText: 'Ontdek de voordelen',
+					layout: 'horizontal'
+				},
+				{
+					image: '/Images/services/lezingen.jpg',
+					title: 'Lezingen',
+					description: 'Ontvang inspiratie en inzichten over gezondheid, welzijn en persoonlijke groei.',
+					link: '/diensten/lezingen',
+					linkText: 'Ontdek meer',
+					layout: 'vertical'
+				},
+				{
+					image: '/Images/services/workshops.jpg',
+					title: 'Workshops',
+					description: 'Leer praktische technieken om zelf meer rust, energie en balans in je dagelijks leven te brengen.',
+					link: '/diensten/workshops',
+					linkText: 'Bekijk de agenda',
+					layout: 'vertical'
+				},
+				{
+					image: '/Images/services/cadeaubon.jpg',
+					title: 'Cadeaubonnen',
+					description: 'Geef een moment van rust en zorg cadeau aan iemand die het verdient.',
+					link: '/diensten/cadeaubon',
+					linkText: 'Geef ontspanning cadeau',
+					layout: 'vertical'
+				},
+				{
+					image: '/Images/services/psoas.jpg',
+					title: 'Psoas',
+					description: 'Herstel de balans in je lichaam door spanning in de psoas spier los te laten voor meer vrijheid en welzijn.',
+					link: '/diensten/psoas',
+					linkText: 'Meer over Psoas',
+					layout: 'vertical'
+				}
+			]}
+		/>
+	</main>
+</Layout>

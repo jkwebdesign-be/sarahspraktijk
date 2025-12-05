@@ -1,0 +1,234 @@
+---
+interface Props {
+  backgroundImage: string;
+  title?: string;
+  subtitle?: string;
+  textPosition?: 'top-left' | 'top-center' | 'top-right' | 'center-left' | 'center' | 'center-right' | 'bottom-left' | 'bottom-center' | 'bottom-right';
+  overlayOpacity?: number;
+  logo?: string;
+  logoPosition?: 'above' | 'beside' | 'below';
+  logoSize?: 'small' | 'medium' | 'large';
+  textAlign?: 'left' | 'center' | 'right';
+  ctaText?: string;
+  ctaLink?: string;
+  ctaStyle?: 'primary' | 'secondary' | 'outline';
+}
+
+const {
+  backgroundImage,
+  title,
+  subtitle,
+  textPosition = 'center',
+  overlayOpacity = 0.2,
+  logo,
+  logoPosition = 'above',
+  logoSize = 'medium',
+  textAlign = 'center',
+  ctaText,
+  ctaLink,
+  ctaStyle = 'primary'
+} = Astro.props;
+
+// map position to flex alignment classes
+const positionMap = {
+  'top-left': 'items-start justify-start',
+  'top-center': 'items-start justify-center',
+  'top-right': 'items-start justify-end',
+  'center-left': 'items-center justify-start',
+  'center': 'items-center justify-center',
+  'center-right': 'items-center justify-end',
+  'bottom-left': 'items-end justify-start',
+  'bottom-center': 'items-end justify-center',
+  'bottom-right': 'items-end justify-end',
+};
+
+const logoSizeMap = {
+  'small': 'w-16 h-16',
+  'medium': 'w-24 h-24',
+  'large': 'w-32 h-32',
+};
+
+const textAlignMap = {
+  'left': 'text-left',
+  'center': 'text-center',
+  'right': 'text-right',
+};
+---
+
+<section class={`hero ${positionMap[textPosition]}`}>
+  <!-- background image -->
+  <div class="hero__background">
+    <img src={backgroundImage} alt="" class="hero__image" />
+    <div class="hero__overlay" style={`opacity: ${overlayOpacity};`}></div>
+  </div>
+
+  <!-- content -->
+  <div class={`hero__content ${textAlignMap[textAlign]}`}>
+    {logo && logoPosition === 'above' && (
+      <img src={logo} alt="logo" class={`hero__logo hero__logo--above ${logoSizeMap[logoSize]}`} />
+    )}
+    
+    <div class={`hero__text-wrapper ${logo && logoPosition === 'beside' ? 'hero__text-wrapper--beside' : ''}`}>
+      {logo && logoPosition === 'beside' && (
+        <img src={logo} alt="logo" class={`hero__logo hero__logo--beside ${logoSizeMap[logoSize]}`} />
+      )}
+      
+      <div class="hero__text">
+        {title && <h1 class="hero__title">{title}</h1>}
+        {subtitle && <p class="hero__subtitle">{subtitle}</p>}
+        {ctaText && ctaLink && (
+          <a href={ctaLink} class={`hero__cta hero__cta--${ctaStyle}`}>
+            {ctaText}
+          </a>
+        )}
+      </div>
+    </div>
+
+    {logo && logoPosition === 'below' && (
+      <img src={logo} alt="logo" class={`hero__logo hero__logo--below ${logoSizeMap[logoSize]}`} />
+    )}
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh; /* dynamic viewport height for mobile */
+    display: flex;
+    overflow: hidden;
+    padding: var(--space-8);
+  }
+
+  .hero__background {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .hero__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .hero__overlay {
+    position: absolute;
+    inset: 0;
+    background-color: #000;
+    pointer-events: none;
+  }
+
+  .hero__content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+    max-width: 1200px;
+  }
+
+  .hero__text-wrapper--beside {
+    display: flex;
+    align-items: center;
+    gap: var(--space-6);
+  }
+
+  .hero__text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .hero__title {
+    font-size: clamp(4.5rem, 4rem + 2.5vw, 5rem);;
+    font-weight: var(--font-weight-regular);
+    font-family: var(--font-family-script);
+    line-height: var(--line-height-tight);
+    color: #fff;
+    margin: 0;
+  }
+
+  .hero__subtitle {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-extralight);
+    line-height: var(--line-height-normal);
+    color: #fff;
+    margin: 0;
+  }
+
+  .hero__logo {
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  .hero__logo--above,
+  .hero__logo--below {
+    align-self: inherit; /* inherits from parent text alignment */
+  }
+
+  .hero__cta {
+    display: inline-block;
+    align-self: center;
+    margin-top: var(--space-4);
+    padding: var(--space-4) var(--space-8);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-light);
+    text-decoration: none;
+    border-radius: var(--radius-md);
+    transition: all var(--transition-base);
+    cursor: pointer;
+  }
+
+  .hero__cta--primary {
+    background-color: #FFAF6F;
+    color: #fff;
+  }
+
+  .hero__cta--primary:hover {
+    transform: translateY(-2px);
+  }
+
+  .hero__cta--secondary {
+    background-color: var(--color-accent);
+    color: #fff;
+  }
+
+  .hero__cta--secondary:hover {
+    background-color: var(--color-accent-hover);
+    transform: translateY(-2px);
+  }
+
+  .hero__cta--outline {
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+  }
+
+  .hero__cta--outline:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+  }
+
+  /* responsive adjustments */
+  @media (max-width: 768px) {
+    .hero {
+      padding: var(--space-6);
+    }
+
+    .hero__title {
+      font-size: var(--font-size-3xl);
+    }
+
+    .hero__subtitle {
+      font-size: var(--font-size-lg);
+    }
+
+    .hero__text-wrapper--beside {
+      flex-direction: column;
+      align-items: inherit;
+    }
+  }
+</style>
