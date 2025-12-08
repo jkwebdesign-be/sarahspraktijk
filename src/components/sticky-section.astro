@@ -59,7 +59,7 @@ const paddingMap = {
     position: relative;
     width: 100%;
     padding: var(--padding) 0;
-    overflow-x: clip;
+    overflow-x: hidden;
   }
 
   .sticky-content-section__container {
@@ -75,12 +75,9 @@ const paddingMap = {
   .sticky-content-section__left {
     position: relative;
     text-align: right;
-
   }
 
   .sticky-content-section__left-inner {
-    position: sticky;
-    top: 80px;
     display: flex;
     flex-direction: column;
   }
@@ -90,14 +87,14 @@ const paddingMap = {
     padding: var(--space-16);
   }
 
-  /* full-width background for right column */
+  /* Full-width background for right column */
   .sticky-content-section__right::before {
     content: '';
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
-    right: -100vw;
+    right: -50vw;
     background-color: var(--color-background-secondary);
     z-index: -1;
     border-radius: var(--radius-2xl) 0 0 var(--radius-2xl);
@@ -115,23 +112,27 @@ const paddingMap = {
       gap: var(--space-8);
     }
 
-    .sticky-content-section__left-inner {
-      position: static;
+    .sticky-content-section__left {
+      text-align: left;
+    }
+
+    .sticky-content-section__right {
+      padding: var(--space-8);
     }
 
     .sticky-content-section__right::before {
-      right: calc(-50vw + 50%);
-      left: calc(-50vw + 50%);
+      right: calc(-1 * var(--container-padding));
+      left: calc(-1 * var(--container-padding));
+      border-radius: 0;
     }
   }
 
   /* Icon list styles */
-.icon-list {
-  gap: var(--space-8);
-}
+  .icon-list {
+    gap: var(--space-8);
+  }
 
-.sticky-content-section__left :global(h2) {
-  font-size: clamp(2rem, 1.75rem + 1.5vw, 2.5rem); /* or any size you want */
-}
-
+  .sticky-content-section__left :global(h2) {
+    font-size: clamp(2rem, 1.75rem + 1.5vw, 2.5rem);
+  }
 </style>

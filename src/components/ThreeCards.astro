@@ -15,6 +15,11 @@ interface Props {
   backgroundColor?: string;
   splitBackground?: boolean;
   cardBackgroundColor?: string;
+  cardContentAlign?: 'left' | 'center';
+  hasCardBackground?: boolean; // NEW - simple toggle
+  imageSize?: string;
+  halfwayBackground?: boolean;
+  halfwayBackgroundColor?: string;
 }
 
 const {
@@ -23,7 +28,12 @@ const {
   cards = [],
   backgroundColor = 'var(--color-background-secondary)',
   splitBackground = false,
-  cardBackgroundColor = '#ffffff'
+  cardBackgroundColor = '#ffffff',
+  cardContentAlign = 'center',
+  hasCardBackground = true, // NEW - default to true (existing behavior)
+  imageSize = '120px',
+  halfwayBackground = false,
+  halfwayBackgroundColor = 'var(--color-background-secondary)'
 } = Astro.props;
 ---
 
@@ -31,10 +41,16 @@ const {
   class={`three-cards ${splitBackground ? 'three-cards--split-bg' : ''}`}
   style={`
     --bg-color: ${backgroundColor};
-    --card-bg: ${cardBackgroundColor};
+    --card-bg: ${hasCardBackground ? cardBackgroundColor : 'transparent'};
+    --card-content-align: ${cardContentAlign};
+    --image-size: ${imageSize};
+    --halfway-bg: ${halfwayBackgroundColor};
+    --card-text-color: ${hasCardBackground ? 'var(--color-text-inverse)' : 'var(--color-text)'};
+    --card-shadow: ${hasCardBackground ? 'var(--shadow-lg)' : 'none'};
   `}
 >
   {splitBackground && <div class="three-cards__background"></div>}
+  {halfwayBackground && <div class="three-cards__halfway-background"></div>}
 
   <div class="three-cards__content">
     <header class="three-cards__header">
@@ -83,17 +99,27 @@ const {
     z-index: 0;
   }
 
+  .three-cards__halfway-background {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--halfway-bg);
+    z-index: 0;
+  }
+
   .three-cards__content {
     position: relative;
     z-index: 1;
-    max-width: var(--container-max);
+    max-width: var(--container-max-wide);
     margin: 0 auto;
     padding: 0 var(--container-padding);
   }
 
   .three-cards__header {
     text-align: center;
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto var(--space-16) auto;
   }
 
@@ -124,57 +150,45 @@ const {
     padding: var(--space-12);
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    align-items: var(--card-content-align);
+    text-align: var(--card-content-align);
     gap: var(--space-4);
-    box-shadow: var(--shadow-lg);
+    box-shadow: var(--card-shadow);
     width: 100%;
     max-width: 400px;
     margin: 0 auto;
+    height: 100%;
+    min-height: unset;
   }
 
   /* responsive */
-  @media (min-width: 600px) {
-    .three-cards__grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-    
-    /* make 3rd card span 2 columns and center itself */
-    .three-cards__card:nth-child(3) {
-      grid-column: 1 / -1;
-    }
-  }
 
-  @media (min-width: 1000px) {
-    .three-cards__grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-    
-    /* reset 3rd card to normal on desktop */
-    .three-cards__card:nth-child(3) {
-      grid-column: auto;
-    }
+@media (min-width: 1000px) {
+  .three-cards__grid {
+    grid-template-columns: repeat(3, 1fr);
   }
+}
 
   .three-cards__image {
-    width: 120px;
-    height: 120px;
+    width: var(--image-size);
+    height: var(--image-size);
     object-fit: contain;
     margin-bottom: var(--space-2);
+    flex-shrink: 0;
   }
 
   .three-cards__title {
     font-size: var(--font-size-2xl);
     font-weight: var(--font-weight-regular);
     line-height: var(--line-height-tight);
-    color: var(--color-text-inverse);
+    color: var(--card-text-color);
     margin: 0;
   }
 
   .three-cards__description {
     font-size: var(--font-size-base);
     line-height: var(--line-height-normal);
-    color: var(--color-text-inverse);
+    color: var(--card-text-color);
     margin: 0;
     flex-grow: 1;
   }
@@ -186,5 +200,9 @@ const {
     margin: var(--space-2) 0;
   }
 
-  /* cards auto-adjust based on available space */
+@media (min-width: 768px) and (max-width: 999px) {
+  .three-cards__grid {
+    grid-template-columns: 1fr;
+  }
+}
 </style>

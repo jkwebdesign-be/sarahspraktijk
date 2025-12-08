@@ -4,8 +4,8 @@ import ContentBlock from '../components/content-block.astro';
 import Cta from '../components/cta.astro';
 ---
 
-<Layout title="over sarah | your site name" description="maak kennis met sarah">
-	<main>
+<Layout title="over sarah | your site name" description="maak kennis met sarah" transparentHeader={true}>
+	<main class="page-with-fixed-header">
 		<section class="about-hero">
 			<div class="about-hero__container">
 				<div class="about-hero__content">
@@ -157,7 +157,7 @@ import Cta from '../components/cta.astro';
 <style>
 	.about-hero {
 		width: 100%;
-		padding: calc(var(--space-32)) 0 var(--space-16) 0;
+		padding: var(--space-32) 0 var(--space-16) 0;
 	}
 
 	.about-hero__container {

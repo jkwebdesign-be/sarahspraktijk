@@ -5,21 +5,20 @@ import Faq from '../components/faq.astro';
 import Cta from '../components/cta.astro';
 ---
 
-<Layout title="therapie | sarah bogaerts" description="therapie bij sarah">
-	<main>
+<Layout title="therapie | sarah bogaerts" description="therapie bij sarah" transparentHeader={true}>
+	<main class="page-with-fixed-header">
 		<section class="therapie-hero">
 			<div class="therapie-hero__container">
 				<div class="therapie-hero__content">
-					<h1>Therapie bij sarah</h1>
-					<p>Een veilige plek waar emoties en spanningen erkend worden. Samen werken we aan rust, herstel en balans - zodat jij je lichaam opnieuw als een thuis kan ervaren.</p>
-					<p>Therapie is voor mij meer dan een methode — het is samen zoeken naar wat jou vooruithelpt. Ik nodig je uit om in vertrouwen je eerste stap te zetten.</p>
-					<a href="/contact" class="btn btn--primary">plan je eerste sessie</a>
+				<h1>Therapie bij Sarah</h1>
+				<p>Een veilige plek waar emoties en spanningen erkend worden. Samen werken we aan rust, herstel en balans - zodat jij je lichaam opnieuw als een thuis kan ervaren.</p>
+				<p>Therapie is voor mij meer dan een methode — het is samen zoeken naar wat jou vooruithelpt. Ik nodig je uit om in vertrouwen je eerste stap te zetten.</p>
+				<a href="/contact" class="btn btn--primary">plan je eerste sessie</a>
 				</div>
 				
 				<div class="therapie-hero__images">
-					<img src="/Images/other/therapie1.jpeg" alt="therapie" class="therapie-hero__image-main" />
-					<img src="/Images/other/therapie2.jpeg" alt="" class="therapie-hero__image-overlay-1" />
-					<img src="/Images/other/therapie3.jpeg" alt="" class="therapie-hero__image-overlay-2" />
+				<img src="/Images/other/therapie1.jpeg" alt="therapie" class="therapie-hero__image-main" />
+				<img src="/Images/other/therapie3.jpeg" alt="" class="therapie-hero__image-overlay" />
 				</div>
 			</div>
 		</section>
@@ -47,7 +46,7 @@ import Cta from '../components/cta.astro';
 				<div class="therapie-services__grid">
 					<!-- row 1 -->
 					<div class="therapie-services__card therapie-services__card--1">
-						<h3>VLOW borstweefseltherapie</h3>
+						<h3>VLOW borstweefsel-therapie</h3>
 						<p>Een unieke methode die zachte aanraking en diepe ontspanning combineert om spanning, blokkades en emotionele belasting in het borstgebied te verlichten. Voor meer comfort en een beter lichaamsbewustzijn.</p>
 						<a href="/diensten/vlow" class="therapie-services__link">lees meer →</a>
 					</div>
@@ -74,7 +73,7 @@ import Cta from '../components/cta.astro';
 					<div class="therapie-services__card therapie-services__card--5">
 						<h3>Zwangerschaps-massage</h3>
 						<p>Tijdens je zwangerschap verandert je lichaam voortdurend. een zachte, veilige massage helpt fysieke klachten te verlichten, biedt ontspanning en verbinding met jou en je baby.</p>
-						<a href="/diensten/zwangerschap" class="therapie-services__link">ontdek zwangerschapsmassage →</a>
+						<a href="/diensten/zwangerschap" class="therapie-services__link">ontdek zwangerschaps-massage →</a>
 					</div>
 
 					<div class="therapie-services__card therapie-services__card--6">
@@ -157,83 +156,98 @@ import Cta from '../components/cta.astro';
 </Layout>
 
 <style>
-	.therapie-hero {
-		width: 100%;
-		padding: var(--space-24) 0 var(--space-16) 0;
-	}
+.therapie-hero {
+  width: 100%;
+  padding: var(--space-24) 0 var(--space-16) 0;
+}
 
-	.therapie-hero__container {
-		max-width: var(--container-max);
-		margin: 0 auto;
-		padding: 0 var(--container-padding);
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: var(--space-16);
-		align-items: start;
-	}
+.therapie-hero__container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+  display: grid;
+  grid-template-columns: 45fr 55fr;
+  gap: var(--space-16);
+  align-items: center;
+}
 
-	.therapie-hero__content {
-		display: flex;
-		flex-direction: column;
-		gap: var(--space-6);
-		padding-top: var(--space-8);
-	}
+.therapie-hero__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
 
-	.therapie-hero__content h1 {
-		margin-bottom: var(--space-2);
-	}
+.therapie-hero__content h1 {
+  margin-bottom: var(--space-2);
+}
 
-	.therapie-hero__content p {
-		margin: 0;
-	}
+.therapie-hero__content p {
+  margin: 0;
+}
 
-	.therapie-hero__content .btn {
-		align-self: flex-start;
-		margin-top: var(--space-4);
-	}
+.therapie-hero__content .btn {
+  align-self: flex-start;
+  margin-top: var(--space-4);
+}
 
-	.therapie-hero__images {
-		position: relative;
-		height: 600px;
-		padding-top: var(--space-8);
-	}
+.therapie-hero__images {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  min-height: 500px;
+}
 
-	.therapie-hero__image-main {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 75%;
-		height: 85%;
-		object-fit: cover;
-		border-radius: var(--radius-lg);
-		box-shadow: var(--shadow-lg);
-	}
+.therapie-hero__image-main {
+  position: absolute;
+  top: 0;
+  right: 0; /* CHANGED from left: 0 */
+  width: 70%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  z-index: 1;
+}
 
-	.therapie-hero__image-overlay-1 {
-		position: absolute;
-		top: 33%;
-		right: 0;
-		width: 55%;
-		height: auto;
-		aspect-ratio: 16 / 9;
-		object-fit: cover;
-		border-radius: var(--radius-md);
-		box-shadow: var(--shadow-lg);
-		z-index: 2;
-	}
+.therapie-hero__image-overlay {
+  position: absolute;
+  bottom: 10%;
+  left: 13%; /* CHANGED from right: 0 */
+  width: 38%;
+  height: 42%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
+  z-index: 2;
+}
 
-	.therapie-hero__image-overlay-2 {
-		position: absolute;
-		top: 66%;
-		left: -10%;
-		width: 45%;
-		height: auto;
-		aspect-ratio: 4 / 3;
-		object-fit: cover;
-		border-radius: var(--radius-md);
-		box-shadow: var(--shadow-lg);
-		z-index: 3;
-	}
+/* responsive */
+@media (max-width: 768px) {
+  .therapie-hero {
+    padding: var(--space-16) 0 var(--space-12) 0;
+  }
+
+  .therapie-hero__container {
+    grid-template-columns: 1fr;
+    gap: var(--space-12);
+  }
+
+  .therapie-hero__images {
+    min-height: 400px;
+    aspect-ratio: 3 / 4;
+  }
+
+  .therapie-hero__image-main {
+    width: 100%;
+    right: 0; /* Keep it on the right on mobile too */
+  }
+
+  .therapie-hero__image-overlay {
+    display: none
+  }
+}
 
 /* Right-align the "Waarom kiezen" section title */
 .icon-section-left {
@@ -249,32 +263,6 @@ import Cta from '../components/cta.astro';
 		text-align: left;
 	}
 }
-
-	/* responsive */
-	@media (max-width: 768px) {
-		.therapie-hero {
-			padding: var(--space-16) 0 var(--space-12) 0;
-		}
-
-		.therapie-hero__container {
-			grid-template-columns: 1fr;
-			gap: var(--space-12);
-		}
-
-		.therapie-hero__images {
-			height: 400px;
-		}
-
-		.therapie-hero__image-main {
-			width: 100%;
-			height: 100%;
-		}
-
-		.therapie-hero__image-overlay-1,
-		.therapie-hero__image-overlay-2 {
-			display: none;
-		}
-	}
 
 	/* services section */
 	.therapie-services {

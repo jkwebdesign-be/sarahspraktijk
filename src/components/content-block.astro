@@ -115,6 +115,7 @@ const alignMap = {
     flex-direction: column;
     justify-content: var(--align);
     height: 100%;
+    min-width: 0;
   }
 
   .content-block__right {
@@ -122,6 +123,7 @@ const alignMap = {
     flex-direction: column;
     justify-content: var(--align);
     height: 100%;
+    min-width: 0;
   }
 
   /* Base image styles - applies to all images */
@@ -136,10 +138,10 @@ const alignMap = {
   .content-block--match-height .content-block__left :global(img),
   .content-block--match-height .content-block__right :global(img) {
     max-height: 500px;
-    width: auto; /* Changed from 100% */
-    max-width: 100%; /* Prevents it from overflowing */
-    object-fit: contain; /* Changed from cover - shows full image */
-    margin: 0 auto; /* Centers the image */
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    margin: 0 auto;
   }
 
   /* responsive behavior */
@@ -150,12 +152,16 @@ const alignMap = {
     }
 
     .content-block--reverse-mobile .content-block__container {
-      direction: rtl;
+      display: flex;
+      flex-direction: column;
     }
-    
-    .content-block--reverse-mobile .content-block__left,
+
+    .content-block--reverse-mobile .content-block__left {
+      order: 2;
+    }
+
     .content-block--reverse-mobile .content-block__right {
-      direction: ltr;
+      order: 1;
     }
 
     /* reset image height on mobile */

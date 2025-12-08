@@ -28,7 +28,6 @@ body {
   background-color: var(--color-background);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
 }
 
 /* Remove default margins */
@@ -188,6 +187,8 @@ ol[role='list'] {
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
+  min-width: 0;
+  width: 100%;
 }
 
 /* Title and subtitle combo */
@@ -198,6 +199,8 @@ ol[role='list'] {
   line-height: var(--line-height-tight);
   color: var(--color-text);
   margin: 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .content-text h3 {
@@ -233,6 +236,8 @@ ol[role='list'] {
   display: flex;
   flex-direction: column;
   gap: var(--space-12);
+  min-width: 0;
+  width: 100%;
 }
 
 .sticky-content-section__right .icon-list {
@@ -244,9 +249,11 @@ ol[role='list'] {
 }
 
 .icon-list__item {
-  display: flex;
-  gap: var(--space-6);
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  gap: 1rem;
+  align-items: center;
+  min-width: 0;
 }
 
 .icon-list__icon {
@@ -260,6 +267,9 @@ ol[role='list'] {
   line-height: var(--line-height-normal);
   color: var(--color-text);
   margin: 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  min-width: 0;
 }
 
 /* responsive icon list */
@@ -400,4 +410,8 @@ ol[role='list'] {
 
 .accent-4{
   color: var(--text-accent-4);
+}
+
+.page-with-fixed-header {
+  padding-top: 80px; /* Adjust based on your header height */
 }
