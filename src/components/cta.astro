@@ -4,13 +4,13 @@ interface Props {
   description?: string;
   ctaText: string;
   ctaLink: string;
-  ctaStyle?: 'primary' | 'accent' | 'outline';
+  ctaStyle?: 'primary' | 'secondary' | 'accent' | 'outline' | 'purple-filled' | 'green-filled' | 'blue-filled';
   layout?: 'centered' | 'split';
   backgroundColor?: string;
   backgroundImage?: string;
   overlayOpacity?: number;
   padding?: 'small' | 'medium' | 'large';
-  textColor?: 'light' | 'dark'; // Add this
+  textColor?: 'light' | 'dark';
 }
 
 const {
@@ -22,9 +22,9 @@ const {
   layout = 'centered',
   backgroundColor = 'transparent',
   backgroundImage,
-  overlayOpacity = 0.5,
+  overlayOpacity = 0.6,
   padding = 'large',
-  textColor = 'dark' // Add this with default
+  textColor = 'dark'
 } = Astro.props;
 
 const paddingMap = {

@@ -44,8 +44,8 @@ const HeadingTag = headingLevel;
             <span class="contact-info__label">{phone}</span>
           </div>
           <div class="contact-info__buttons">
-            <a href={`tel:${phone.replace(/\s/g, '')}`} class="btn btn--primary">bel me</a>
-            <a href={`https://wa.me/${phone.replace(/\s/g, '').replace(/^0/, '32')}`} class="btn btn--whatsapp" target="_blank" rel="noopener noreferrer">stuur via whatsapp</a>
+            <a href={`tel:${phone.replace(/\s/g, '')}`} class="btn btn--purple-filled">bel me</a>
+            <a href={`https://wa.me/${phone.replace(/\s/g, '').replace(/^0/, '32')}`} class="btn btn--green-filled" target="_blank" rel="noopener noreferrer">stuur via whatsapp</a>
           </div>
         </div>
 
@@ -58,7 +58,7 @@ const HeadingTag = headingLevel;
             </svg>
             <span class="contact-info__label">{email}</span>
           </div>
-          <a href={`mailto:${email}`} class="btn btn--primary">stuur een email</a>
+          <a href={`mailto:${email}`} class="btn btn--blue-filled">stuur een email</a>
         </div>
 
         <!-- address -->
@@ -76,8 +76,11 @@ const HeadingTag = headingLevel;
 
       <!-- map -->
       <div class="contact-info__map">
-        <a href={mapLink} target="_blank" rel="noopener noreferrer">
+        <a href={mapLink} target="_blank" rel="noopener noreferrer" class="contact-info__map-link">
           <img src={mapImageSrc} alt="locatie op kaart" />
+          <div class="contact-info__map-overlay">
+            <span class="contact-info__map-text">Open route in Google Maps</span>
+          </div>
         </a>
       </div>
     </div>
@@ -152,25 +155,8 @@ const HeadingTag = headingLevel;
     flex-wrap: wrap;
   }
 
-  .btn--whatsapp {
-    background-color: #25D366;
-    color: white;
-    border: none;
-    padding: var(--space-3) var(--space-6);
-    border-radius: var(--radius-md);
-    font-size: var(--font-size-base);
-    font-weight: var(--font-weight-medium);
-    text-decoration: none;
-    display: inline-flex; /* Changed from inline-block */
-    align-items: center; /* Add this */
-    justify-content: center; /* Add this */
-    cursor: pointer;
-    transition: background-color var(--transition-base);
-  }
-
-  .btn--whatsapp:hover {
-    background-color: #1fb855;
-  }
+  /* All button styling comes from global.css now */
+  /* No custom button styles needed here */
 
   .contact-info__address {
     font-size: var(--font-size-base);
@@ -185,22 +171,50 @@ const HeadingTag = headingLevel;
     box-shadow: var(--shadow-lg);
     height: 100%;
     min-height: 400px;
+    position: relative;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.15);
   }
 
-  .contact-info__map a {
+  .contact-info__map-link {
     display: block;
     height: 100%;
+    position: relative;
   }
 
   .contact-info__map img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: opacity var(--transition-base);
+    transition: transform var(--transition-base), filter var(--transition-base);
   }
 
-  .contact-info__map a:hover img {
-    opacity: 0.9;
+  .contact-info__map-overlay {
+    position: absolute;
+    bottom: var(--space-4);
+    right: var(--space-4);
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .contact-info__map-text {
+    color: white;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-full);
+    background-color: rgba(0, 0, 0, 0.7);
+    transition: all var(--transition-base);
+    display: inline-block;
+  }
+
+  .contact-info__map-link:hover img {
+    transform: scale(1.05);
+    filter: brightness(0.8);
+  }
+
+  .contact-info__map-link:hover .contact-info__map-text {
+    background-color: rgba(0, 0, 0, 0.9);
+    border-color: white;
   }
 
   @media (max-width: 768px) {
@@ -220,7 +234,6 @@ const HeadingTag = headingLevel;
       flex-direction: column;
     }
 
-    .btn--whatsapp,
     .contact-info__buttons .btn {
       width: 100%;
       text-align: center;

@@ -16,10 +16,14 @@ interface Props {
   splitBackground?: boolean;
   cardBackgroundColor?: string;
   cardContentAlign?: 'left' | 'center';
-  hasCardBackground?: boolean; // NEW - simple toggle
+  hasCardBackground?: boolean;
   imageSize?: string;
   halfwayBackground?: boolean;
   halfwayBackgroundColor?: string;
+  // Main CTA below all cards
+  mainCtaText?: string;
+  mainCtaLink?: string;
+  mainCtaStyle?: 'primary' | 'secondary' | 'accent' | 'outline';
 }
 
 const {
@@ -30,10 +34,13 @@ const {
   splitBackground = false,
   cardBackgroundColor = '#ffffff',
   cardContentAlign = 'center',
-  hasCardBackground = true, // NEW - default to true (existing behavior)
+  hasCardBackground = true,
   imageSize = '120px',
   halfwayBackground = false,
-  halfwayBackgroundColor = 'var(--color-background-secondary)'
+  halfwayBackgroundColor = 'var(--color-background-secondary)',
+  mainCtaText,
+  mainCtaLink,
+  mainCtaStyle = 'primary'
 } = Astro.props;
 ---
 
@@ -70,11 +77,17 @@ const {
             <p class="three-cards__price">{card.price}</p>
           )}
           {card.ctaText && card.ctaLink && (
-            <a href={card.ctaLink} class="btn btn--primary">{card.ctaText}</a>
+            <a href={card.ctaLink} class="btn btn--secondary">{card.ctaText}</a>
           )}
         </div>
       ))}
     </div>
+
+    {mainCtaText && mainCtaLink && (
+      <div class="three-cards__main-cta">
+        <a href={mainCtaLink} class={`btn btn--${mainCtaStyle}`}>{mainCtaText}</a>
+      </div>
+    )}
   </div>
 </section>
 
@@ -131,13 +144,6 @@ const {
     margin: 0 0 var(--space-3) 0;
   }
 
-  .three-cards__header .subtitle {
-    font-size: var(--font-size-xl);
-    font-weight: var(--font-weight-medium);
-    color: var(--color-text-muted);
-    margin: 0;
-  }
-
   .three-cards__grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -160,14 +166,6 @@ const {
     height: 100%;
     min-height: unset;
   }
-
-  /* responsive */
-
-@media (min-width: 1000px) {
-  .three-cards__grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
 
   .three-cards__image {
     width: var(--image-size);
@@ -196,13 +194,27 @@ const {
   .three-cards__price {
     font-size: var(--font-size-xl);
     font-weight: var(--font-weight-bold);
-    color: var(--color-primary);
+    color: var(--color-text);
     margin: var(--space-2) 0;
   }
 
-@media (min-width: 768px) and (max-width: 999px) {
-  .three-cards__grid {
-    grid-template-columns: 1fr;
+  /* Main CTA below all cards */
+  .three-cards__main-cta {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--space-12);
   }
-}
+
+  /* Responsive */
+  @media (min-width: 1000px) {
+    .three-cards__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 999px) {
+    .three-cards__grid {
+      grid-template-columns: 1fr;
+    }
+  }
 </style>

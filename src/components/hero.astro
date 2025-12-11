@@ -169,48 +169,71 @@ const textAlignMap = {
     align-self: inherit; /* inherits from parent text alignment */
   }
 
-  .hero__cta {
-    display: inline-block;
-    align-self: center;
-    margin-top: var(--space-4);
-    padding: var(--space-4) var(--space-8);
-    font-size: var(--font-size-base);
-    font-weight: var(--font-weight-light);
-    text-decoration: none;
-    border-radius: var(--radius-md);
-    transition: all var(--transition-base);
-    cursor: pointer;
-  }
+  /* ============================================
+   HERO BUTTON STYLES
+   REPLACE lines 172-213 in your hero.astro <style> section
+   ============================================ */
 
-  .hero__cta--primary {
-    background-color: #FFAF6F;
-    color: #fff;
-  }
+/* ============================================
+   HERO BUTTON STYLES
+   REPLACE lines 172-213 in your hero.astro <style> section
+   ============================================ */
 
-  .hero__cta--primary:hover {
-    transform: translateY(-2px);
-  }
+.hero__cta {
+  display: inline-block;
+  align-self: center;
+  margin-top: var(--space-4);
+  padding: var(--space-4) var(--space-8);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-light);
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  transition: all var(--transition-base);
+  cursor: pointer;
+}
 
-  .hero__cta--secondary {
-    background-color: var(--color-accent);
-    color: #fff;
-  }
+/* Orange button - default for hero */
+.hero__cta--primary {
+  background-color: rgba(255, 175, 111, 0.8); /* 80% opacity */
+  border-color: #FFAF6F;
+  color: white;
+}
 
-  .hero__cta--secondary:hover {
-    background-color: var(--color-accent-hover);
-    transform: translateY(-2px);
-  }
+.hero__cta--primary:hover {
+  background-color: rgba(230, 153, 85, 0.8); /* 80% opacity */
+  border-color: #E69955;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 175, 111, 0.4);
+}
 
-  .hero__cta--outline {
-    background-color: transparent;
-    color: #fff;
-    border: 2px solid #fff;
-  }
+/* Purple filled alternative */
+.hero__cta--secondary {
+  background-color: #9981F7;
+  border-color: #9981F7;
+  color: white;
+}
 
-  .hero__cta--outline:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    transform: translateY(-2px);
-  }
+.hero__cta--secondary:hover {
+  background-color: #7c3aed;
+  border-color: #7c3aed;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(153, 129, 247, 0.4);
+}
+
+/* White outline alternative */
+.hero__cta--outline {
+  background-color: transparent;
+  color: white;
+  border-color: white;
+}
+
+.hero__cta--outline:hover {
+  background-color: white;
+  border-color: white;
+  color: #702C74;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+}
 
   /* responsive adjustments */
   @media (max-width: 768px) {

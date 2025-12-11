@@ -3,24 +3,20 @@ interface NavItem {
   href: string;
   label: string;
 }
-
 interface Props {
   logoSrc: string;
   logoAlt?: string;
   navItems: NavItem[];
   transparentOnTop?: boolean;
 }
-
 const {
   logoSrc,
   logoAlt = 'logo',
   navItems,
   transparentOnTop = false
 } = Astro.props;
-
 const currentPath = Astro.url.pathname;
 ---
-
 <header class={`header ${transparentOnTop ? 'header--transparent' : ''}`}>
   <div class="header__inner">
     <a class="header__brand" href="/" aria-label="home">
@@ -51,7 +47,6 @@ const currentPath = Astro.url.pathname;
     </nav>
   </div>
 </header>
-
 <script>
   const header = document.querySelector('.header');
   const toggle = document.querySelector('.header__toggle');
@@ -109,7 +104,6 @@ const currentPath = Astro.url.pathname;
     });
   }
 </script>
-
 <style>
   .header {
     position: sticky;
@@ -118,7 +112,6 @@ const currentPath = Astro.url.pathname;
     background-color: var(--color-background);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   }
-
   .header--transparent {
     position: fixed;
     top: 0;
@@ -128,33 +121,28 @@ const currentPath = Astro.url.pathname;
     box-shadow: none;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
   }
-
   .header--transparent.header--scrolled {
     background-color: var(--color-background);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(8px);
   }
-
   .header__inner {
     max-width: var(--container-max);
     margin: 0 auto;
-    padding: var(--space-5) var(--container-padding);
+    padding: var(--space-3) var(--container-padding); /* Reduced from space-5 */
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
-
   .header__brand {
     display: flex;
     align-items: center;
     z-index: 2;
   }
-
   .header__logo {
-    height: clamp(32px, 4vw, 70px);
+    height: clamp(50px, 6vw, 90px); /* Increased from 32-70px */
     width: auto;
   }
-
   .header__toggle {
     display: none;
     background: transparent;
@@ -163,7 +151,6 @@ const currentPath = Astro.url.pathname;
     cursor: pointer;
     z-index: 2;
   }
-
   .burger {
     display: flex;
     flex-direction: column;
@@ -171,7 +158,6 @@ const currentPath = Astro.url.pathname;
     width: 28px;
     height: 22px;
   }
-
   .burger__line {
     display: block;
     width: 100%;
@@ -180,19 +166,15 @@ const currentPath = Astro.url.pathname;
     border-radius: 2px;
     transition: transform 0.3s ease, opacity 0.3s ease;
   }
-
   .header__toggle.is-active .burger__line:nth-child(1) {
     transform: translateY(8px) rotate(45deg);
   }
-
   .header__toggle.is-active .burger__line:nth-child(2) {
     opacity: 0;
   }
-
   .header__toggle.is-active .burger__line:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
   }
-
   .header__menu {
     display: flex;
     gap: var(--space-8);
@@ -201,30 +183,25 @@ const currentPath = Astro.url.pathname;
     padding: 0;
     align-items: center;
   }
-
   .header__link {
     text-decoration: none;
     color: var(--color-text);
     font-weight: var(--font-weight-medium);
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-xl); /* Increased from font-size-lg */
     font-family: var(--font-family-serif);
     transition: color var(--transition-base);
   }
-
   .header__link:hover {
     color: var(--color-primary);
   }
-
   .header__link.is-active {
     color: var(--color-primary);
     font-weight: var(--font-weight-semibold);
   }
-
   @media (max-width: 768px) {
     .header__toggle {
       display: block;
     }
-
     .header__nav {
       position: absolute;
       left: 0;
@@ -236,33 +213,27 @@ const currentPath = Astro.url.pathname;
       overflow: hidden;
       transition: max-height 0.3s ease;
     }
-
     .header__nav.is-open {
       max-height: 500px;
     }
-
     .header__menu {
       flex-direction: column;
       gap: 0;
       padding: var(--space-4) var(--container-padding);
       align-items: stretch;
     }
-
     .header__menu-item {
       padding: var(--space-4) 0;
       border-bottom: 1px solid var(--color-border);
     }
-
     .header__menu-item:last-child {
       border-bottom: none;
     }
-
     .header__link {
       display: block;
-      font-size: var(--font-size-xl);
+      font-size: var(--font-size-2xl); /* Increased from font-size-xl for mobile */
     }
   }
-
   @media (min-width: 769px) {
     .header__nav {
       display: block;

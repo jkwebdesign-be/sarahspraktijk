@@ -31,17 +31,18 @@ body {
 }
 
 /* Remove default margins */
-h1, h2, h3, h4, h5, h6, p, ul, ol, figure {
+h1, h2, h3, h4, h5, h6, ul, ol, figure {
   margin: 0;
 }
 
-/* Heading styles */
+/* Heading styles with consistent bottom margin */
 h1 {
   font-size: var(--font-size-4xl);
   font-weight: var(--font-weight-regular);
   font-family: var(--font-family-serif);
   line-height: var(--line-height-tight);
   color: var(--color-text);
+  margin-bottom: var(--space-6);
 }
 
 h2 {
@@ -50,6 +51,7 @@ h2 {
   font-weight: var(--font-weight-regular);
   line-height: var(--line-height-tight);
   color: var(--color-text);
+  margin-bottom: var(--space-4);
 }
 
 h3 {
@@ -58,6 +60,7 @@ h3 {
   font-weight: var(--font-weight-regular);
   line-height: var(--line-height-tight);
   color: var(--color-text);
+  margin-bottom: var(--space-3);
 }
 
 h4 {
@@ -66,12 +69,29 @@ h4 {
   font-weight: var(--font-weight-regular);
   line-height: var(--line-height-normal);
   color: var(--color-text);
+  margin-bottom: var(--space-3);
 }
 
+/* Paragraph with bottom margin */
 p {
   font-size: var(--font-size-base);
   line-height: var(--line-height-normal);
   color: var(--color-text);
+  margin: 0 0 var(--space-4) 0;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+/* Subtitle class - standardized across all components */
+.subtitle {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text);
+  font-family: var(--font-family-serif);
+  margin: 0 0 var(--space-6) 0;
+  display: block;
 }
 
 /* Improve media defaults */
@@ -138,48 +158,139 @@ ol[role='list'] {
 }
 
 /* Button styles */
+/* ============================================
+   BUTTON SYSTEM - ADD TO YOUR global.css
+   ============================================ */
+
+/* Base button - applies to all buttons */
 .btn {
   display: inline-block;
-  padding: var(--space-4) var(--space-8);
+  padding: var(--space-3) var(--space-6);
   font-size: var(--font-size-base);
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-semibold);
   text-decoration: none;
   border-radius: var(--radius-md);
-  border-style: solid;
+  border: 4px solid transparent;
   transition: all var(--transition-base);
   cursor: pointer;
   text-align: center;
+  margin: 0;
+  font-family: var(--font-family-sans);
+  line-height: 1.5;
 }
 
+/* ============================================
+   PRIMARY - Purple/pink outline
+   Used: Most buttons across site (CTA, ContentBlock, etc.)
+   ============================================ */
 .btn--primary {
-  border-color: var(--color-border);
-  border-width: 5px;
-  color: var(--color-border);
+  background-color: transparent;
+  border-color: #AB1FAF;
+  color: #AB1FAF;
 }
 
 .btn--primary:hover {
+  background-color: #AB1FAF;
+  border-color: #AB1FAF;
+  color: white;
   transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(171, 31, 175, 0.3);
 }
 
+/* ============================================
+   SECONDARY - White outline
+   Used: CTA with background images
+   ============================================ */
+.btn--secondary {
+  background-color: transparent;
+  border-color: white;
+  color: white;
+}
+
+.btn--secondary:hover {
+  background-color: white;
+  border-color: white;
+  color: #702C74;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+}
+
+/* ============================================
+   ACCENT - Purple filled
+   Used: Hero secondary option, CTA alternative
+   ============================================ */
 .btn--accent {
-  background-color: var(--color-accent);
-  color: #fff;
+  background-color: #9981F7;
+  border-color: #9981F7;
+  color: white;
 }
 
 .btn--accent:hover {
-  background-color: var(--color-accent-hover);
+  background-color: #7c3aed;
+  border-color: #7c3aed;
   transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(153, 129, 247, 0.4);
 }
 
+/* ============================================
+   OUTLINE - Generic outline (rarely used)
+   Used: CTA alternative, Hero alternative
+   ============================================ */
 .btn--outline {
   background-color: transparent;
   color: var(--color-text);
-  border: 2px solid var(--color-border);
+  border-color: var(--color-border);
 }
 
 .btn--outline:hover {
   background-color: var(--color-surface);
   transform: translateY(-2px);
+}
+
+/* ============================================
+   CONTACT PAGE - Specific filled buttons
+   ============================================ */
+
+/* Purple filled - "Bel me" */
+.btn--purple-filled {
+  background-color: #AB1FAF;
+  border-color: #AB1FAF;
+  color: white;
+}
+
+.btn--purple-filled:hover {
+  background-color: #8B1A8F;
+  border-color: #8B1A8F;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(171, 31, 175, 0.4);
+}
+
+/* Green filled - "Stuur via whatsapp" */
+.btn--green-filled {
+  background-color: #25D366;
+  border-color: #25D366;
+  color: white;
+}
+
+.btn--green-filled:hover {
+  background-color: #1DA851;
+  border-color: #1DA851;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+}
+
+/* Blue filled - "Stuur een email" */
+.btn--blue-filled {
+  background-color: #446EAF;
+  border-color: #446EAF;
+  color: white;
+}
+
+.btn--blue-filled:hover {
+  background-color: #355A8F;
+  border-color: #355A8F;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(68, 110, 175, 0.4);
 }
 
 /* Content text wrapper - for flexible content blocks */
@@ -191,7 +302,7 @@ ol[role='list'] {
   width: 100%;
 }
 
-/* Title and subtitle combo */
+/* Title and subtitle combo in content-text */
 .content-text h2,
 .content-text h3 {
   font-size: var(--font-size-3xl);
@@ -212,15 +323,18 @@ ol[role='list'] {
   font-weight: var(--font-weight-regular);
   color: var(--color-text);
   font-family: var(--font-family-serif);
-  margin: 0;
-  margin-bottom: var(--space-6);
+  margin: 0 0 var(--space-6) 0;
 }
 
 .content-text p:not(.subtitle) {
   font-size: var(--font-size-base);
   line-height: var(--line-height-normal);
   color: var(--color-text);
-  margin: 0;
+  margin: 0 0 var(--space-4) 0;
+}
+
+.content-text p:last-child:not(.subtitle) {
+  margin-bottom: 0;
 }
 
 .content-text .btn {
@@ -232,10 +346,10 @@ ol[role='list'] {
 .icon-list {
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: var(--space-6) 0;
   display: flex;
   flex-direction: column;
-  gap: var(--space-12);
+  gap: var(--space-6);
   min-width: 0;
   width: 100%;
 }
@@ -250,16 +364,18 @@ ol[role='list'] {
 
 .icon-list__item {
   display: grid;
-  grid-template-columns: 30px 1fr;
-  gap: 1rem;
+  grid-template-columns: 38px 1fr;
+  gap: var(--space-4);
   align-items: center;
   min-width: 0;
 }
 
 .icon-list__icon {
-  width: 48px;
-  height: 48px;
+  width: 40px;
+  height: 40px;
   flex-shrink: 0;
+  filter: invert(74%) sepia(26%) saturate(1836%) hue-rotate(299deg) brightness(101%) contrast(101%);
+  justify-self: center;
 }
 
 .icon-list__item p {
@@ -277,6 +393,10 @@ ol[role='list'] {
   .icon-list__icon {
     width: 40px;
     height: 40px;
+  }
+  
+  .icon-list__item {
+    grid-template-columns: 40px 1fr;
   }
 }
 
@@ -296,7 +416,7 @@ ol[role='list'] {
   font-weight: var(--font-weight-regular);
   line-height: var(--line-height-tight);
   color: var(--color-text);
-  margin: 0;
+  margin: 0 0 var(--space-4) 0;
 }
 
 /* Service page common styles */
@@ -384,34 +504,22 @@ ol[role='list'] {
   margin-bottom: 0;
 }
 
-.icon-list__icon{
-  filter: invert(74%) sepia(26%) saturate(1836%) hue-rotate(299deg) brightness(101%) contrast(101%);
-  justify-self: center;
-}
-
-.icon-list__item {
-  display: grid;
-  grid-template-columns: 30px 1fr; /* Icon width + remaining space */
-  gap: 1rem; /* Adjust spacing between icon and text */
-  align-items: center; /* Centers icon vertically in the middle */
-}
-
-.accent-1{
+.accent-1 {
   color: var(--text-accent-1);
 }
 
-.accent-2{
+.accent-2 {
   color: var(--text-accent-2);
 }
 
-.accent-3{
+.accent-3 {
   color: var(--text-accent-3);
 }
 
-.accent-4{
+.accent-4 {
   color: var(--text-accent-4);
 }
 
 .page-with-fixed-header {
-  padding-top: 80px; /* Adjust based on your header height */
+  padding-top: 80px;
 }

@@ -14,7 +14,7 @@ import Cta from '../components/cta.astro';
 					<p class="about-hero__text">Het antwoord is een samensmelting van levensmomenten, zacht en hard, persoonlijk en professioneel, die mij telkens dichter brachten bij mijn missie namelijk, vrouwen begeleiden naar meer verbinding, zachtheid en kracht.</p>
 				</div>
 				<div class="about-hero__image">
-					<img src="/Images/sarah/about.jpg" alt="sarah" />
+					<img src="/Images/sarah/about.jpeg" alt="sarah" />
 				</div>
 			</div>
 		</section>
@@ -43,21 +43,20 @@ import Cta from '../components/cta.astro';
 		>
 			<div slot="left">
 				<h2>India als spiegel</h2>
-				<p>Een belangrijk keerpunt vond ik in het zuiden van india, waar ik langere tijd verbleef. Daar werd ik geconfronteerd met de dubbele realiteit van vrouw-zijn:</p>
-				<ul>
+				<p>Een belangrijk keerpunt vond ik in het zuiden van India, waar ik langere tijd verbleef. Daar werd ik geconfronteerd met de dubbele realiteit van vrouw-zijn:</p>
+				<ul class="icon-list">
 					<li class="icon-list__item">
-						<img src="/icons/heart.svg" alt="" class="icon-list__icon" />
-						<p>Enerzijds de eeuwenoude natuurlijke wijsheden, de helende kracht van kruiden, rituelen en de vanzelfsprekende verbinding met het lichaam.</p>
+					<img src="/icons/heart.svg" alt="" class="icon-list__icon" />
+					<p>Enerzijds de eeuwenoude natuurlijke wijsheden, de helende kracht van kruiden, rituelen en de vanzelfsprekende verbinding met het lichaam.</p>
 					</li>
 					<li class="icon-list__item">
-						<img src="/icons/heart.svg" alt="" class="icon-list__icon" />
-						<p>Anderzijds de pijnlijke onderwaardering en onveiligheid van vrouwen, vaak gereduceerd tot hun rol als moeder en dienstbare echtgenote.</p>
+					<img src="/icons/heart.svg" alt="" class="icon-list__icon" />
+					<p>Anderzijds de pijnlijke onderwaardering en onveiligheid van vrouwen, vaak gereduceerd tot hun rol als moeder en dienstbare echtgenote.</p>
 					</li>
 				</ul>
-				<p>Terug in het westen zag ik het tegenovergestelde beeld: vrouwen die volop presteren en zich bewijzen, maar in dat streven soms de verbinding verliezen met hun intuïtie, kwetsbaarheid en zachte kracht.</p>
+				<p>Terug in het Westen zag ik het tegenovergestelde beeld: vrouwen die volop presteren en zich bewijzen, maar in dat streven soms de verbinding verliezen met hun intuïtie, kwetsbaarheid en zachte kracht.</p>
 			</div>
-			
-			<div slot="right" style="border-left: 2px solid var(--color-primary); padding-left: var(--space-6);">
+			<div slot="right" style="border-left: 2px solid var(--color-text); padding-left: var(--space-6);">
 				<h3>Persoonlijke confrontaties</h3>
 				<p>Door mijn erfelijke belasting voor borstkanker en de nauwe confrontatie met deze ziekte van dichtbij, werd ik diep geraakt. et maakte me vastberaden om te onderzoeken wat we als vrouwen kunnen doen om onze borsten te begrijpen, te verzorgen en te leren 'lezen' naast de bestaande reguliere medische zorg.</p>
 			</div>
@@ -77,16 +76,16 @@ import Cta from '../components/cta.astro';
 				<h2>Wat mij drijft</h2>
 				<p>Uit al deze ervaringen groeide mijn missie om een bedding te creëren waarin vrouwen spanning kunnen loslaten, emoties leren begrijpen en opnieuw verbinding maken met hun lichaam en borsten als innerlijk kompas.</p>
 				<p>Twee talenten lopen als rode draad door mijn werk:</p>
-				<ul>
+				<ul class="icon-list">  <!-- ADD THIS WRAPPER -->
 					<li class="icon-list__item">
-						<img src="/icons/heart.svg" alt="" class="icon-list__icon" />
-						<p>Op een spontane manier geborgenheid laten voelen,</p>
+					<img src="/icons/heart.svg" alt="" class="icon-list__icon" />
+					<p>op een spontane manier geborgenheid laten voelen,</p>
 					</li>
 					<li class="icon-list__item">
-						<img src="/icons/heart.svg" alt="" class="icon-list__icon" />
-						<p>En het lichaam opnieuw leren ervaren dat het veilig is.</p>
+					<img src="/icons/heart.svg" alt="" class="icon-list__icon" />
+					<p>En het lichaam opnieuw leren ervaren dat het veilig is.</p>
 					</li>
-				</ul>
+				</ul>  <!-- ADD THIS WRAPPER -->
 				<p>Ik geloof dat emoties geen ruis zijn, maar een innerlijk kompas dat ons de weg wijst. Wanneer we de kern durven aanraken, kan heling beginnen zowel fysiek als emotioneel.</p>
 			</div>
 		</ContentBlock>
@@ -145,9 +144,9 @@ import Cta from '../components/cta.astro';
 			description="Neem gerust contact op voor een vrijblijvend gesprek."
 			ctaText="Neem contact op"
 			ctaLink="/contact"
-			ctaStyle="primary"
+			ctaStyle="secondary"
 			backgroundImage="/Images/Main/bloemen.jpg"
-			overlayOpacity={0.2}
+			overlayOpacity={0.4}
 			padding="large"
 			textColor="light"
 		/>
@@ -200,7 +199,7 @@ import Cta from '../components/cta.astro';
 		color: var(--color-text);
 		margin: 0;
 		padding-top: var(--space-4);
-		border-top: 2px solid var(--color-primary);
+		border-top: 2px solid var(--color-text);
 	}
 
 	.about-hero__image {
@@ -210,8 +209,8 @@ import Cta from '../components/cta.astro';
 	}
 
 	.about-hero__image img {
-		width: 100%;
-		max-width: 400px;
+		width: 120%;
+		max-width: 500px;
 		height: auto;
 		border-radius: 50%;
 		object-fit: cover;
@@ -316,102 +315,97 @@ import Cta from '../components/cta.astro';
 	}
 
 	/* emotions timeline */
-	.emotions-timeline {
-		width: 100%;
-		padding: var(--space-16) 0;
-		background-color: var(--color-background-secondary);
-	}
+/* emotions timeline - SIMPLER APPROACH */
+.emotions-timeline {
+	width: 100%;
+	padding: var(--space-16) 0;
+}
 
-	.emotions-timeline__container {
-		max-width: var(--container-max);
-		margin: 0 auto;
-		padding: 0 var(--container-padding);
-	}
+.emotions-timeline__container {
+	max-width: var(--container-max);
+	margin: 0 auto;
+	padding: 0 var(--container-padding);
+}
 
+.emotions-timeline__title {
+	text-align: center;
+	font-size: var(--font-size-4xl);
+	margin-bottom: var(--space-16);
+}
+
+.emotions-timeline__content {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-12);
+	position: relative;
+	/* Vertical line */
+	background-image: linear-gradient(var(--color-text), var(--color-text));
+	background-size: 2px 100%;
+	background-position: 37% 0;
+	background-repeat: no-repeat;
+}
+
+.emotions-timeline__item {
+	display: grid;
+	grid-template-columns: 37% 1fr;
+	gap: var(--space-8);
+	align-items: start;
+	position: relative;
+}
+
+.emotions-timeline__item-title {
+	text-align: right;
+	padding-right: var(--space-6);
+}
+
+/* Dot positioned absolutely at the line */
+.emotions-timeline__item::before {
+	content: '';
+	position: absolute;
+	left: 37%;
+	top: 8px;
+	transform: translateX(-50%);
+	width: 28px;
+	height: 28px;
+	border-radius: 50%;
+	background-color: var(--color-text);
+	border: 5px solid var(--color-background);
+	z-index: 1;
+}
+
+.emotions-timeline__line {
+	display: none; /* Not needed anymore */
+}
+
+.emotions-timeline__item-text {
+	padding-left: var(--space-4);
+}
+
+@media (max-width: 768px) {
 	.emotions-timeline__title {
-		text-align: center;
-		margin-bottom: var(--space-16);
+		font-size: var(--font-size-3xl);
 	}
 
 	.emotions-timeline__content {
-		display: flex;
-		flex-direction: column;
-		gap: var(--space-6);
+		background-position: 20px 0;
 	}
 
 	.emotions-timeline__item {
-		display: grid;
-		grid-template-columns: 0.8fr 60px 1.2fr;
-		gap: var(--space-8);
-		align-items: center;
-		position: relative;
+		grid-template-columns: 1fr;
+		padding-left: 50px;
 	}
 
-	.emotions-timeline__item:first-child .emotions-timeline__line::before {
-		content: '';
-		position: absolute;
-		bottom: 50%;
-		top: calc(-1 * var(--space-12));
-		left: 50%;
-		transform: translateX(-50%);
-		width: 2px;
-		background-color: var(--color-primary);
-	}
-
-	.emotions-timeline__item:not(:last-child) .emotions-timeline__line::after {
-		content: '';
-		position: absolute;
-		top: 50%;
-		bottom: calc(-1 * var(--space-12));
-		left: 50%;
-		transform: translateX(-50%);
-		width: 2px;
-		background-color: var(--color-primary);
+	.emotions-timeline__item::before {
+		left: 20px;
 	}
 
 	.emotions-timeline__item-title {
-		text-align: right;
-		font-size: var(--font-size-xl);
-		font-weight: var(--font-weight-regular);
-		color: var(--color-text);
-		padding-top: var(--space-2);
-	}
-
-	.emotions-timeline__line {
-		position: relative;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		height: 100%;
-	}
-
-	.emotions-timeline__dot {
-		width: 16px;
-		height: 16px;
-		border-radius: 50%;
-		background-color: var(--color-primary);
-		position: relative;
-		z-index: 1;
+		text-align: left;
+		padding-right: 0;
 	}
 
 	.emotions-timeline__item-text {
-		font-size: var(--font-size-base);
-		line-height: var(--line-height-normal);
-		color: var(--color-text);
+		padding-left: 0;
 	}
-
-	@media (max-width: 768px) {
-		.emotions-timeline__item {
-			grid-template-columns: 1fr;
-			gap: var(--space-4);
-		}
-
-		.emotions-timeline__item-title {
-			text-align: left;
-		}
-
-		.emotions-timeline__line {
-			display: none;
-		}
-	}
+}
 </style>
