@@ -5,14 +5,14 @@ import Faq from '../components/faq.astro';
 import Cta from '../components/cta.astro';
 ---
 
-<Layout title="Therapie | Sarah's Praktijk" description="Holistische en lichaamsgerichte therapie voor vrouwen in Keerbergen. Veilige begeleiding bij stress, hormonale disbalans en emotionele blokkages." transparentHeader={true}>
+<Layout title="Therapie | Sarahs Praktijk" description="Holistische en lichaamsgerichte therapie voor vrouwen in Keerbergen. Veilige begeleiding bij stress, hormonale disbalans en emotionele blokkages." transparentHeader={true}>
 	<main class="page-with-fixed-header">
 		<section class="therapie-hero">
 			<div class="therapie-hero__container">
 				<div class="therapie-hero__content">
 					<h1>Therapie bij Sarah</h1>
-					<p>Een veilige plek waar emoties en spanningen erkend worden. Samen werken we aan rust, herstel en balans - zodat jij je lichaam opnieuw als een thuis kan ervaren.</p>
-					<p>Therapie is voor mij meer dan een methode — het is samen zoeken naar wat jou vooruithelpt. Ik nodig je uit om in vertrouwen je eerste stap te zetten.</p>
+					<p>Een veilige plek waar emoties en spanningen erkend worden. Samen werken we aan rust, herstel en balans, zodat jij je lichaam opnieuw als een thuis kan ervaren.</p>
+					<p>Therapie is voor mij meer dan een methode, het is samen zoeken naar wat jou vooruithelpt. Ik nodig je uit om in vertrouwen je eerste stap te zetten.</p>
 					<a href="/contact" class="btn btn--primary">Plan je eerste sessie</a>
 				</div>
 				<div class="therapie-hero__images">
@@ -33,7 +33,7 @@ import Cta from '../components/cta.astro';
 			<div slot="right">
 				<h2>Ontdek wat <span class="accent-1">jouw lichaam</span> je vertelt</h2>
 				<p>Stress, vermoeidheid of gevoelige borsten zijn nooit zomaar toeval. In mijn holistische therapie kijken we samen naar het grotere plaatje: lichaam, emoties, energie en leefstijl. Zo kan spanning smelten, energie weer stromen en ontdek jij hoe het voelt om echt vrij en aanwezig te zijn in je eigen leven.</p>
-				<a href="/contact" class="btn btn--primary">Ontdek welke therapie bij jou past</a>
+				<a href="/aanbod" class="btn btn--primary">Ontdek welke therapie bij jou past</a>
 			</div>
 		</ContentBlock>
 
@@ -47,13 +47,13 @@ import Cta from '../components/cta.astro';
 			<div slot="left">
 				<h2>Ik breng je lichaam terug naar <span class="accent-2">veiligheid</span>.</h2>
 				<p>Veel mensen denken dat er iets mis is met hun lichaam. Dat ze uitgeput zijn door een tekort. Dat hun spanning een fout is. Dat hun pijn hen tegenwerkt. Maar je lichaam werkt nooit tegen jou.</p>
-				<p>Het beschermt je. Het wacht. Het spreekt.En het opent zich pas wanneer het zich veilig voelt.</p>
+				<p>Het beschermt je. Het wacht. Het spreekt en het opent zich pas wanneer het zich veilig voelt.</p>
 				<p>Mijn werk gaat niet in de eerste plaats over technieken, protocollen of kennis al zijn die heel erg waardevol.</p>
 				<p>Mijn werk begint bij iets diepers, dat ik benoem als ruimte scheppen waarin jouw lichaam opnieuw durft te vertrouwen in het leven.</p>
 				<p>Ik help je zakken uit je hoofd, in je lijf. Ik begeleid je naar de plek waar je zenuwstelsel ontspant, waar oude patronen losweken, waar je adem weer vrij wordt en je lichaam zich herinnert hoe het zichzelf kan herstellen. Want heling is geen prestatie. Het is een herinnering. Aan wie je was vóór je spanning opbouwde, vóór je overleefde, vóór je je afsloot.</p>
 				<p>In mijn praktijk nodig ik je uit om terug thuis te komen in jezelf, zodat je lichaam weer mag functioneren zoals het voorzien was met zachtheid, kracht, helderheid en innerlijke rust.</p>
 			</div>
-			<img slot="right" src="/images/therapie-veiligheid.webp" alt="Veilige therapeutische omgeving bij Sarah's Praktijk"/>
+			<img slot="right" src="/images/therapie-veiligheid.webp" alt="Veilige therapeutische omgeving bij Sarahs Praktijk"/>
 		</ContentBlock>
 		<ContentBlock 
 			leftWidth="40%" 
@@ -117,12 +117,16 @@ import Cta from '../components/cta.astro';
 			<div slot="right" style="border-left: 2px solid var(--color-text); padding-left: var(--space-6);">
 				<h3>Voor wie is deze therapie?</h3>
 				<p>Deze begeleiding is er voor vrouwen die bereid zijn om dieper te luisteren naar hun lichaam, patronen willen doorbreken en opnieuw verbinding willen voelen met zichzelf.</p>
-				<a href="/contact" class="btn btn--primary">bekijk het aanbod</a>
+				<a href="/aanbod" class="btn btn--primary">bekijk het aanbod</a>
 			</div>
 		</ContentBlock>
 		<Faq
 			title="Veelgestelde vragen over therapie"
 			faqs={[
+				{
+					question: "Hoeveel kost een sessie?",
+					answer: "De prijs hangt af van het type sessie en de duur. Je vindt een volledig overzicht van alle tarieven en sessies op <a href='/tarieven'>tarieven & sessieduur</a>."
+				},
 				{
 					question: "Moet ik eerst een intakegesprek doen?",
 					answer: "Ja, dat is belangrijk. Een klik tussen ons vormt de basis van het werk dat we samen doen. Tijdens dit eerste gesprek komen vaak al inzichten naar boven en kunnen we meteen de eerste stappen op maat voor jou zetten."

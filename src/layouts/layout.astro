@@ -38,6 +38,7 @@ const footerNavLinks = [
 	{ href: '/', label: 'Home' },
 	{ href: '/therapie', label: 'Therapie' },
 	{ href: '/aanbod', label: 'Aanbod' },
+	{ href: '/tarieven', label: 'Tarieven' },
 	{ href: '/over', label: 'Over Sarah' },
 	{ href: '/contact', label: 'Contact' },
 ];
@@ -167,7 +168,7 @@ const websiteSchema = {
 
 		<!-- Preload hero image on homepage only -->
 		{isHomepage && (
-			<link rel="preload" href="/images/hero.jpeg" as="image" />
+			<link rel="preload" href="/images/hero.webp" as="image" />
 		)}
 		
 		<!-- Structured Data / JSON-LD -->
@@ -193,7 +194,7 @@ const websiteSchema = {
 		<Footer
 			logoSrc="/logo/logo_header.png"
 			companyName=""
-			adress="Bollostraat 104  - 3140 Keerbergen"
+			adres="Bollostraat 104  - 3140 Keerbergen"
 			phone="0468 48 93 73"
 			navLinks={footerNavLinks}
 			socialLinks={socialLinks}

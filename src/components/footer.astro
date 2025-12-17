@@ -13,7 +13,7 @@ interface SocialLink {
 interface Props {
   logoSrc: string;
   companyName: string;
-  adress: string;
+  s: string;
   phone: string;
   navLinks: NavLink[];
   socialLinks: SocialLink[];
@@ -24,7 +24,7 @@ interface Props {
 const {
   logoSrc,
   companyName,
-  adress,
+  adres,
   phone,
   navLinks,
   socialLinks,
@@ -46,8 +46,8 @@ const {
         </div>
         
         <div class="footer__contact">
-          <p class="footer__contact-title">Adress:</p>
-          <p class="footer__contact-text">{adress}</p>
+          <p class="footer__contact-title">Adres:</p>
+          <p class="footer__contact-text">{adres}</p>
           
           <p class="footer__contact-title">Gsm-nummer:</p>
           <p class="footer__contact-text"><a href={`tel:${phone.replace(/\s/g, '')}`} aria-label="Bel ons">{phone}</a></p>

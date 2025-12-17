@@ -1,10 +1,10 @@
 ---
-import Layout from '../layouts/layout.astro';
-import ServicesGrid from '../components/services-grid.astro';
-import Cta from '../components/cta.astro';
+import Layout from '../../layouts/layout.astro';
+import ServicesGrid from '../../components/services-grid.astro';
+import Cta from '../../components/cta.astro';
 ---
 
-<Layout title="Aanbod | Sarah's Praktijk" description="Ontdek het volledige aanbod van holistische therapie en massage in Keerbergen: VLOW borsttherapie, relaxatie, zwangerschapsmassage, menopauze begeleiding en meer.">
+<Layout title="Aanbod | Sarahs Praktijk" description="Ontdek het volledige aanbod van holistische therapie en massage in Keerbergen: VLOW® borsttherapie, relaxatie, zwangerschapsmassage, menopauze begeleiding en meer.">
 	<main class="page-with-fixed-header">
 		<ServicesGrid
 			title="Vind wat jouw lichaam nodig heeft"
@@ -19,20 +19,28 @@ import Cta from '../components/cta.astro';
 						layout: 'vertical'
 					},
 					{
-						image: '/images/aanbod/menopauze-thumb.webp',
-						title: 'Meno Pauze',
-						description: 'Begeleiding door de overgang met aandacht voor hormonen, emoties en jouw unieke ervaring.',
-						link: '/aanbod/menopauze',
-						linkText: 'Vind je balans',
+						image: '/images/aanbod/levensbegeleiding-thumb.webp',
+						title: 'Levensbegeleiding',
+						description: 'Persoonlijke begeleiding bij stress, emoties en het vinden van jouw innerlijke kracht.',
+						link: '/aanbod/levensbegeleiding',
+						linkText: 'Start je traject',
 						layout: 'vertical'
 					},
 					{
 						image: '/images/aanbod/vlow-thumb.webp',
-						title: 'VLOW borstweefsel behandeling',
+						title: 'VLOW® borstweefsel behandeling',
 						description: 'Zachte therapie voor gezonde borsten, helpt bij spanning, gevoeligheid en natuurlijke afvoer.',
 						link: '/aanbod/vlow',
-						linkText: 'Lees meer over VLOW',
+						linkText: 'Lees meer over VLOW®',
 						layout: 'vertical'
+					},
+					{
+						image: '/images/aanbod/psoas-thumb.webp',
+						title: 'Psoas',
+						description: 'Bevrijdend werk aan de psoas spier voor meer bewegingsvrijheid, ademruimte en emotionele loslating.',
+						link: '/aanbod/psoas',
+						linkText: 'Meer over Psoas',
+						layout: 'horizontal'
 					},
 					{
 						image: '/images/aanbod/zwangerschapsmassage-thumb.webp',
@@ -51,19 +59,19 @@ import Cta from '../components/cta.astro';
 						layout: 'vertical'
 					},
 					{
+						image: '/images/aanbod/menopauze-thumb.webp',
+						title: 'Menopauze',
+						description: 'Begeleiding door de overgang met aandacht voor hormonen, emoties en jouw unieke ervaring.',
+						link: '/aanbod/menopauze',
+						linkText: 'Vind je balans',
+						layout: 'vertical'
+					},
+					{
 						image: '/images/aanbod/lezingen-thumb.webp',
 						title: 'Lezingen',
 						description: 'Inspirerende sessies over borstgezondheid, hormonen en het verzorgen van jezelf als vrouw.',
 						link: '/aanbod/lezingen',
 						linkText: 'Ontdek meer',
-						layout: 'vertical'
-					},
-					{
-						image: '/images/aanbod/levensbegeleiding-thumb.webp',
-						title: 'Levensbegeleiding',
-						description: 'Persoonlijke begeleiding bij stress, emoties en het vinden van jouw innerlijke kracht.',
-						link: '/aanbod/levensbegeleiding',
-						linkText: 'Start je traject',
 						layout: 'vertical'
 					},
 					{
@@ -74,25 +82,17 @@ import Cta from '../components/cta.astro';
 						linkText: 'Geef ontspanning cadeau',
 						layout: 'horizontal'
 					},
-					{
-						image: '/images/aanbod/psoas-thumb.webp',
-						title: 'Psoas',
-						description: 'Bevrijdend werk aan de psoas spier voor meer bewegingsvrijheid, ademruimte en emotionele loslating.',
-						link: '/aanbod/psoas',
-						linkText: 'Meer over Psoas',
-						layout: 'horizontal'
-					}
+					
 				]}
 		/>
+		<p style="text-align: center; margin:  0 0 var(--space-10)  0;"><a href="/tarieven" class="btn btn--accent">Bekijk tarieven en veelgestelde vragen</a></p>
 		<Cta
 			layout="split"
 			title="Twijfel je nog?"
 			description="Neem contact op voor een vrijblijvend gesprek. Samen kijken we wat jouw lichaam nu het meeste nodig heeft."
 			ctaText="Plan een kennismaking"
 			ctaLink="/contact"
-			ctaStyle="secondary"
-			backgroundImage="/images/bloemen-cta.webp"
-			textColor="light"
+			ctaStyle="primary"
 		/>
 	</main>
 </Layout>

@@ -36,7 +36,7 @@ const {
             </svg>
           </button>
           <div class="faq__answer" data-faq-answer>
-            <p>{faq.answer}</p>
+            <p set:html={faq.answer}></p>
           </div>
         </div>
       ))}

@@ -1,0 +1,308 @@
+---
+import Layout from '../layouts/layout.astro';
+import FaqSidebar from '../components/faq-sidebar.astro';
+import Cta from '../components/cta.astro';
+---
+
+<Layout 
+	title="Tarieven | Sarah's Praktijk" 
+	description="Overzicht van tarieven en sessieduur bij Sarah's Praktijk in Keerbergen. Transparante prijzen voor therapeutische massage, relaxatie, VLOW borsttherapie en levensbegeleiding."
+	transparentHeader={true}
+>
+	<main>
+		<section class="service-hero">
+			<div class="service-hero__container">
+				<h1>Tarieven & Sessieduur</h1>
+				<p class="service-hero__subtitle">Hier vind je mijn sessies, duur en tarieven. Voor sommige sessies zijn er aangepaste prijzen voor jongeren.</p>
+			</div>
+		</section>
+
+		<section class="service-text-section">
+			<div class="service-text-section__container">
+				<p>De prijzen reflecteren de diepgang, persoonlijke afstemming en holistische aanpak van elke sessie. Een totale investering in jouw lichaam, energie en welzijn.</p>
+				<p><strong>VLOW®-sessies</strong> hebben een basisduur van 1u30–2u - extra tijd wordt per 30 minuten aangerekend.</p>
+			</div>
+		</section>
+
+		<section class="pricing-table-section">
+			<div class="pricing-table-section__container">
+				<div class="pricing-table-wrapper">
+					<table class="pricing-table">
+						<thead>
+							<tr>
+								<th>Sessie</th>
+								<th>Duur</th>
+								<th>Tarief volwassenen</th>
+								<th>Tarief jongeren<br/>(±15–20 jaar)</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Kennismaking (introductie)</td>
+								<td>40 min</td>
+								<td>€65</td>
+								<td>€45</td>
+							</tr>
+							<tr>
+								<td>Relaxatiesessie</td>
+								<td>1u</td>
+								<td>€60</td>
+								<td>€55</td>
+							</tr>
+							<tr>
+								<td>VLOW®-sessie</td>
+								<td>1u30–2u</td>
+								<td>€160</td>
+								<td>–</td>
+							</tr>
+							<tr>
+								<td>Extra tijd VLOW®</td>
+								<td>per 30 min</td>
+								<td>+€45</td>
+								<td>–</td>
+							</tr>
+							<tr>
+								<td>Therapeutische behandeling</td>
+								<td>vanaf 1u</td>
+								<td>€105</td>
+								<td>–</td>
+							</tr>
+							<tr>
+								<td>Dieptesessie</td>
+								<td>2u</td>
+								<td>€200</td>
+								<td>–</td>
+							</tr>
+							<tr>
+								<td>Uitgebreide healing</td>
+								<td>2u30</td>
+								<td>€250</td>
+								<td>–</td>
+							</tr>
+							<tr>
+								<td>Transformatieve sessie</td>
+								<td>3u</td>
+								<td>€300–€320</td>
+								<td>–</td>
+							</tr>
+							<tr>
+								<td>Levensbegeleiding jongeren</td>
+								<td>1u30</td>
+								<td>–</td>
+								<td>€95</td>
+							</tr>
+							<tr>
+								<td>Introductie lichaamswerk jongeren</td>
+								<td>1u</td>
+								<td>–</td>
+								<td>€80</td>
+							</tr>
+							<tr>
+								<td>Langer traject jongeren</td>
+								<td>1u30–2u</td>
+								<td>–</td>
+								<td>€130</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<p class="pricing-note"><em>Let op: de sessieduur is een richtlijn, jouw lichaam bepaalt het tempo. Heling kan niet worden afgemeten aan een klok.</em></p>
+			</div>
+		</section>
+
+		<section class="service-text-section service-text-section--bg">
+			<div class="service-text-section__container">
+				<h2>Waarom werk ik met sessies in plaats van strikte uurtarieven?</h2>
+				<p>Het lichaam opent zich niet op commando. Spanning laat pas los wanneer het zich veilig voelt. Door met sessies te werken ontstaat er rust voor jouw systeem én voor het mijne. Zo kan heling zich op een natuurlijk tempo ontvouwen.</p>
+			</div>
+		</section>
+
+		<FaqSidebar
+			title="Veelgestelde vragen"
+			description="Meer informatie over sessies, tarieven en praktische zaken."
+			faqs={[
+				{
+					question: "Wat houdt een therapeutische behandeling of healing precies in?",
+					answer: "Tijdens deze sessies werk ik altijd met een invoelmoment, waarin ik afstem op wat er op dat moment in jouw leven en lichaam speelt. Op basis hiervan wordt de sessie doelgericht opgebouwd en afgestemd. Daarna combineer ik verschillende lagen van ondersteuning: lichaamsgericht werk (bindweefsel, zenuwstelsel, spierspanning), energetisch werk (heling en transformatie op diepere lagen), healing en integratie (het lichaam krijgt ruimte om te ontspannen en blokkades los te laten), en zelfzorg, leefstijl en voedingsadvies (concrete oefeningen en tips om thuis verder te ondersteunen). Op deze manier ontstaat een volledige holistische aanpak, waarbij we lichaam, energie, emoties en dagelijkse gewoonten meenemen."
+				},
+				{
+					question: "Waarom verschillen de prijzen?",
+					answer: "De prijs reflecteert de duur en intensiteit van de sessie, de mate van diepgang en persoonlijke afstemming, en de combinatie van technisch, energetisch en educatief werk. Elke sessie is een investering in jouw lichaam, energie en welzijn."
+				},
+				{
+					question: "Kan ik bij twijfel eerst kennismaken?",
+					answer: "Ja, een korte kennismaking van 40 minuten (€65 voor volwassenen / €45 voor jongeren) helpt om te voelen of mijn werk bij je past. Daarna kan je beslissen of je sessies wenst te starten."
+				},
+				{
+					question: "Zijn er speciale tarieven voor jongeren (15-20 jaar)?",
+					answer: "Ja, ik bied aangepaste sessies voor jongeren zodat ze kunnen kennismaken met levensbegeleiding en/of lichaamswerk zonder dat mijn kernwaarde of energetische focus verloren gaat. Tarieven zijn licht aangepast, met kortere sessies of introductiesessies."
+				},
+				{
+					question: "Voor wie is dit werk bedoeld?",
+					answer: "Dit werk is bedoeld voor mensen die bereid zijn te vertragen en te luisteren naar hun lichaam, die écht tijd en aandacht willen voor heling, en die geen quick fix zoeken, maar wel diepgaande verandering."
+				},
+				{
+					question: "Praktische info rond locatie en duur van de sessies",
+					answer: "Sessies gaan door in mijn praktijk, uitsluitend op afspraak. De sessieduur is een richtlijn, het lichaam bepaalt het tempo. Voor vragen of om te voelen of dit bij je past, neem contact op."
+				}
+			]}
+		/>
+
+		<Cta
+			layout="split"
+			title="Klaar om te starten?"
+			description="Neem contact op voor een vrijblijvend kennismakingsgesprek of om direct een sessie in te plannen."
+			ctaText="Plan je sessie"
+			ctaLink="/contact"
+			ctaStyle="secondary"
+			backgroundImage="/images/bloemen-cta.webp"
+			textColor="light"
+		/>
+	</main>
+</Layout>
+
+<style>
+	/* Pricing Table Section */
+	.pricing-table-section {
+		width: 100%;
+		padding: var(--space-16) 0;
+	}
+
+	.pricing-table-section__container {
+		max-width: var(--container-max);
+		margin: 0 auto;
+		padding: 0 var(--container-padding);
+	}
+
+	.pricing-table-wrapper {
+		overflow-x: auto;
+		margin-bottom: var(--space-8);
+		border-radius: var(--radius-md);
+		box-shadow: var(--shadow-md);
+		background: white;
+	}
+
+	.pricing-table {
+		width: 100%;
+		border-collapse: collapse;
+	}
+
+	.pricing-table thead {
+		background-color: var(--color-background-secondary);
+	}
+
+	.pricing-table th {
+		padding: var(--space-4) var(--space-6);
+		text-align: left;
+		font-weight: var(--font-weight-semibold);
+		font-size: var(--font-size-base);
+		color: var(--color-text);
+		border-bottom: 2px solid var(--color-border);
+	}
+
+	.pricing-table td {
+		padding: var(--space-4) var(--space-6);
+		font-size: var(--font-size-base);
+		color: var(--color-text);
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.pricing-table tbody tr:last-child td {
+		border-bottom: none;
+	}
+
+	.pricing-table tbody tr:hover {
+		background-color: rgba(0, 0, 0, 0.02);
+	}
+
+	/* Make price columns slightly bold */
+	.pricing-table td:nth-child(3),
+	.pricing-table td:nth-child(4) {
+		font-weight: var(--font-weight-semibold);
+		color: var(--color-primary);
+	}
+
+	.pricing-note {
+		font-style: italic;
+		color: var(--color-text);
+		text-align: center;
+		margin-top: var(--space-4);
+		font-size: var(--font-size-base);
+	}
+
+	/* Responsive Table */
+	@media (max-width: 768px) {
+		.pricing-table {
+			font-size: var(--font-size-sm);
+		}
+
+		.pricing-table th,
+		.pricing-table td {
+			padding: var(--space-3) var(--space-4);
+			white-space: nowrap;
+		}
+
+		/* Stack table on very small screens */
+		@media (max-width: 768px) {
+	.pricing-table {
+		font-size: var(--font-size-sm);
+	}
+
+	.pricing-table th,
+	.pricing-table td {
+		padding: var(--space-3) var(--space-4);
+		white-space: nowrap; /* Prevent text wrapping */
+	}
+}
+
+/* Card layout on small screens */
+@media (max-width: 600px) {
+	.pricing-table-wrapper {
+		box-shadow: none;
+		background: transparent;
+		border-radius: 0;
+	}
+
+	.pricing-table thead {
+		display: none;
+	}
+
+	.pricing-table,
+	.pricing-table tbody,
+	.pricing-table tr,
+	.pricing-table td {
+		display: block;
+		width: 100%;
+	}
+
+	.pricing-table tr {
+		margin-bottom: var(--space-6);
+		border-radius: var(--radius-md);
+		padding: var(--space-4);
+		background: white;
+		box-shadow: var(--shadow-sm);
+	}
+
+	.pricing-table td {
+		text-align: left;
+		padding: var(--space-2) 0;
+		border: none;
+		display: grid;
+		grid-template-columns: 140px 1fr;
+		gap: var(--space-2);
+		white-space: normal;
+	}
+
+	.pricing-table td:before {
+		content: attr(data-label);
+		font-weight: var(--font-weight-semibold);
+	}
+
+	/* Labels */
+	.pricing-table tbody tr td:nth-child(1):before { content: "Sessie"; }
+	.pricing-table tbody tr td:nth-child(2):before { content: "Duur"; }
+	.pricing-table tbody tr td:nth-child(3):before { content: "Volwassenen"; }
+	.pricing-table tbody tr td:nth-child(4):before { content: "Jongeren"; }
+}
+	}
+</style>

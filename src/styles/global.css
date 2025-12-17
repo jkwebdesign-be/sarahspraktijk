@@ -567,3 +567,24 @@ main.no-header-padding {
 main {
   padding-top: 80px;
 }
+
+@media (max-width: 768px) {
+  .service-hero h1 {
+    max-width: 100%;
+  }
+
+  .service-hero__subtitle {
+    max-width: 100%;
+  }
+}
+.faq__answer a,
+.faq-sidebar__answer a {
+	color: var(--color-primary);
+	text-decoration: none;
+	font-weight: 500;
+}
+
+.faq__answer a:hover,
+.faq-sidebar__answer a:hover {
+	text-decoration: underline;
+}
