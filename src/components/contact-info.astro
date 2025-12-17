@@ -77,7 +77,7 @@ const HeadingTag = headingLevel;
       <!-- map -->
       <div class="contact-info__map">
         <a href={mapLink} target="_blank" rel="noopener noreferrer" class="contact-info__map-link">
-          <img src={mapImageSrc} alt="locatie op kaart" />
+          <img src={mapImageSrc} alt="locatie op kaart" loading="eager"/>
           <div class="contact-info__map-overlay">
             <span class="contact-info__map-text">Open route in Google Maps</span>
           </div>
@@ -109,7 +109,6 @@ const HeadingTag = headingLevel;
 
   .contact-info__header p {
     font-size: var(--font-size-lg);
-    color: var(--color-text-muted);
     margin: 0;
   }
 

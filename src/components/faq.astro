@@ -45,29 +45,53 @@ const {
 </section>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const faqButtons = document.querySelectorAll('[data-faq-button]');
+  function initFAQ() {
+    const items = document.querySelectorAll('.faq__item');
     
-    faqButtons.forEach((button) => {
-      button.addEventListener('click', () => {
-        const item = button.closest('[data-faq-item]');
-        const answer = item?.querySelector('[data-faq-answer]');
-        const isExpanded = button.getAttribute('aria-expanded') === 'true';
+    items.forEach((item) => {
+      const question = item.querySelector('.faq__question');
+      const answer = item.querySelector('.faq__answer');
+      
+      if (!question || !answer) return;
+      
+      // Remove old listener by cloning
+      const newQuestion = question.cloneNode(true);
+      question.parentNode?.replaceChild(newQuestion, question);
+      
+      // Get fresh reference after cloning
+      const freshQuestion = item.querySelector('.faq__question');
+      if (!freshQuestion) return;
+      
+      freshQuestion.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
         
-        // Toggle this item
-        button.setAttribute('aria-expanded', (!isExpanded).toString());
-        item?.classList.toggle('is-open');
+        const isOpen = item.classList.contains('is-open');
         
-        if (answer) {
-          if (isExpanded) {
-            answer.style.maxHeight = '0';
-          } else {
-            answer.style.maxHeight = answer.scrollHeight + 'px';
-          }
+        if (isOpen) {
+          // Close
+          item.classList.remove('is-open');
+          freshQuestion.setAttribute('aria-expanded', 'false');
+          answer.style.maxHeight = '0';
+        } else {
+          // Open
+          item.classList.add('is-open');
+          freshQuestion.setAttribute('aria-expanded', 'true');
+          answer.style.maxHeight = answer.scrollHeight + 'px';
         }
       });
     });
-  });
+  }
+  
+  // Run on initial load
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initFAQ);
+  } else {
+    initFAQ();
+  }
+  
+  // Re-run after View Transitions
+  document.addEventListener('astro:page-load', initFAQ);
 </script>
 
 <style>
@@ -130,6 +154,7 @@ const {
     color: var(--color-text);
     cursor: pointer;
     transition: color var(--transition-base);
+    touch-action: manipulation;
   }
 
   .faq__question:hover {
@@ -157,5 +182,9 @@ const {
     margin: 0;
     line-height: var(--line-height-normal);
     color: var(--color-text);
+  }
+  
+  .faq__item.is-open .faq__answer {
+    max-height: 1000px;
   }
 </style>

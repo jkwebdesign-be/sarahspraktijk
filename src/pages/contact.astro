@@ -4,41 +4,41 @@ import ContactInfo from '../components/contact-info.astro';
 import FaqSidebar from '../components/faq-sidebar.astro';
 ---
 
-<Layout title="contact | sarah bogaerts" description="neem contact op met sarah" transparentHeader={true}>
-	<main class="page-with-fixed-header">
+<Layout title="Contact | Sarah's Praktijk" description="Neem contact op met Sarah Bogaerts voor holistische therapie in Keerbergen. Bel +32 468 48 93 73 of mail naar info@sarahscoachingpraktijk.be voor een afspraak." transparentHeader={true}>
+	<main>
 		<ContactInfo
 			title="Neem contact op"
-			description="Ik luister graag naar je vragen en help je met plezier verder. bel me gerust voor meer informatie of om een afspraak te maken."
+			description="Ik luister graag naar je vragen en help je met plezier verder. Bel me gerust voor meer informatie of om een afspraak te maken."
 			phone="+32 468 48 93 73"
 			email="info@sarahscoachingpraktijk.be"
 			address="Bollotstraat 104 - 3140 Keerbergen"
-			mapImageSrc="/Images/other/maps.png"
-			mapLink="https://maps.google.com/?q=ballotstraat+104+keerbergen"
+			mapImageSrc="/images/maps.png"
+			mapLink="https://www.google.com/maps/place/Bollostraat+104,+3140+Keerbergen"
 		/>
 
 		<FaqSidebar
-			title="FAQs"
-			description="Vind hier snel een antwoord op je vraag."
+			title="Veelgestelde vragen"
+			description="Hier vind je antwoorden op de meest voorkomende vragen over praktische zaken rondom mijn praktijk en sessies."
 			faqs={[
 				{
 					question: "Kan ik makkelijk parkeren?",
-					answer: "lorem ipsum dolor sit amet, consectetur adipiscing elit. suspendisse varius enim in eros elementum tristique. duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. nunc ut sem vitae risus tristique posuere."
+					answer: "Ja, zeker! Je kunt parkeren op mijn oprit of langs de straat. De ingang vind je achteraan, naast de garagepoorten. Zo ben je meteen welkom in een ontspannen sfeer."
 				},
 				{
 					question: "Hoe betaal ik mijn sessie?",
-					answer: "lorem ipsum dolor sit amet, consectetur adipiscing elit. suspendisse varius enim in eros elementum tristique. duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. nunc ut sem vitae risus tristique posuere."
+					answer: "Je kan betalen met cash of via jouw bank app (QR code). Alles verloopt vlot zolang de wifi meewerkt."
 				},
 				{
 					question: "Wat als ik mijn afspraak niet kan nakomen?",
-					answer: "lorem ipsum dolor sit amet, consectetur adipiscing elit. suspendisse varius enim in eros elementum tristique. duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. nunc ut sem vitae risus tristique posuere."
+					answer: "Ik begrijp dat plannen soms veranderen. Annuleer minimaal 24 uur van tevoren, dan zijn er geen kosten. Bij annuleringen binnen 12 uur voor de afspraak wordt het volledige consult bedrag in rekening gebracht, omdat ik me volledig fysiek, mentaal en energetisch op jouw sessie voorbereid."
 				},
 				{
 					question: "Werk je met terugbetaling via de mutualiteit?",
-					answer: "lorem ipsum dolor sit amet, consectetur adipiscing elit. suspendisse varius enim in eros elementum tristique. duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. nunc ut sem vitae risus tristique posuere."
+					answer: "Holistische therapie wordt momenteel nog niet erkend door de mutualiteiten, waardoor er geen terugbetaling mogelijk is. Ik begrijp dat dit een belangrijke overweging kan zijn en beantwoord graag al je vragen hierover."
 				},
 				{
 					question: "Moet ik iets meenemen naar mijn eerste sessie?",
-					answer: "lorem ipsum dolor sit amet, consectetur adipiscing elit. suspendisse varius enim in eros elementum tristique. duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. nunc ut sem vitae risus tristique posuere."
+					answer: "Het is handig om, indien mogelijk, een lijst van je medicatie, supplementen en eventuele recente onderzoeken of bloedresultaten mee te brengen, dat kan extra inzicht geven. Verder hoef je niets mee te nemen, alles is aanwezig in de praktijk. Uit respect voor elkaar en omdat ik gevoelig ben voor geuren, vraag ik bij therapeutische sessies om parfum te vermijden en indien mogelijk even te douchen vooraf. Zo creëren we samen een prettige en ontspannen sfeer."
 				}
 			]}
 		/>

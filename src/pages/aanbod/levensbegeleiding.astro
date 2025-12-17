@@ -1,0 +1,125 @@
+---
+import Layout from '../../layouts/layout.astro';
+import ContentBlock from '../../components/content-block.astro';
+import Cta from '../../components/cta.astro';
+---
+
+<Layout title="Levensbegeleiding | Sarah’s praktijk" description="Helende gesprekken en persoonlijke begeleiding bij Sarah's Praktijk in Keerbergen. Therapeutische gesprekken gecombineerd met holistisch lichaamswerk voor diep inzicht en groei.">
+	<main>
+		<!-- hero section -->
+		<section class="service-hero">
+			<div class="service-hero__container">
+				<h1>Levensbegeleiding: helende gesprekken & magische combo’s</h1>
+				<p class="service-hero__subtitle">Helende gesprekken en magische combo’s die inzicht, bewustzijn en lichaam samenbrengen, apart of gecombineerd met energetisch lichaamswerk.</p>
+			</div>
+		</section>
+		<ContentBlock
+			leftWidth="60%"
+			rightWidth="40%"
+			gap="large"
+			verticalAlign="center"
+		>
+			<div slot="left">
+				<h2>Helende gesprekken met diepgang</h2>
+				<p>In een wereld die voortdurend in beweging is, verliezen we soms het contact met wat we écht voelen, nodig hebben of verlangen. Een veilig gesprek, een luisterend oor en heldere begeleiding kunnen dan het verschil maken.</p>
+				<p>Levensbegeleiding gaat verder dan “even praten”. Het is diep therapeutisch werk dat inzicht brengt, bewustzijn verruimt en ruimte creëert voor persoonlijke groei.</p>
+				<p>Samen onderzoeken we wat jou tegenhoudt om voluit te leven en waar nieuwe mogelijkheden zich willen openen.</p>
+			</div>
+			<img slot="right" src="/images/aanbod/levensbegeleiding.webp" alt="Sarah tijdens een begeleidingsgesprek" />
+		</ContentBlock>
+		<ContentBlock
+			leftWidth="55%"
+			rightWidth="45%"
+			gap="large"
+			verticalAlign="top"
+			backgroundColor="var(--color-background-secondary)"
+		>
+			<div slot="left">
+				<h2>Holistisch en persoonlijk</h2>
+				<p>In mijn begeleiding kijk ik niet alleen naar woorden en inzichten, maar ook naar hoe ervaringen zich vastzetten in lichaam en energie.</p>
+				<ul class="icon-list icon-list--compact">
+					<li class="icon-list__item">
+							<img src="/icon/heart.svg" alt="" class="icon-list__icon icon-list__icon--small" />
+							<p>Verbanden tussen pijnen, verlangens en blokkades</p>
+					</li>
+					<li class="icon-list__item">
+							<img src="/icon/heart.svg" alt="" class="icon-list__icon icon-list__icon--small" />
+							<p>Patronen in denken, voelen en handelen</p>
+					</li>
+					<li class="icon-list__item">
+							<img src="/icon/heart.svg" alt="" class="icon-list__icon icon-list__icon--small" />
+							<p>Hoe onverwerkte ervaringen zich in het lichaam tonen</p>
+					</li>
+				</ul>
+				<p>Waar passend, verweef ik holistische handvaten in het gesprek, zodat inzichten niet alleen begrepen worden, maar ook werkelijk verankeren.</p>
+				<ul class="icon-list icon-list--compact">
+					<li class="icon-list__item">
+							<img src="/icon/heart.svg" alt="" class="icon-list__icon icon-list__icon--small" />
+							<p>Advies rond voeding, suppletie en leefstijl</p>
+					</li>
+					<li class="icon-list__item">
+							<img src="/icon/heart.svg" alt="" class="icon-list__icon icon-list__icon--small" />
+							<p>Zelfzorg die aansluit bij jouw lichaam en energiestroom</p>
+					</li>
+					<li class="icon-list__item">
+							<img src="/icon/heart.svg" alt="" class="icon-list__icon icon-list__icon--small" />
+							<p>Oefeningen om inzichten fysiek en emotioneel te verankeren</p>
+					</li>
+				</ul>
+			</div>
+			<div slot="right">
+				<h3>Wanneer levensbegeleiding kan helpen</h3>
+				<ul class="icon-list icon-list--compact">
+					<li class="icon-list__item icon-list__item--small">
+						<img src="/icon/heart.svg" alt="" class="icon-list__icon" />
+						<p>je vastloopt tussen wat je wil en wat je écht nodig hebt</p>
+					</li>
+					<li class="icon-list__item icon-list__item--small">
+						<img src="/icon/heart.svg" alt="" class="icon-list__icon" />
+						<p>je verdriet, oud hartzeer of onverwerkte emoties meedraagt</p>
+					</li>
+					<li class="icon-list__item icon-list__item--small">
+						<img src="/icon/heart.svg" alt="" class="icon-list__icon" />
+						<p>belangrijke keuzes of levensovergangen helderheid vragen</p>
+					</li>
+					<li class="icon-list__item icon-list__item--small">
+						<img src="/icon/heart.svg" alt="" class="icon-list__icon" />
+						<p>je behoefte hebt aan een neutrale, vertrouwde sparringpartner</p>
+					</li>
+					<li class="icon-list__item icon-list__item--small">
+						<img src="/icon/heart.svg" alt="" class="icon-list__icon" />
+						<p>je inzichten concreet wil integreren in je dagelijks leven</p>
+					</li>
+				</ul>
+			</div>
+		</ContentBlock>
+
+		<ContentBlock
+			leftWidth="50%"
+			rightWidth="50%"
+			gap="large"
+		>
+			<h2 slot="above" style="text-align:center">Kies wat bij jou past</h2>
+			<div slot="left" style="background: #ffffff; padding: var(--space-8); border-radius: var(--radius-md); height: 100%; display: flex; flex-direction: column; text-align: center;">
+				<h2>Helend gesprek</h2>
+				<p>Een diepgaand, therapeutisch gesprek om inzichten te verankeren en bewustzijn te verruimen.</p>
+				<p><strong>Duur:</strong> 1,5 uur &nbsp;|&nbsp; <strong>Tarief:</strong> €125</p>
+			</div>
+			<div slot="right" style="background: #ffffff; padding: var(--space-8); border-radius: var(--radius-md); height: 100%; display: flex; flex-direction: column; text-align: center;">
+				<h2>Magische combo</h2>
+				<p>Een half dagdeel waarin helende gesprekken worden gecombineerd met energetisch lichaamswerk of relaxatie, zodat inzichten ook lichamelijk en energetisch kunnen integreren.</p>
+				<p><strong>Duur:</strong> 3 uur &nbsp;|&nbsp; <strong>Tarief:</strong> €290</p>
+			</div>
+		</ContentBlock>
+		<Cta
+			layout="split"
+			title="Klaar om een volgende stap te zetten?"
+			description="Of je nu kiest voor een helend gesprek of een magische combo, je bent welkom om te ontdekken wat jou op dit moment het meest ondersteunt."
+			ctaText="Plan je sessie"
+			ctaLink="/contact"
+			ctaStyle="secondary"
+			backgroundImage="/images/bloemen-cta.webp"
+			textColor="light"
+		/>
+	</main>
+</Layout>

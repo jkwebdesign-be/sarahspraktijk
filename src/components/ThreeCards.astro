@@ -20,7 +20,6 @@ interface Props {
   imageSize?: string;
   halfwayBackground?: boolean;
   halfwayBackgroundColor?: string;
-  // Main CTA below all cards
   mainCtaText?: string;
   mainCtaLink?: string;
   mainCtaStyle?: 'primary' | 'secondary' | 'accent' | 'outline';
@@ -45,7 +44,7 @@ const {
 ---
 
 <section 
-  class={`three-cards ${splitBackground ? 'three-cards--split-bg' : ''}`}
+  class=`three-cards ${splitBackground ? 'three-cards--split-bg' : ''}`}
   style={`
     --bg-color: ${backgroundColor};
     --card-bg: ${hasCardBackground ? cardBackgroundColor : 'transparent'};
@@ -58,7 +57,7 @@ const {
 >
   {splitBackground && <div class="three-cards__background"></div>}
   {halfwayBackground && <div class="three-cards__halfway-background"></div>}
-
+  
   <div class="three-cards__content">
     <header class="three-cards__header">
       <h2>{title}</h2>
@@ -85,17 +84,19 @@ const {
 
     {mainCtaText && mainCtaLink && (
       <div class="three-cards__main-cta">
-        <a href={mainCtaLink} class={`btn btn--${mainCtaStyle}`}>{mainCtaText}</a>
+        <a href={mainCtaLink} class=`btn btn--${mainCtaStyle}`}>{mainCtaText}</a>
       </div>
     )}
   </div>
 </section>
 
 <style>
+  /* ALIGNED WITH CONTENTBLOCK SPACING STANDARD */
+  
   .three-cards {
     position: relative;
     width: 100%;
-    padding: var(--space-16) 0;
+    padding: var(--space-16) 0; /* ContentBlock uses var(--padding) which defaults to medium = var(--space-10) desktop, but we keep space-16 for sections */
   }
 
   .three-cards--split-bg {
@@ -114,7 +115,7 @@ const {
 
   .three-cards__halfway-background {
     position: absolute;
-    top: 50%;
+    top: 45%;
     left: 0;
     right: 0;
     bottom: 0;
@@ -130,35 +131,42 @@ const {
     padding: 0 var(--container-padding);
   }
 
+  /* Header - MATCHES ContentBlock header spacing */
   .three-cards__header {
     text-align: center;
     max-width: 1000px;
-    margin: 0 auto var(--space-16) auto;
+    margin: 0 auto var(--space-12) auto; /* MATCHES ContentBlock: space-12 bottom margin */
   }
 
   .three-cards__header h2 {
     font-size: var(--font-size-3xl);
     font-weight: var(--font-weight-regular);
+    font-family: var(--font-family-serif); /* ADDED: consistent with global h2 */
     line-height: var(--line-height-tight);
     color: var(--color-text);
-    margin: 0 0 var(--space-3) 0;
+    margin: 0 0 var(--space-4) 0; /* MATCHES ContentBlock: space-4 between title and subtitle */
+  }
+
+  .three-cards__header .subtitle {
+    /* Inherits from global .subtitle class */
+    /* margin: 0 0 var(--space-6) 0; - already in global */
   }
 
   .three-cards__grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: var(--space-8);
+    gap: var(--space-8); /* Reasonable gap between cards */
   }
 
   .three-cards__card {
     background-color: var(--card-bg);
     border-radius: var(--radius-lg);
-    padding: var(--space-12);
+    padding: var(--space-12); /* Good internal padding for cards */
     display: flex;
     flex-direction: column;
     align-items: var(--card-content-align);
     text-align: var(--card-content-align);
-    gap: var(--space-4);
+    gap: var(--space-4); /* MATCHES ContentBlock .content-text gap */
     box-shadow: var(--card-shadow);
     width: 100%;
     max-width: 400px;
@@ -171,13 +179,14 @@ const {
     width: var(--image-size);
     height: var(--image-size);
     object-fit: contain;
-    margin-bottom: var(--space-2);
+    margin-bottom: var(--space-2); /* Small gap after image */
     flex-shrink: 0;
   }
 
   .three-cards__title {
     font-size: var(--font-size-2xl);
     font-weight: var(--font-weight-regular);
+    font-family: var(--font-family-serif); /* ADDED: consistent with global h3 */
     line-height: var(--line-height-tight);
     color: var(--card-text-color);
     margin: 0;
@@ -188,33 +197,66 @@ const {
     line-height: var(--line-height-normal);
     color: var(--card-text-color);
     margin: 0;
-    flex-grow: 1;
+    flex-grow: 1; /* Pushes price/CTA to bottom */
   }
 
   .three-cards__price {
     font-size: var(--font-size-xl);
     font-weight: var(--font-weight-bold);
     color: var(--color-text);
-    margin: var(--space-2) 0;
+    margin: var(--space-2) 0; /* Small gap around price */
+  }
+
+  /* Card CTA button - inherits btn styles from global.css */
+  .three-cards__card .btn {
+    margin-top: var(--space-2); /* MATCHES ContentBlock button spacing */
   }
 
   /* Main CTA below all cards */
   .three-cards__main-cta {
     display: flex;
     justify-content: center;
-    margin-top: var(--space-12);
+    margin-top: var(--space-12); /* Good separation from cards */
   }
 
   /* Responsive */
   @media (min-width: 1000px) {
     .three-cards__grid {
       grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-8);
     }
   }
 
   @media (min-width: 768px) and (max-width: 999px) {
     .three-cards__grid {
       grid-template-columns: 1fr;
+      gap: var(--space-8);
+    }
+
+    .three-cards__card {
+      max-width: 500px; /* Slightly wider on tablet */
+    }
+  }
+
+  @media (max-width: 767px) {
+    .three-cards {
+      padding: var(--space-12) 0; /* MATCHES ContentBlock mobile padding reduction */
+    }
+
+    .three-cards__header {
+      margin-bottom: var(--space-8); /* Reduce header spacing on mobile */
+    }
+
+    .three-cards__grid {
+      gap: var(--space-6); /* Tighter gap on mobile */
+    }
+
+    .three-cards__card {
+      padding: var(--space-8); /* Less padding on mobile */
+    }
+
+    .three-cards__main-cta {
+      margin-top: var(--space-8);
     }
   }
 </style>

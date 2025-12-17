@@ -1,87 +1,98 @@
 ---
 import Layout from '../layouts/layout.astro';
 import ServicesGrid from '../components/services-grid.astro';
+import Cta from '../components/cta.astro';
 ---
 
-<Layout title="Aanbod | sarah bogaerts" description="therapie en massage aanbod" transparentHeader={true}>
+<Layout title="Aanbod | Sarah's Praktijk" description="Ontdek het volledige aanbod van holistische therapie en massage in Keerbergen: VLOW borsttherapie, relaxatie, zwangerschapsmassage, menopauze begeleiding en meer.">
 	<main class="page-with-fixed-header">
 		<ServicesGrid
-			title="Aanbod therapie & massage"
-			subtitle="Een overzicht van behandelingen en activiteiten die je meer rust, balans en energie brengen."
+			title="Vind wat jouw lichaam nodig heeft"
+			subtitle="Elke behandeling is een uitnodiging om te vertragen, te voelen en opnieuw verbinding te maken met jezelf."
 			services={[
-				{
-					image: '/Images/services/relaxatie.jpg',
-					title: 'Relaxatie',
-					description: 'Ontspan diep en zooi je energie terug op met zachte technieken voor lichaam en geest.',
-					link: '/diensten/relaxatie',
-					linkText: 'Ontspan nu',
-					layout: 'vertical'
-				},
-				{
-					image: '/Images/services/menopauze.jpg',
-					title: 'meno pauze',
-					description: 'Vind meer balans en verlichting tijdens de overgang met ondersteunende therapie.',
-					link: '/diensten/menopauze',
-					linkText: 'Vind je balans',
-					layout: 'vertical'
-				},
-				{
-					image: '/Images/services/vlow.jpg',
-					title: 'VLOW borstweefsel behandeling',
-					description: 'Een zachte methode om spanning in het borstgebied te laten los en je welzijn te verbeteren.',
-					link: '/diensten/vlow',
-					linkText: 'Lees meer over VLOW',
-					layout: 'horizontal'
-				},
-				{
-					image: '/Images/services/zwangerschap.jpg',
-					title: 'Zwangerschaps massage',
-					description: 'Ervaar rust, comfort en verlichting tijdens je zwangerschap.',
-					link: '/diensten/zwangerschap',
-					linkText: 'Plan een sessie',
-					layout: 'vertical'
-				},
-				{
-					image: '/Images/services/therapeutische.png',
-					title: 'Therapeutische massages',
-					description: 'Gericht op het verlichten van klachten en stimuleren van aandoeningen en het herstelproces van balans.',
-					link: '/diensten/therapeutische',
-					linkText: 'Ontdek de voordelen',
-					layout: 'horizontal'
-				},
-				{
-					image: '/Images/services/lezingen.jpg',
-					title: 'Lezingen',
-					description: 'Ontvang inspiratie en inzichten over gezondheid, welzijn en persoonlijke groei.',
-					link: '/diensten/lezingen',
-					linkText: 'Ontdek meer',
-					layout: 'vertical'
-				},
-				{
-					image: '/Images/services/workshops.jpg',
-					title: 'Workshops',
-					description: 'Leer praktische technieken om zelf meer rust, energie en balans in je dagelijks leven te brengen.',
-					link: '/diensten/workshops',
-					linkText: 'Bekijk de agenda',
-					layout: 'vertical'
-				},
-				{
-					image: '/Images/services/cadeaubon.jpg',
-					title: 'Cadeaubonnen',
-					description: 'Geef een moment van rust en zorg cadeau aan iemand die het verdient.',
-					link: '/diensten/cadeaubon',
-					linkText: 'Geef ontspanning cadeau',
-					layout: 'vertical'
-				},
-				{
-					image: '/Images/services/psoas.jpg',
-					title: 'Psoas',
-					description: 'Herstel de balans in je lichaam door spanning in de psoas spier los te laten voor meer vrijheid en welzijn.',
-					link: '/diensten/psoas',
-					linkText: 'Meer over Psoas',
-					layout: 'vertical'
-				}
-			]}
+					{
+						image: '/images/aanbod/relaxatie-thumb.webp',
+						title: 'Relaxatie',
+						description: 'Diepe ontspanning voor je zenuwstelsel door gerichte aanraking, ademwerk en zachte bewegingen.',
+						link: '/aanbod/relaxatie',
+						linkText: 'Ontspan nu',
+						layout: 'vertical'
+					},
+					{
+						image: '/images/aanbod/menopauze-thumb.webp',
+						title: 'Meno Pauze',
+						description: 'Begeleiding door de overgang met aandacht voor hormonen, emoties en jouw unieke ervaring.',
+						link: '/aanbod/menopauze',
+						linkText: 'Vind je balans',
+						layout: 'vertical'
+					},
+					{
+						image: '/images/aanbod/vlow-thumb.webp',
+						title: 'VLOW borstweefsel behandeling',
+						description: 'Zachte therapie voor gezonde borsten, helpt bij spanning, gevoeligheid en natuurlijke afvoer.',
+						link: '/aanbod/vlow',
+						linkText: 'Lees meer over VLOW',
+						layout: 'vertical'
+					},
+					{
+						image: '/images/aanbod/zwangerschapsmassage-thumb.webp',
+						title: 'Zwangerschaps massage',
+						description: 'Ondersteunende massage die je lichaam helpt ontspannen tijdens je zwangerschap.',
+						link: '/aanbod/zwangerschap',
+						linkText: 'Plan een sessie',
+						layout: 'horizontal'
+					},
+					{
+						image: '/images/aanbod/therapeutische-thumb.webp',
+						title: 'Therapeutische massages',
+						description: 'Diepgaande massage die spanningen verzacht en je lichaam ondersteunt in natuurlijk herstel.',
+						link: '/aanbod/therapeutische',
+						linkText: 'Ontdek de voordelen',
+						layout: 'vertical'
+					},
+					{
+						image: '/images/aanbod/lezingen-thumb.webp',
+						title: 'Lezingen',
+						description: 'Inspirerende sessies over borstgezondheid, hormonen en het verzorgen van jezelf als vrouw.',
+						link: '/aanbod/lezingen',
+						linkText: 'Ontdek meer',
+						layout: 'vertical'
+					},
+					{
+						image: '/images/aanbod/levensbegeleiding-thumb.webp',
+						title: 'Levensbegeleiding',
+						description: 'Persoonlijke begeleiding bij stress, emoties en het vinden van jouw innerlijke kracht.',
+						link: '/aanbod/levensbegeleiding',
+						linkText: 'Start je traject',
+						layout: 'vertical'
+					},
+					{
+						image: '/images/aanbod/cadeaubon-thumb.webp',
+						title: 'Cadeaubonnen',
+						description: 'Verras iemand met een moment van rust en aandacht: therapie of massage naar keuze.',
+						link: '/aanbod/cadeaubon',
+						linkText: 'Geef ontspanning cadeau',
+						layout: 'horizontal'
+					},
+					{
+						image: '/images/aanbod/psoas-thumb.webp',
+						title: 'Psoas',
+						description: 'Bevrijdend werk aan de psoas spier voor meer bewegingsvrijheid, ademruimte en emotionele loslating.',
+						link: '/aanbod/psoas',
+						linkText: 'Meer over Psoas',
+						layout: 'horizontal'
+					}
+				]}
+		/>
+		<Cta
+			layout="split"
+			title="Twijfel je nog?"
+			description="Neem contact op voor een vrijblijvend gesprek. Samen kijken we wat jouw lichaam nu het meeste nodig heeft."
+			ctaText="Plan een kennismaking"
+			ctaLink="/contact"
+			ctaStyle="secondary"
+			backgroundImage="/images/bloemen-cta.webp"
+			textColor="light"
 		/>
 	</main>
 </Layout>

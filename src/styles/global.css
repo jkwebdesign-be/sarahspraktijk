@@ -159,7 +159,7 @@ ol[role='list'] {
 
 /* Button styles */
 /* ============================================
-   BUTTON SYSTEM - ADD TO YOUR global.css
+   BUTTON SYSTEM
    ============================================ */
 
 /* Base button - applies to all buttons */
@@ -169,7 +169,7 @@ ol[role='list'] {
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-semibold);
   text-decoration: none;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
   border: 4px solid transparent;
   transition: all var(--transition-base);
   cursor: pointer;
@@ -179,10 +179,7 @@ ol[role='list'] {
   line-height: 1.5;
 }
 
-/* ============================================
-   PRIMARY - Purple/pink outline
-   Used: Most buttons across site (CTA, ContentBlock, etc.)
-   ============================================ */
+/* PRIMARY - Purple/pink outline */
 .btn--primary {
   background-color: transparent;
   border-color: #AB1FAF;
@@ -197,10 +194,7 @@ ol[role='list'] {
   box-shadow: 0 4px 12px rgba(171, 31, 175, 0.3);
 }
 
-/* ============================================
-   SECONDARY - White outline
-   Used: CTA with background images
-   ============================================ */
+/* SECONDARY - White outline */
 .btn--secondary {
   background-color: transparent;
   border-color: white;
@@ -215,10 +209,7 @@ ol[role='list'] {
   box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
 }
 
-/* ============================================
-   ACCENT - Purple filled
-   Used: Hero secondary option, CTA alternative
-   ============================================ */
+/* ACCENT - Purple filled */
 .btn--accent {
   background-color: #9981F7;
   border-color: #9981F7;
@@ -232,10 +223,7 @@ ol[role='list'] {
   box-shadow: 0 4px 12px rgba(153, 129, 247, 0.4);
 }
 
-/* ============================================
-   OUTLINE - Generic outline (rarely used)
-   Used: CTA alternative, Hero alternative
-   ============================================ */
+/* OUTLINE - Generic outline */
 .btn--outline {
   background-color: transparent;
   color: var(--color-text);
@@ -247,11 +235,7 @@ ol[role='list'] {
   transform: translateY(-2px);
 }
 
-/* ============================================
-   CONTACT PAGE - Specific filled buttons
-   ============================================ */
-
-/* Purple filled - "Bel me" */
+/* CONTACT PAGE - Specific filled buttons */
 .btn--purple-filled {
   background-color: #AB1FAF;
   border-color: #AB1FAF;
@@ -265,7 +249,6 @@ ol[role='list'] {
   box-shadow: 0 4px 12px rgba(171, 31, 175, 0.4);
 }
 
-/* Green filled - "Stuur via whatsapp" */
 .btn--green-filled {
   background-color: #25D366;
   border-color: #25D366;
@@ -279,7 +262,6 @@ ol[role='list'] {
   box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
 }
 
-/* Blue filled - "Stuur een email" */
 .btn--blue-filled {
   background-color: #446EAF;
   border-color: #446EAF;
@@ -342,7 +324,10 @@ ol[role='list'] {
   align-self: flex-start;
 }
 
-/* Icon list styles */
+/* ============================================
+   ICON LIST STYLES - UPDATED
+   ============================================ */
+
 .icon-list {
   list-style: none;
   padding: 0;
@@ -350,8 +335,12 @@ ol[role='list'] {
   display: flex;
   flex-direction: column;
   gap: var(--space-6);
-  min-width: 0;
   width: 100%;
+}
+
+.icon-list--compact {
+  margin: var(--space-4) 0;  /* Reduced from space-6 */
+  gap: var(--space-1);       /* Reduced from space-6 */
 }
 
 .sticky-content-section__right .icon-list {
@@ -364,18 +353,20 @@ ol[role='list'] {
 
 .icon-list__item {
   display: grid;
-  grid-template-columns: 38px 1fr;
+  grid-template-columns: 40px 1fr;
   gap: var(--space-4);
   align-items: center;
-  min-width: 0;
+  width: 100%;
 }
 
+/* Default icon size - 40px (regular) */
 .icon-list__icon {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   flex-shrink: 0;
   filter: invert(74%) sepia(26%) saturate(1836%) hue-rotate(299deg) brightness(101%) contrast(101%);
   justify-self: center;
+  margin-top: 2px;
 }
 
 .icon-list__item p {
@@ -385,7 +376,26 @@ ol[role='list'] {
   margin: 0;
   word-wrap: break-word;
   overflow-wrap: break-word;
-  min-width: 0;
+  width: 100%;
+}
+
+/* Icon size variants */
+.icon-list__icon--small {
+  width: 20px;
+  height: 20px;
+}
+
+.icon-list__item--small {
+  grid-template-columns: 20px 1fr;
+}
+
+.icon-list__icon--large {
+  width: 48px;
+  height: 48px;
+}
+
+.icon-list__item--large {
+  grid-template-columns: 48px 1fr;
 }
 
 /* responsive icon list */
@@ -398,13 +408,30 @@ ol[role='list'] {
   .icon-list__item {
     grid-template-columns: 40px 1fr;
   }
+
+  .icon-list__icon--small {
+    width: 32px;
+    height: 32px;
+  }
+
+  .icon-list__item--small {
+    grid-template-columns: 32px 1fr;
+  }
+
+  .icon-list__icon--large {
+    width: 48px;
+    height: 48px;
+  }
+
+  .icon-list__item--large {
+    grid-template-columns: 48px 1fr;
+  }
 }
 
 /* Icon list group - for categorized icon lists with titles */
 .icon-list-group {
   display: flex;
   flex-direction: column;
-  gap: var(--space-6);
 }
 
 .icon-list-group + .icon-list-group {
@@ -422,23 +449,28 @@ ol[role='list'] {
 /* Service page common styles */
 .service-hero {
   width: 100%;
-  padding: var(--space-24) 0 var(--space-12) 0;
+  padding: var(--space-24) var(--container-padding) var(--space-12) var(--container-padding);;
+  
 }
 
 .service-hero__container {
   max-width: var(--container-max);
   margin: 0 auto;
-  padding: 0 var(--container-padding);
 }
 
 .service-hero h1 {
   margin-bottom: var(--space-6);
+  max-width: 80%;
 }
 
 .service-hero__subtitle {
   font-size: var(--font-size-lg);
-  color: var(--color-text-muted);
   margin: 0;
+  text-align: right;
+  padding-top: var(--space-3);
+  border-top: 2px solid var(--color-text);
+  max-width: 60%;
+  margin-left: auto;
 }
 
 .service-hero__tagline {
@@ -450,18 +482,20 @@ ol[role='list'] {
 
 .service-text-section {
   width: 100%;
-  padding: var(--space-16) 0;
-  background-color: var(--color-background-secondary);
+  padding: var(--space-16) var(--container-padding);
 }
 
 .service-text-section__container {
   max-width: var(--container-max);
   margin: 0 auto;
-  padding: 0 var(--container-padding);
 }
 
-.service-text-section--no-bg {
-  background-color: transparent;
+.service-text-section--bg {
+  background-color: var(--color-background-secondary);
+}
+
+.service-text-section__container ul li{
+  list-style-type: none;
 }
 
 .service-text-section--centered {
@@ -483,6 +517,7 @@ ol[role='list'] {
 
 .service-text-section p {
   margin-bottom: var(--space-4);
+  max-width: 70ch;
 }
 
 .service-text-section p:last-child {
@@ -493,6 +528,11 @@ ol[role='list'] {
   margin: var(--space-6) 0;
   padding-left: var(--space-8);
   list-style-type: disc;
+}
+
+.service-text-section .icon-list {
+  padding-left: 0;
+  list-style: none;
 }
 
 .service-text-section li {
@@ -520,6 +560,10 @@ ol[role='list'] {
   color: var(--text-accent-4);
 }
 
-.page-with-fixed-header {
+main.no-header-padding {
+  padding-top: 0;
+}
+
+main {
   padding-top: 80px;
 }

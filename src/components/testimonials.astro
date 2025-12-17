@@ -1,0 +1,428 @@
+---
+interface Testimonial {
+  quote: string;
+  text: string;
+  author: string;
+}
+
+interface Props {
+  title?: string;
+  testimonials: Testimonial[];
+  padding?: 'small' | 'medium' | 'large';
+}
+
+const {
+  title,
+  testimonials,
+  padding = 'medium'
+} = Astro.props;
+
+const paddingMap = {
+  'small': 'var(--space-8)',
+  'medium': 'var(--space-10)',
+  'large': 'var(--space-16)',
+};
+---
+
+<section 
+  class="testimonials"
+  style={`--padding: ${paddingMap[padding]};`}
+>
+  <div class="testimonials__container">
+    {title && <h2 class="testimonials__title">{title}</h2>}
+    
+    <div class="testimonials__carousel">
+      <button class="testimonials__arrow testimonials__arrow--prev" aria-label="Vorige review">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+      <div class="testimonials__card">
+        {testimonials.map((testimonial, index) => (
+          <div class={`testimonials__item ${index === 0 ? 'is-active' : ''}`} data-index={index}>
+            <blockquote class="testimonials__blockquote">
+              <p class="testimonials__quote">"{testimonial.quote}"</p>
+              <p class="testimonials__text">{testimonial.text}</p>
+              <cite class="testimonials__author">– {testimonial.author}</cite>
+            </blockquote>
+          </div>
+        ))}
+      </div>
+
+      <button class="testimonials__arrow testimonials__arrow--next" aria-label="Volgende review">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="testimonials__dots">
+      {testimonials.map((_, index) => (
+        <button 
+          class={`testimonials__dot ${index === 0 ? 'is-active' : ''}`}
+          aria-label={`Ga naar review ${index + 1}`}
+          aria-selected={index === 0 ? 'true' : 'false'}
+          role="tab"
+          data-index={index}
+        ></button>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  function initTestimonials() {
+    const carousel = document.querySelector('.testimonials__carousel');
+    const card = document.querySelector('.testimonials__card');
+    const items = document.querySelectorAll('.testimonials__item');
+    const dots = document.querySelectorAll('.testimonials__dot');
+    const prevButton = document.querySelector('.testimonials__arrow--prev');
+    const nextButton = document.querySelector('.testimonials__arrow--next');
+    
+    if (!items.length) return;
+    
+    let currentIndex = 0;
+    const totalItems = items.length;
+    let autoAdvanceTimer: number;
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    // Auto-advance every 30 seconds
+    function startAutoAdvance() {
+      stopAutoAdvance();
+      autoAdvanceTimer = window.setInterval(() => {
+        nextSlide();
+      }, 30000);
+    }
+    
+    function stopAutoAdvance() {
+      if (autoAdvanceTimer) {
+        clearInterval(autoAdvanceTimer);
+      }
+    }
+    
+    function resetAutoAdvance() {
+      stopAutoAdvance();
+      startAutoAdvance();
+    }
+    
+    function showSlide(index: number) {
+      items.forEach(item => item.classList.remove('is-active'));
+      dots.forEach(dot => {
+        dot.classList.remove('is-active');
+        dot.setAttribute('aria-selected', 'false');
+      });
+      
+      items[index].classList.add('is-active');
+      dots[index].classList.add('is-active');
+      dots[index].setAttribute('aria-selected', 'true');
+      
+      currentIndex = index;
+    }
+    
+    function nextSlide() {
+      const newIndex = (currentIndex + 1) % totalItems;
+      showSlide(newIndex);
+    }
+    
+    function prevSlide() {
+      const newIndex = (currentIndex - 1 + totalItems) % totalItems;
+      showSlide(newIndex);
+    }
+    
+    // Touch/swipe handling
+    function handleSwipe() {
+      const swipeThreshold = 50;
+      const diff = touchStartX - touchEndX;
+      
+      if (Math.abs(diff) > swipeThreshold) {
+        if (diff > 0) {
+          nextSlide();
+        } else {
+          prevSlide();
+        }
+        resetAutoAdvance();
+      }
+    }
+    
+    card?.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+    
+    card?.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    }, { passive: true });
+    
+    // Arrow clicks
+    prevButton?.addEventListener('click', () => {
+      prevSlide();
+      resetAutoAdvance();
+    });
+    
+    nextButton?.addEventListener('click', () => {
+      nextSlide();
+      resetAutoAdvance();
+    });
+    
+    // Dot clicks
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        showSlide(index);
+        resetAutoAdvance();
+      });
+    });
+    
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') {
+        prevSlide();
+        resetAutoAdvance();
+      }
+      if (e.key === 'ArrowRight') {
+        nextSlide();
+        resetAutoAdvance();
+      }
+    });
+    
+    // Pause on hover
+    carousel?.addEventListener('mouseenter', stopAutoAdvance);
+    carousel?.addEventListener('mouseleave', startAutoAdvance);
+    
+    // Start auto-advance
+    startAutoAdvance();
+  }
+  
+  // Run on initial load
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initTestimonials);
+  } else {
+    initTestimonials();
+  }
+  
+  // Re-run after View Transitions
+  document.addEventListener('astro:page-load', initTestimonials);
+  
+  // Clean up on navigation
+  document.addEventListener('astro:before-swap', () => {
+    const testimonials = document.querySelector('.testimonials__carousel');
+    if (testimonials) {
+      // Stop any running timers
+      const autoAdvanceTimer = (window as any).testimonialAutoPlay;
+      if (autoAdvanceTimer) {
+        clearInterval(autoAdvanceTimer);
+      }
+    }
+  });
+</script>
+
+<style>
+  .testimonials {
+    width: 100%;
+    padding: var(--padding);
+  }
+
+  .testimonials__container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+  }
+
+  .testimonials__title {
+    text-align: center;
+    margin: 0 0 var(--space-12) 0;
+  }
+
+  .testimonials__carousel {
+    display: flex;
+    align-items: center;
+    gap: var(--space-8);
+    position: relative;
+  }
+
+  .testimonials__arrow {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    background: transparent;
+    border: none;
+    color: var(--color-text);
+    cursor: pointer;
+    transition: transform var(--transition-base);
+    padding: var(--space-2);
+    touch-action: manipulation;
+  }
+
+  .testimonials__arrow:hover {
+    transform: scale(1.1);
+  }
+
+  .testimonials__arrow svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .testimonials__card {
+    position: relative;
+    width: 100%;
+    background: white;
+    border-radius: var(--radius-lg);
+    padding: var(--space-12);
+    box-shadow: var(--shadow-lg);
+    min-height: 350px; /* Reduced from 400px for desktop */
+    height: 350px;
+    overflow: hidden;
+    touch-action: pan-y;
+    cursor: grab;
+  }
+
+  .testimonials__card:active {
+    cursor: grabbing;
+  }
+
+  .testimonials__item {
+    opacity: 0;
+    position: absolute;
+    top: var(--space-12);
+    left: var(--space-12);
+    right: var(--space-12);
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+
+  .testimonials__item.is-active {
+    opacity: 1;
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    pointer-events: auto;
+  }
+
+  .testimonials__blockquote {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .testimonials__quote {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-regular);
+    font-family: var(--font-family-serif);
+    line-height: var(--line-height-tight);
+    color: var(--color-text);
+    margin: 0;
+  }
+
+  .testimonials__text {
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-normal);
+    color: var(--color-text);
+    margin: 0;
+  }
+
+  .testimonials__author {
+    font-size: var(--font-size-base);
+    font-style: normal;
+    color: var(--color-primary);
+    font-weight: var(--font-weight-semibold);
+    margin-top: var(--space-2);
+  }
+
+  .testimonials__dots {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-3);
+    margin-top: var(--space-8);
+    role: tablist;
+  }
+
+  .testimonials__dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: transparent;
+    border: 2px solid var(--color-text);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    padding: 0;
+    touch-action: manipulation;
+  }
+
+  .testimonials__dot.is-active {
+    background: var(--color-text);
+  }
+
+  .testimonials__dot:hover,
+  .testimonials__dot:focus {
+    transform: scale(1.2);
+  }
+
+  /* Show arrows on tablet and desktop */
+  @media (min-width: 601px) {
+    .testimonials__arrow {
+      display: flex;
+    }
+  }
+
+  /* Hide arrows only on small phones */
+  @media (max-width: 600px) {
+    .testimonials {
+      padding: var(--space-12) var(--space-4);
+    }
+
+    .testimonials__carousel {
+      gap: 0;
+    }
+
+    .testimonials__arrow {
+      display: none;
+    }
+
+    .testimonials__card {
+      padding: var(--space-8);
+      min-height: 350px;
+      height: 400px;
+    }
+
+    .testimonials__quote {
+      font-size: var(--font-size-xl);
+    }
+
+    .testimonials__text {
+      font-size: var(--font-size-sm);
+    }
+
+    .testimonials__title {
+      font-size: var(--font-size-2xl);
+      margin-bottom: var(--space-8);
+    }
+  }
+  /* Tablet/iPad sizing */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .testimonials__card {
+    min-height: 510px; /* Increased for iPad */
+    height: 510px;
+    padding: var(--space-10);
+  }
+}
+
+/* Desktop - keep at 350px (already set above) */
+@media (min-width: 1025px) {
+  .testimonials__card {
+    min-height: 350px;
+    height: 350px;
+  }
+}
+
+/* Mobile phones */
+@media (max-width: 600px) {
+  .testimonials__card {
+    padding: var(--space-8);
+    min-height: 350px;
+    height: 400px;
+  }
+}
+</style>

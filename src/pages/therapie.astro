@@ -5,20 +5,19 @@ import Faq from '../components/faq.astro';
 import Cta from '../components/cta.astro';
 ---
 
-<Layout title="therapie | sarah bogaerts" description="therapie bij sarah" transparentHeader={true}>
+<Layout title="Therapie | Sarah's Praktijk" description="Holistische en lichaamsgerichte therapie voor vrouwen in Keerbergen. Veilige begeleiding bij stress, hormonale disbalans en emotionele blokkages." transparentHeader={true}>
 	<main class="page-with-fixed-header">
 		<section class="therapie-hero">
 			<div class="therapie-hero__container">
 				<div class="therapie-hero__content">
-				<h1>Therapie bij Sarah</h1>
-				<p>Een veilige plek waar emoties en spanningen erkend worden. Samen werken we aan rust, herstel en balans - zodat jij je lichaam opnieuw als een thuis kan ervaren.</p>
-				<p>Therapie is voor mij meer dan een methode — het is samen zoeken naar wat jou vooruithelpt. Ik nodig je uit om in vertrouwen je eerste stap te zetten.</p>
-				<a href="/contact" class="btn btn--primary">plan je eerste sessie</a>
+					<h1>Therapie bij Sarah</h1>
+					<p>Een veilige plek waar emoties en spanningen erkend worden. Samen werken we aan rust, herstel en balans - zodat jij je lichaam opnieuw als een thuis kan ervaren.</p>
+					<p>Therapie is voor mij meer dan een methode — het is samen zoeken naar wat jou vooruithelpt. Ik nodig je uit om in vertrouwen je eerste stap te zetten.</p>
+					<a href="/contact" class="btn btn--primary">Plan je eerste sessie</a>
 				</div>
-				
 				<div class="therapie-hero__images">
-				<img src="/Images/other/therapie1.jpeg" alt="therapie" class="therapie-hero__image-main" />
-				<img src="/Images/other/therapie3.jpeg" alt="" class="therapie-hero__image-overlay" />
+					<img src="/images/therapie-hero.webp" alt="Sarah tijdens een therapeutische sessie" class="therapie-hero__image-main" loading="eager"/>
+					<img src="/images/therapie-overlay.webp" alt="Ontspannende therapie omgeving met bloemen" class="therapie-hero__image-overlay" loading="eager"/>
 				</div>
 			</div>
 		</section>
@@ -27,129 +26,122 @@ import Cta from '../components/cta.astro';
 			leftWidth="45%"
 			rightWidth="55%"
 			gap="large"
-			padding="large"
 			verticalAlign="center"
+			reverseOnMobile={true}
 		>
-			<img slot="left" src="/Images/Main/bloem.jpg" alt="massage sessie" style="border-radius: var(--radius-md);" />
-			
+			<img slot="left" src="/images/therapie-bloem.webp" alt="Ontspannende massage met bloesem" loading="eager"/>
 			<div slot="right">
-				<h2>Waar kan therapie bij helpen?</h2>
-				<p>Therapie kan verlichting en ondersteuning bieden bij uiteenlopende uitdagingen. Denk aan stress en spanning, hormonale disbalans, slaapproblemen, vermoeidheid of het gevoel dat je vastzit. Ook als je op zoek bent naar meer zelfvertrouwen of je persoonlijke groei wil verdiepen, kan therapie een waardevolle stap zijn.</p>
+				<h2>Ontdek wat <span class="accent-1">jouw lichaam</span> je vertelt</h2>
+				<p>Stress, vermoeidheid of gevoelige borsten zijn nooit zomaar toeval. In mijn holistische therapie kijken we samen naar het grotere plaatje: lichaam, emoties, energie en leefstijl. Zo kan spanning smelten, energie weer stromen en ontdek jij hoe het voelt om echt vrij en aanwezig te zijn in je eigen leven.</p>
+				<a href="/contact" class="btn btn--primary">Ontdek welke therapie bij jou past</a>
 			</div>
 		</ContentBlock>
 
-		<section class="therapie-services">
-			<div class="therapie-services__container">
-				<h2 class="therapie-services__title">Ontdek de therapieën die ik aanbied</h2>
-				<p class="therapie-services__subtitle">Elke methode heeft haar eigen kracht. Klik door en ontdek welke aanpak het best bij jou past.</p>
-				
-				<div class="therapie-services__grid">
-					<!-- row 1 -->
-					<div class="therapie-services__card therapie-services__card--1">
-						<h3>VLOW borstweefsel-therapie</h3>
-						<p>Een unieke methode die zachte aanraking en diepe ontspanning combineert om spanning, blokkades en emotionele belasting in het borstgebied te verlichten. Voor meer comfort en een beter lichaamsbewustzijn.</p>
-						<a href="/diensten/vlow" class="therapie-services__link">lees meer →</a>
-					</div>
-
-					<div class="therapie-services__card therapie-services__card--2">
-						<h3>Menopauze-begeleiding</h3>
-						<p>De overgang brengt vaak hormonale en emotionele verschuivingen met zich mee – van opvliegers tot een verminderd libido. je hoort niet alleen, ik begeleid je in het vinden van balans en kracht.</p>
-						<a href="/diensten/menopauze" class="therapie-services__link">meer over menopauze →</a>
-					</div>
-
-					<div class="therapie-services__card therapie-services__card--3">
-						<h3>Relaxatie</h3>
-						<p>Door middel van zachte technieken en ademhalingsoefeningen kom je in verbinding met jezelf en laat je stress los. een moment van stilte en zorg om je energie weer te laten stromen.</p>
-						<a href="/diensten/relaxatie" class="therapie-services__link">ontdek relaxatie →</a>
-					</div>
-
-					<!-- row 2 -->
-					<div class="therapie-services__card therapie-services__card--4">
-						<h3>Therapeutische massage</h3>
-						<p>Een massage met een diepe werking. gericht op specifieke klachten, herstelprocessen en het aanbrengen van rust in je lichaam. ideaal voor wie meer behoefte heeft aan lichamelijk herstel.</p>
-						<a href="/diensten/massage" class="therapie-services__link">lees meer →</a>
-					</div>
-
-					<div class="therapie-services__card therapie-services__card--5">
-						<h3>Zwangerschaps-massage</h3>
-						<p>Tijdens je zwangerschap verandert je lichaam voortdurend. een zachte, veilige massage helpt fysieke klachten te verlichten, biedt ontspanning en verbinding met jou en je baby.</p>
-						<a href="/diensten/zwangerschap" class="therapie-services__link">ontdek zwangerschaps-massage →</a>
-					</div>
-
-					<div class="therapie-services__card therapie-services__card--6">
-						<h3>Workshops & lezingen</h3>
-						<p>Ik deel mijn kennis in lessen en trainingen gericht op gezondheid, welzijn en persoonlijke groei. interessant, praktisch en met ruimte voor vragen.</p>
-						<a href="/diensten/workshops" class="therapie-services__link">bekijk aanbod →</a>
-					</div>
-				</div>
-			</div>
-		</section>
 		<ContentBlock
 			leftWidth="60%"
 			rightWidth="40%"
 			gap="large"
-			padding="large"
 			verticalAlign="center"
+			backgroundColor='var(--color-background-secondary)'
 			>
 			<div slot="left">
-				<h2>Ik breng je lichaam terug naar veiligheid.</h2>
-				<p>Veel mensen denken dat er iets mis is met hun lichaam. Dat ze uitgeput zijn door een tekort. Dat hun spanning een fout is. Dat hun pijn hen tegenwrkt. Maar je lichaam werkt nooit tegen jou.<br><br>Het beschermt je. Het wacht. Het spreekt.En het opent zich pas wanneer het zich veilig voelt.<br><br>Mijn werk gaat niet in de eerste plaats over technieken, protocollen of kennis al zijn die heel erg waardevol.<br><br>Mijn werk begint bij iets diepers, dat ik benoem als ruimte scheppen waarin jouw lichaam opnieuw durft te vertrouwen in het leven.<br><br>Ik help je zakken uit je hoofd, in je lijf. Ik begeleid je naar de plek waar je zenuwstelsel ontspant, waar oude patronen losweken, waar je adem weer vrij wordt en je lichaam zich herinnert hoe het zichzelf kan herstellen. Want heling is geen prestatie. Het is een herinnering. Aan wie je was vóór je spanning opbouwde, vóór je overleefde, vóór je je afsloot.<br><br>In mijn praktijk nodig ik je uit om terug thuis te komen in jezelf, zodat je lichaam weer mag functioneren zoals het voorzien was met zachtheid, kracht, helderheid en innerlijke rust.</p>
+				<h2>Ik breng je lichaam terug naar <span class="accent-2">veiligheid</span>.</h2>
+				<p>Veel mensen denken dat er iets mis is met hun lichaam. Dat ze uitgeput zijn door een tekort. Dat hun spanning een fout is. Dat hun pijn hen tegenwerkt. Maar je lichaam werkt nooit tegen jou.</p>
+				<p>Het beschermt je. Het wacht. Het spreekt.En het opent zich pas wanneer het zich veilig voelt.</p>
+				<p>Mijn werk gaat niet in de eerste plaats over technieken, protocollen of kennis al zijn die heel erg waardevol.</p>
+				<p>Mijn werk begint bij iets diepers, dat ik benoem als ruimte scheppen waarin jouw lichaam opnieuw durft te vertrouwen in het leven.</p>
+				<p>Ik help je zakken uit je hoofd, in je lijf. Ik begeleid je naar de plek waar je zenuwstelsel ontspant, waar oude patronen losweken, waar je adem weer vrij wordt en je lichaam zich herinnert hoe het zichzelf kan herstellen. Want heling is geen prestatie. Het is een herinnering. Aan wie je was vóór je spanning opbouwde, vóór je overleefde, vóór je je afsloot.</p>
+				<p>In mijn praktijk nodig ik je uit om terug thuis te komen in jezelf, zodat je lichaam weer mag functioneren zoals het voorzien was met zachtheid, kracht, helderheid en innerlijke rust.</p>
 			</div>
-			
-			<img slot="right" src="/Images/Main/veiligheid.jpeg" alt="description" style="border-radius: var(--radius-md);" />
+			<img slot="right" src="/images/therapie-veiligheid.webp" alt="Veilige therapeutische omgeving bij Sarah's Praktijk"/>
 		</ContentBlock>
 		<ContentBlock 
 			leftWidth="40%" 
 			rightWidth="60%" 
 			gap="large" 
-			padding="large"
 			verticalAlign="center"
 		>
 			<div slot="left" class="content-text icon-section-left">
-				<h2>Waarom kiezen voor therapie bij Sarah?</h2>
+				<h2>Waarom kiezen voor <span class="accent-3">therapie</span> bij Sarah?</h2>
 			</div>
 			<ul slot="right" class="icon-list">
 				<li class="icon-list__item">
-					<img src="/icons/heart.svg" alt="" class="icon-list__icon" />
+					<img src="/icon/heart.svg" alt="" class="icon-list__icon" />
 					<p>Persoonlijke begeleiding: Elke sessie wordt afgestemd op jouw noden en tempo. </p>
 				</li>
 				<li class="icon-list__item">
-					<img src="/icons/heart.svg" alt="" class="icon-list__icon" />
+					<img src="/icon/heart.svg" alt="" class="icon-list__icon" />
 					<p>Veilige omgeving: Je mag er volledig jezelf zijn, zonder oordeel.</p>
 				</li>
 				<li class="icon-list__item">
-					<img src="/icons/heart.svg" alt="" class="icon-list__icon" />
+					<img src="/icon/heart.svg" alt="" class="icon-list__icon" />
 					<p>Holistische aanpak: Lichaam en geest worden samen bekeken.</p>
 				</li>
 				<li class="icon-list__item">
-					<img src="/icons/heart.svg" alt="" class="icon-list__icon" />
+					<img src="/icon/heart.svg" alt="" class="icon-list__icon" />
 					<p>Stap voor stap vooruit: Kleine veranderingen die leiden tot duurzame resultaten.</p>
 				</li>
 			</ul>
 		</ContentBlock>
+		<ContentBlock
+			leftWidth="65%"
+			rightWidth="35%"
+			gap="large"
+			verticalAlign="top"
+			backgroundColor="var(--color-background-secondary)"
+		>
+			<div slot="left">
+				<h2>Holistische en lichaamsgerichte therapie</h2>
+				<p>In mijn praktijk werk ik met <strong>holistische therapie</strong> en <strong>lichaamsgerichte therapie</strong>. Dat betekent dat we niet enkel naar klachten kijken, maar naar jou als geheel.</p>
+				<p>Stress, hormonale disbalans, emotionele blokkades of terugkerende spanning zijn vaak signalen van onderliggende patronen in je lichaam en zenuwstelsel.</p>
+				<ul class="icon-list icon-list--compact">
+					<li class="icon-list__item">
+						<img src="/icon/heart.svg" alt="" class="icon-list__icon icon-list__icon--small" />
+						<p>Stress en spanning</p>
+					</li>
+					<li class="icon-list__item">
+						<img src="/icon/heart.svg" alt="" class="icon-list__icon icon-list__icon--small" />
+						<p>Hormonale klachten en borstgevoeligheid</p>
+					</li>
+					<li class="icon-list__item">
+						<img src="/icon/heart.svg" alt="" class="icon-list__icon icon-list__icon--small" />
+						<p>Vermoeidheid en energiedisbalans</p>
+					</li>
+					<li class="icon-list__item">
+						<img src="/icon/heart.svg" alt="" class="icon-list__icon icon-list__icon--small" />
+						<p>Emotionele blokkades</p>
+					</li>
+				</ul>
+				<p>Door te werken met adem, fascia, lymfe en energiebalans ontstaat er opnieuw ruimte voor herstel, zelfzorg en emotionele gezondheid, op jouw tempo.</p>
+			</div>
+			<div slot="right" style="border-left: 2px solid var(--color-text); padding-left: var(--space-6);">
+				<h3>Voor wie is deze therapie?</h3>
+				<p>Deze begeleiding is er voor vrouwen die bereid zijn om dieper te luisteren naar hun lichaam, patronen willen doorbreken en opnieuw verbinding willen voelen met zichzelf.</p>
+				<a href="/contact" class="btn btn--primary">bekijk het aanbod</a>
+			</div>
+		</ContentBlock>
 		<Faq
-			title="FAQs"
-			description="Misschien helpt je nog praktische vragen voor je een afspraak maakt. hier vind je antwoorden op de meest voorkomende vragen over mijn therapieën en werkwijze."
+			title="Veelgestelde vragen over therapie"
 			faqs={[
 				{
-					question: "moet ik eerst een intakegesprek doen?",
-					answer: "lorem ipsum dolor sit amet, consectetur adipiscing elit. suspendisse varius enim in eros elementum tristique. duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. nunc ut sem vitae risus tristique posuere."
+					question: "Moet ik eerst een intakegesprek doen?",
+					answer: "Ja, dat is belangrijk. Een klik tussen ons vormt de basis van het werk dat we samen doen. Tijdens dit eerste gesprek komen vaak al inzichten naar boven en kunnen we meteen de eerste stappen op maat voor jou zetten."
 				},
 				{
-					question: "hoe lang duurt een sessie gemiddeld?",
-					answer: "lorem ipsum dolor sit amet, consectetur adipiscing elit. suspendisse varius enim in eros elementum tristique. duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. nunc ut sem vitae risus tristique posuere."
+					question: "Hoe lang duurt een sessie gemiddeld?",
+					answer: "Gewoonlijk duurt een sessie 1u30 tot 2u, maar soms vraagt je lichaam om extra tijd. In dat geval kan een therapeutische sessie tot 3u duren, inclusief een rustig invoelend gesprek. Alles stemmen we samen af, zodat de sessie helemaal past bij jou en wat je op dat moment nodig hebt."
 				},
 				{
-					question: "is therapie geschikt als ik al medische behandeling volg?",
-					answer: "lorem ipsum dolor sit amet, consectetur adipiscing elit. suspendisse varius enim in eros elementum tristique. duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. nunc ut sem vitae risus tristique posuere."
+					question: "Is therapie geschikt als ik al medische behandeling volg?",
+					answer: "In de meeste gevallen kan mijn begeleiding aanvullend en ondersteunend zijn naast andere medische behandelingen. Tijdens het kennismakingsgesprek stemmen we alles samen af, zodat alles duidelijk is en geen dubbel werk gebeurt. Bij twijfel of bij ernstige vragen, neem altijd eerst contact op met je huisarts."
 				},
 				{
-					question: "kan ik meerdere therapievormen combineren?",
-					answer: "lorem ipsum dolor sit amet, consectetur adipiscing elit. suspendisse varius enim in eros elementum tristique. duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. nunc ut sem vitae risus tristique posuere."
+					question: "Kan ik meerdere therapievormen combineren?",
+					answer: "Zeker! In mijn holistische begeleiding kunnen verschillende therapievormen hand in hand gaan. Naast massages kun je bijvoorbeeld ook voedingsadvies, emotionele begeleiding en op maat gemaakte oefeningen krijgen. Alles stemmen we af op jouw tempo en behoeften, zodat jouw transformatie soepel en aangenaam verloopt. Bij twijfel of bij belangrijke vragen, raadpleeg altijd eerst je huisarts."
 				},
 				{
-					question: "hoe vaak moet ik komen voor resultaat?",
-					answer: "lorem ipsum dolor sit amet, consectetur adipiscing elit. suspendisse varius enim in eros elementum tristique. duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. nunc ut sem vitae risus tristique posuere."
+					question: "Hoe vaak moet ik komen voor resultaat?",
+					answer: "Dat hangt helemaal af van jou en je doelen. Sommige klachten verdwijnen snel, andere hebben meer tijd nodig om weer in balans te komen. Samen bepalen we de duur en intensiteit van het traject, waarbij jouw inzet en aandacht voor je lichaam cruciaal zijn voor resultaat."
 				}
 			]}
 		/>
@@ -160,9 +152,7 @@ import Cta from '../components/cta.astro';
 			ctaText="Neem contact op"
 			ctaLink="/contact"
 			ctaStyle="secondary"
-			backgroundImage="/Images/Main/bloemen.jpg"
-			overlayOpacity={0.4}
-			padding="large"
+			backgroundImage="/images/bloemen-cta.webp"
 			textColor="light"
 		/>
 	</main>
@@ -218,7 +208,7 @@ import Cta from '../components/cta.astro';
   height: 100%;
   object-fit: cover;
   object-position: center;
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-md);
   box-shadow: var(--shadow-lg);
   z-index: 1;
 }
@@ -231,7 +221,7 @@ import Cta from '../components/cta.astro';
   height: 42%;
   object-fit: cover;
   object-position: center;
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-md);
   box-shadow: var(--shadow-xl);
   z-index: 2;
 }
@@ -250,6 +240,7 @@ import Cta from '../components/cta.astro';
   .therapie-hero__images {
     min-height: 400px;
     aspect-ratio: 3 / 4;
+	max-height: 400px;
   }
 
   .therapie-hero__image-main {
@@ -264,7 +255,6 @@ import Cta from '../components/cta.astro';
 
 /* Right-align the "Waarom kiezen" section title */
 .icon-section-left {
-	text-align: right;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -277,110 +267,8 @@ import Cta from '../components/cta.astro';
 	}
 }
 
-	/* services section */
-	.therapie-services {
-		width: 100%;
-		padding: var(--space-16) 0;
-		background-color: var(--color-background-secondary);
-	}
-
-	.therapie-services__container {
-		max-width: var(--container-max);
-		margin: 0 auto;
-		padding: 0 var(--container-padding);
-	}
-
-	.therapie-services__title {
-		text-align: left;
-		margin-bottom: var(--space-8);
-	}
-
-	.therapie-services__subtitle {
-		text-align: right;
-		padding-top: var(--space-4);
-		border-top: 2px solid var(--color-primary);
-		margin-bottom: var(--space-16);
-		max-width: 600px;
-		margin-left: auto;
-	}
-
-	.therapie-services__grid {
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		gap: var(--space-8);
-	}
-
-	.therapie-services__card {
-		padding: var(--space-8);
-		display: flex;
-		flex-direction: column;
-		gap: var(--space-4);
-	}
-
-	.therapie-services__card h3 {
-		margin: 0;
-	}
-
-	.therapie-services__card p {
-		margin: 0;
-	}
-
-	.therapie-services__link {
-		text-decoration: none;
-		color: var(--color-primary);
-		font-weight: var(--font-weight-medium);
-		transition: color var(--transition-base);
-		align-self: flex-start;
-	}
-
-	.therapie-services__link:hover {
-		color: var(--color-text);
-	}
-
-	/* staggered layout - both rows progressively lower */
-	.therapie-services__card--1 {
-		margin-top: 0;
-	}
-
-	.therapie-services__card--2 {
-		margin-top: var(--space-16);
-	}
-
-	.therapie-services__card--3 {
-		margin-top: var(--space-32);
-	}
-
-	.therapie-services__card--4 {
-		margin-top: var(--space-12);
-	}
-
-	.therapie-services__card--5 {
-		margin-top: calc(var(--space-16) + var(--space-12));
-	}
-
-	.therapie-services__card--6 {
-		margin-top: calc(var(--space-32) + var(--space-12));
-	}
-
-	@media (max-width: 768px) {
-		.therapie-services__grid {
-			grid-template-columns: 1fr;
-		}
-
-		.therapie-services__subtitle {
-			text-align: left;
-			max-width: 100%;
-		}
-
-		/* reset all staggered margins on mobile */
-		.therapie-services__card--1,
-		.therapie-services__card--2,
-		.therapie-services__card--3,
-		.therapie-services__card--4,
-		.therapie-services__card--5,
-		.therapie-services__card--6 {
-			margin-top: 0;
-		}
-	}
-
+.icon-section-left h2,
+.icon-section-left .subtitle {
+    	text-align: right;
+}
 </style>

@@ -1,0 +1,73 @@
+---
+import Layout from '../../layouts/layout.astro';
+import ContentBlock from '../../components/content-block.astro';
+import Cta from '../../components/cta.astro';
+---
+
+<Layout title="Cadeaubon | Sarah's Praktijk" description="Geef een cadeaubon voor een moment van rust, ontspanning en persoonlijke aandacht bij Sarah’s praktijk.">
+	<main>
+		<section class="service-hero">
+			<div class="service-hero__container">
+				<h1>Cadeaubon voor een moment dat écht telt</h1>
+				<p class="service-hero__subtitle">Met een cadeaubon van Sarah’s praktijk geef je geen gewoon cadeau, maar een ervaring: een moment van rust, ontspanning en aandacht dat lang blijft nazinderen.</p>
+			</div>
+		</section>
+		<ContentBlock
+			leftWidth="60%"
+			rightWidth="40%"
+			gap="large"
+			verticalAlign="center"
+		>
+			<div slot="left">
+				<h2>Hoe werkt het?</h2>
+				<ul class="icon-list icon-list--compact">
+					<li class="icon-list__item">
+							<img src="/icon/heart.svg" alt="" class="icon-list__icon icon-list__icon--small" />
+							<p>Kies een waardebon in een bedrag naar keuze.</p>
+					</li>
+					<li class="icon-list__item">
+							<img src="/icon/heart.svg" alt="" class="icon-list__icon icon-list__icon--small" />
+							<p>Na contact en betaling ontvang je de bon via mail, klaar om af te drukken en te schenken.</p>
+					</li>
+				</ul>
+				<p>De ontvanger kan de bon besteden aan een ervaring die echt bij hen past:</p>
+				<ul class="icon-list icon-list--compact">
+					<li class="icon-list__item">
+						<img src="/icon/heart.svg" alt="" class="icon-list__icon icon-list__icon--small" />
+						<p>Een massage of relaxatiesessie</p>
+					</li>
+					<li class="icon-list__item">
+						<img src="/icon/heart.svg" alt="" class="icon-list__icon icon-list__icon--small" />
+						<p>Een helend gesprek</p>
+					</li>
+					<li class="icon-list__item">
+						<img src="/icon/heart.svg" alt="" class="icon-list__icon icon-list__icon--small" />
+						<p>Een blije borsten-sessie</p>
+					</li>
+					<li class="icon-list__item">
+						<img src="/icon/heart.svg" alt="" class="icon-list__icon icon-list__icon--small" />
+						<p>Of een zelf samengestelde mini-verwenbeleving, zoals een oorkaars of voetmassage</p>
+					</li>
+				</ul>
+				<p><strong>Kortom:</strong> Je geeft geen product, je geeft aandacht, rust en plezier… een cadeau dat écht het hart raakt.</p>
+			</div>
+			<img slot="right" src="/images/aanbod/cadeaubon.webp" alt="Cadeaubon voor wellness en massage bij Sarah's Praktijk" />
+		</ContentBlock>
+		<section class="service-text-section">
+			<div class="service-text-section__container">
+				<h2>Waarom een cadeaubon?</h2>
+				<p>Of je nu iemand wilt verrassen of jezelf een moment gunt, een cadeaubon is een uitnodiging om los te laten, op te laden en even alles achter je te laten. In een wereld vol prikkels is dit het ultieme geschenk van rust en energie.</p>
+			</div>
+		</section>
+		<Cta
+			layout="split"
+			title="Klaar om te schenken?"
+			description="Geef een sprankelend moment"
+			ctaText="Bestel een cadeaubon"
+			ctaLink="/contact"
+			ctaStyle="secondary"
+			backgroundImage="/images/bloemen-cta.webp"
+			textColor="light"
+		/>
+	</main>
+</Layout>

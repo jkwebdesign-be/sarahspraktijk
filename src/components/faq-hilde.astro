@@ -1,0 +1,256 @@
+---
+interface FaqItem {
+  question: string;
+  answer: string; // Can contain HTML
+}
+
+interface Props {
+  title: string;
+  description?: string;
+  faqs: FaqItem[];
+  backgroundColor?: string;
+}
+
+const {
+  title,
+  description,
+  faqs,
+  backgroundColor,
+} = Astro.props;
+---
+
+<section class="faq" style={`background-color: ${backgroundColor};`}>
+  <div class="faq__container">
+    <div class="faq__header">
+      <h2>{title}</h2>
+      {description && <p>{description}</p>}
+    </div>
+
+    <div class="faq__list">
+      {faqs.map((faq, index) => (
+        <div class="faq__item" data-faq-item>
+          <button class="faq__question" aria-expanded="false" data-faq-button>
+            <span>{faq.question}</span>
+            <svg class="faq__icon" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="faq__answer" data-faq-answer>
+            <div class="faq__content" set:html={faq.answer} />
+          </div>
+          {index < faqs.length - 1 && <div class="faq__divider"></div>}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  function initFAQ() {
+    const items = document.querySelectorAll('.faq__item');
+    
+    items.forEach((item) => {
+      const question = item.querySelector('.faq__question');
+      const answer = item.querySelector('.faq__answer');
+      
+      if (!question || !answer) return;
+      
+      // Remove old listener by cloning
+      const newQuestion = question.cloneNode(true);
+      question.parentNode?.replaceChild(newQuestion, question);
+      
+      // Get fresh reference after cloning
+      const freshQuestion = item.querySelector('.faq__question');
+      if (!freshQuestion) return;
+      
+      freshQuestion.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        const isOpen = item.classList.contains('is-open');
+        
+        if (isOpen) {
+          // Close
+          item.classList.remove('is-open');
+          freshQuestion.setAttribute('aria-expanded', 'false');
+          answer.style.maxHeight = '0';
+        } else {
+          // Open
+          item.classList.add('is-open');
+          freshQuestion.setAttribute('aria-expanded', 'true');
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+        }
+      });
+    });
+  }
+  
+  // Run on initial load
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initFAQ);
+  } else {
+    initFAQ();
+  }
+  
+  // Re-run after View Transitions
+  document.addEventListener('astro:page-load', initFAQ);
+</script>
+
+<style>
+  .faq {
+    width: 100%;
+    padding: var(--space-16) 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .faq__container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+  }
+
+  .faq__header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto var(--space-12) auto;
+  }
+
+  .faq__header h2 {
+    font-size: var(--font-size-3xl);
+    color: var(--color-text);
+    margin-bottom: var(--space-4);
+  }
+
+  .faq__header p {
+    font-size: var(--font-size-base);
+    color: var(--color-text);
+    margin: 0;
+    line-height: var(--line-height-relaxed);
+  }
+
+  .faq__list {
+    display: flex;
+    flex-direction: column;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .faq__item {
+    position: relative;
+  }
+
+  .faq__question {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-4);
+    padding: var(--space-6) 0;
+    background: transparent;
+    border: none;
+    text-align: left;
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    font-family: var(--font-family-sans);
+    color: var(--color-text);
+    cursor: pointer;
+    transition: color var(--transition-base);
+    touch-action: manipulation;
+  }
+
+  .faq__question:hover {
+    color: var(--color-primary);
+  }
+
+  .faq__icon {
+    flex-shrink: 0;
+    transition: transform var(--transition-base);
+    color: var(--color-primary);
+  }
+
+  .faq__item.is-open .faq__icon {
+    transform: rotate(180deg);
+  }
+
+  .faq__answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .faq__content {
+    padding: 0 0 var(--space-6) 0;
+    line-height: var(--line-height-relaxed);
+    color: var(--color-text);
+  }
+
+  /* Style content inside FAQ answers */
+  .faq__content p {
+    margin: 0 0 var(--space-4) 0;
+  }
+
+  .faq__content p:last-child {
+    margin-bottom: 0;
+  }
+
+  .faq__content :global(a) {
+    color: var(--color-primary);
+    text-decoration: underline;
+    font-weight: var(--font-weight-semibold);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+  }
+
+  .faq__content :global(a:hover) {
+    text-decoration: none;
+  }
+
+  .faq__content :global(a img) {
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    vertical-align: middle;
+    filter: brightness(0) saturate(100%) invert(65%) sepia(40%) saturate(1273%) hue-rotate(225deg) brightness(95%) contrast(87%);
+  }
+
+  .faq__content ul,
+  .faq__content ol {
+    margin: var(--space-4) 0;
+    padding-left: var(--space-6);
+  }
+
+  .faq__content li {
+    margin-bottom: var(--space-2);
+    line-height: var(--line-height-relaxed);
+  }
+
+  .faq__content li:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Dividing line between questions */
+  .faq__divider {
+    height: 1px;
+    background-color: var(--color-border);
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .faq {
+      padding: var(--space-12) 0;
+    }
+
+    .faq__question {
+      font-size: var(--font-size-base);
+      padding: var(--space-4) 0;
+    }
+
+    .faq__content {
+      padding: 0 0 var(--space-4) 0;
+    }
+  }
+  .faq__item.is-open .faq__answer {
+  max-height: 1000px; /* Fallback if JS doesn't set it */
+  }
+</style>

@@ -7,7 +7,7 @@
   --color-text-muted: #6b7280;
   --color-text-inverse: #FFFFFF;
   --color-border: #AB1FAF;
-  --color-primary: #446EAF; /* Main brand color */
+  --color-primary: #5787ce; /* Main brand color */
   --color-primary-hover: #2563eb;
   --color-accent: #9981F7; /* Secondary accent */
   --color-accent-hover: #7c3aed;
@@ -65,11 +65,9 @@
   --space-32: 8rem;     /* 128px */
 
   /* Border radius */
-  --radius-sm: 0.25rem;   /* 4px */
-  --radius-md: 0.5rem;    /* 8px */
-  --radius-lg: 0.75rem;   /* 12px */
-  --radius-xl: 1rem;      /* 16px */
-  --radius-2xl: 1.5rem;   /* 24px */
+  --radius-sm: 10px;   /* 4px */
+  --radius-md: 20px;    /* 8px */
+  --radius-lg: 40px;   /* 12px */
   --radius-full: 9999px;
 
   /* Shadows */

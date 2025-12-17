@@ -7,9 +7,13 @@ interface Props {
   gap?: 'small' | 'medium' | 'large' | 'xlarge';
   padding?: 'none' | 'small' | 'medium' | 'large';
   verticalAlign?: 'top' | 'center' | 'bottom';
+  textAlign?: 'left' | 'center' | 'right';
   backgroundColor?: string;
   reverseOnMobile?: boolean;
   matchHeight?: boolean;
+  titleUnderline?: boolean;
+  maxWidth?: string;
+  class?: string;
 }
 
 const {
@@ -20,9 +24,13 @@ const {
   gap = 'medium',
   padding = 'medium',
   verticalAlign = 'center',
+  textAlign = 'left',
   backgroundColor,
   reverseOnMobile = false,
-  matchHeight = false
+  matchHeight = false,
+  titleUnderline = false,
+  maxWidth = 'var(--container-max)',
+  class: className = ''
 } = Astro.props;
 
 const gapMap = {
@@ -35,8 +43,15 @@ const gapMap = {
 const paddingMap = {
   'none': '0',
   'small': 'var(--space-8)',
-  'medium': 'var(--space-16)',
-  'large': 'var(--space-24)',
+  'medium': 'var(--space-10)',
+  'large': 'var(--space-16)',
+};
+
+const paddingMapMobile = {
+  'none': '0',
+  'small': 'var(--space-4)',
+  'medium': 'var(--space-8)',
+  'large': 'var(--space-12)',
 };
 
 const alignMap = {
@@ -44,16 +59,25 @@ const alignMap = {
   'center': 'center',
   'bottom': 'flex-end',
 };
+
+const textAlignMap = {
+  'left': 'left',
+  'center': 'center',
+  'right': 'right',
+};
 ---
 
 <section 
-  class={`content-block ${reverseOnMobile ? 'content-block--reverse-mobile' : ''} ${matchHeight ? 'content-block--match-height' : ''}`}
+  class=`content-block ${reverseOnMobile ? 'content-block--reverse-mobile' : ''} ${matchHeight ? 'content-block--match-height' : ''} ${titleUnderline ? 'content-block--title-underline' : ''} content-block--text-${textAlign} ${className}`}
   style={`
     --left-width: ${leftWidth};
     --right-width: ${rightWidth};
     --gap: ${gapMap[gap]};
     --padding: ${paddingMap[padding]};
+    --padding-mobile: ${paddingMapMobile[padding]};
     --align: ${alignMap[verticalAlign]};
+    --text-align: ${textAlignMap[textAlign]};
+    --max-width: ${maxWidth};
     ${backgroundColor ? `background-color: ${backgroundColor};` : ''}
   `}
 >
@@ -64,6 +88,10 @@ const alignMap = {
     </div>
   )}
   
+  <div class="content-block__above">
+    <slot name="above" />
+  </div>
+  
   <div class="content-block__container">
     <div class="content-block__left">
       <slot name="left" />
@@ -72,12 +100,17 @@ const alignMap = {
       <slot name="right" />
     </div>
   </div>
+  
+  <div class="content-block__below">
+    <slot name="below" />
+  </div>
 </section>
 
 <style>
   .content-block {
     width: 100%;
     padding: var(--padding);
+    position: relative;
   }
 
   .content-block__header {
@@ -85,6 +118,8 @@ const alignMap = {
     max-width: 1000px;
     margin: 0 auto var(--space-12) auto;
     padding: 0 var(--container-padding);
+    position: relative;
+    z-index: 1;
   }
 
   .content-block__header h2 {
@@ -92,22 +127,51 @@ const alignMap = {
     font-weight: var(--font-weight-regular);
     line-height: var(--line-height-tight);
     color: var(--color-text);
-    margin: 0 0 var(--space-3) 0;
+    margin: 0 0 var(--space-4) 0;
   }
 
   .content-block__header .subtitle {
     font-size: var(--font-size-xl);
-    font-weight: var(--font-weight-medium);
+    font-weight: var(--font-weight-regular);
     color: var(--color-text);
+    font-family: var(--font-family-serif);
     margin: 0;
   }
 
   .content-block__container {
     display: grid;
-    grid-template-columns: var(--left-width) var(--right-width);
+    grid-template-columns: minmax(0, var(--left-width)) minmax(0, var(--right-width));
     gap: var(--gap);
-    max-width: var(--container-max);
+    max-width: var(--max-width);
     margin: 0 auto;
+    padding: 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Wrapper for above/below slots to align with container */
+  .content-block__above,
+  .content-block__below {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+    width: 100%;
+  }
+
+  .content-block__above:not(:empty) {
+    margin-bottom: var(--space-8);
+  }
+
+  .content-block__below:not(:empty) {
+    margin-top: var(--space-8);
+  }
+
+  /* Images in below slot */
+  .content-block__below :global(img) {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: var(--radius-md);
   }
 
   .content-block__left {
@@ -124,6 +188,59 @@ const alignMap = {
     justify-content: var(--align);
     height: 100%;
     min-width: 0;
+    text-align: var(--text-align, left);
+  }
+
+  /* Slot content inherits text alignment */
+  .content-block__left :global(.content-text),
+  .content-block__right :global(.content-text) {
+    text-align: inherit;
+  }
+
+  /* Title with optional underline - wrapper to control width */
+  .content-block--title-underline :global(.content-text h2) {
+    display: inline-block;
+    border-bottom: 3px solid var(--color-border);
+    padding-bottom: var(--space-1);
+    margin-bottom: var(--space-4);
+    width: auto;
+    align-self: flex-start;
+  }
+
+  /* Support for partial underline using span - only underline the span */
+  .content-block--title-underline :global(.content-text h2 span.underline) {
+    border-bottom: 3px solid var(--color-border);
+    padding-bottom: var(--space-1);
+  }
+
+  /* Remove full underline from h2 when using span */
+  .content-block--title-underline :global(.content-text h2:has(span.underline)) {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  /* When text is right-aligned, title should align right */
+  .content-block--text-right :global(.content-text h2) {
+    align-self: flex-end;
+  }
+
+  /* When text is center-aligned, title should align center */
+  .content-block--text-center :global(.content-text h2) {
+    align-self: center;
+  }
+
+  /* Button alignment based on text-align */
+  .content-block :global(.content-text .btn) {
+    align-self: flex-start;
+    width: auto;
+  }
+
+  .content-block--text-right :global(.content-text .btn) {
+    align-self: flex-end;
+  }
+
+  .content-block--text-center :global(.content-text .btn) {
+    align-self: center;
   }
 
   /* Base image styles - applies to all images */
@@ -131,8 +248,35 @@ const alignMap = {
   .content-block__right :global(img) {
     width: 100%;
     height: auto;
+    max-height: 600px;
+    object-fit: cover;
     display: block;
     border-radius: var(--radius-md);
+  }
+
+  /* Exception: icon-list icons should NOT be constrained */
+  .content-block__left :global(.icon-list__icon),
+  .content-block__right :global(.icon-list__icon) {
+    width: 30px;
+    height: 30px;
+    max-height: none;
+    object-fit: contain;
+    border-radius: 0;
+    justify-self: center; /* Keep horizontally centered in grid column */
+  }
+
+  .content-block__left :global(.icon-list__icon--small),
+  .content-block__right :global(.icon-list__icon--small) {
+    width: 20px;
+    height: 20px;
+    justify-self: center;
+  }
+
+  .content-block__left :global(.icon-list__icon--large),
+  .content-block__right :global(.icon-list__icon--large) {
+    width: 48px;
+    height: 48px;
+    justify-self: center;
   }
 
   .content-block--match-height .content-block__left :global(img),
@@ -144,11 +288,52 @@ const alignMap = {
     margin: 0 auto;
   }
 
-  /* responsive behavior */
-  @media (max-width: 768px) {
+  /* Tablet: stack ONLY sections with stack-early class */
+  @media (min-width: 769px) and (max-width: 1000px) {
+    .content-block.stack-early .content-block__container {
+      grid-template-columns: 1fr;
+      gap: var(--space-8);
+    }
+
+    .content-block__container {
+      gap: var(--space-8);
+    }
+
+    /* Reduce image size on tablets */
+    .content-block__left :global(img),
+    .content-block__right :global(img) {
+      max-height: 500px;
+      object-fit: cover;
+      width: 100%;
+    }
+  }
+
+  /* Portrait tablet range (600-768px): stacked but reasonable image size */
+  @media (min-width: 600px) and (max-width: 768px) {
     .content-block__container {
       grid-template-columns: 1fr;
       gap: var(--space-8);
+    }
+    
+    .content-block__left :global(img),
+    .content-block__right :global(img) {
+      max-height: 500px;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      width: 100%;
+      margin: 0 auto;
+    }
+  }
+
+  /* Mobile: responsive behavior */
+  @media (max-width: 768px) {
+    .content-block {
+      padding: var(--padding-mobile);
+    }
+
+    .content-block__container {
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
     }
 
     .content-block--reverse-mobile .content-block__container {
@@ -164,11 +349,95 @@ const alignMap = {
       order: 1;
     }
 
-    /* reset image height on mobile */
+    /* Reset image constraints on mobile */
     .content-block__left :global(img),
     .content-block__right :global(img) {
       height: auto;
       max-height: none;
+      object-fit: cover;
+    }
+
+    /* But preserve icon-list icon sizes on mobile */
+    .content-block__left :global(.icon-list__icon),
+    .content-block__right :global(.icon-list__icon) {
+      width: 30px;
+      height: 30px;
+      max-height: none;
+      justify-self: center;
+    }
+
+    .content-block__left :global(.icon-list__icon--small),
+    .content-block__right :global(.icon-list__icon--small) {
+      width: 20px;
+      height: 20px;
+      justify-self: center;
+    }
+
+    .content-block__left :global(.icon-list__icon--large),
+    .content-block__right :global(.icon-list__icon--large) {
+      width: 48px;
+      height: 48px;
+      justify-self: center;
     }
   }
+
+  /* ========================================
+     PORTRAIT IMAGES - 9:16 aspect ratio
+     Usage: <img class="portrait" src="..." />
+     ======================================== */
+  .content-block__left :global(img.portrait),
+  .content-block__right :global(img.portrait) {
+    aspect-ratio: 9/16;
+    object-fit: cover;
+    max-width: 600px;
+    margin: 0 auto;
+    height: auto;
+  }
+
+  @media (min-width: 600px) and (max-width: 768px) {
+    .content-block__left :global(img.portrait),
+    .content-block__right :global(img.portrait) {
+      max-height: none;
+      aspect-ratio: 3/4;
+      max-width: 400px;
+    }
+  }
+
+  @media (max-width: 599px) {
+    .content-block__left :global(img.portrait),
+    .content-block__right :global(img.portrait) {
+      max-width: 100%;
+      aspect-ratio: 9/16;
+    }
+  }
+
+  /* ========================================
+     SQUARE IMAGES - 1:1 aspect ratio
+     Usage: <img class="square" src="..." />
+     ======================================== */
+  .content-block__left :global(img.square),
+  .content-block__right :global(img.square) {
+    aspect-ratio: 1/1;
+    object-fit: contain;
+    max-width: 450px;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 600px) and (max-width: 1000px) {
+    .content-block__left :global(img.square),
+    .content-block__right :global(img.square) {
+      max-width: 350px;
+      max-height: 350px;
+    }
+  }
+
+  @media (max-width: 599px) {
+    .content-block__left :global(img.square),
+    .content-block__right :global(img.square) {
+      max-width: 250px;
+      max-height: 250px;
+      padding: var(--space-4);
+    }
+  }
+  
 </style>

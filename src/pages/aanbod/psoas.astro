@@ -1,0 +1,105 @@
+---
+import Layout from '../../layouts/layout.astro';
+import ContentBlock from '../../components/content-block.astro';
+import Cta from '../../components/cta.astro';
+---
+
+<Layout title="Psoas Massage | Sarah's Praktijk" description="Diepe psoas massage in Keerbergen voor het loslaten van spanning, emotionele blokkades en chronische klachten. Bevrijdend werk vanuit je lichaamscentrum.">
+	<main>
+		<section class="service-hero">
+			<div class="service-hero__container">
+				<h1>PSOAS massage: werken vanuit je centrum</h1>
+				<p class="service-hero__subtitle">Een diepe, gerichte massage die spanning, emotionele blokkades en vastgezette energie in je psoas loslaat.</p>
+			</div>
+		</section>
+
+		<ContentBlock
+			leftWidth="60%"
+			rightWidth="40%"
+			gap="large"
+			verticalAlign="center"
+		>
+			<div slot="left">
+				<h2>De psoas: het centrum van stabiliteit en veiligheid</h2>
+				<p>De psoas is een diepe spier die je onderrug, bekken en benen met elkaar verbindt. Ze speelt een sleutelrol in houding, beweging en zenuwstelselregulatie.</p>
+				<p>Omdat de psoas nauw verbonden is met het autonome zenuwstelsel, reageert ze sterk op stress, overbelasting en langdurige spanning. Bij veel vrouwen slaat deze spier onbewust spanning en emoties op.</p>
+				<p>Wanneer de psoas verkrampt blijft, kan dat zich uiten in fysieke klachten, maar ook in een gevoel van onrust, vermoeidheid of het moeilijk kunnen loslaten.</p>
+			</div>
+			<img slot="right" src="/images/aanbod/psoas.webp" alt="Vrouw ontvangt psoas massage voor diepe ontspanning" />
+		</ContentBlock>
+		<section class="service-text-section service-text-section--bg">
+			<div class="service-text-section__container">
+				<h2>Wat doet een psoas massage?</h2>
+				<p>
+					De psoas massage die ik aanbied is een diepgaande en gerichte behandeling.
+					Met zachte maar precieze aanrakingen wordt het lichaam uitgenodigd om
+					spanning los te laten op fysiek, emotioneel en energetisch niveau.
+				</p>
+				<ul class="icon-list icon-list--compact">
+					<li class="icon-list__item">
+						<img src="/icon/heart.svg" alt="" class="icon-list__icon" />
+						<p>meer vrijheid en stabiliteit in bekken, onderrug en heupen</p>
+					</li>
+					<li class="icon-list__item">
+						<img src="/icon/heart.svg" alt="" class="icon-list__icon" />
+						<p>ontspanning in borst-, hart- en kaakgebied</p>
+					</li>
+					<li class="icon-list__item">
+						<img src="/icon/heart.svg" alt="" class="icon-list__icon" />
+						<p>loslaten van vastgezette emoties en patronen</p>
+					</li>
+					<li class="icon-list__item">
+						<img src="/icon/heart.svg" alt="" class="icon-list__icon" />
+						<p>verlichting voor het centrale en parasympathische zenuwstelsel</p>
+					</li>
+					<li class="icon-list__item">
+						<img src="/icon/heart.svg" alt="" class="icon-list__icon" />
+						<p>hernieuwd contact met kracht, energie en vrouwelijkheid</p>
+					</li>
+				</ul>
+				<p>
+					Veel vrouwen ervaren deze sessie als intens, maar bevrijdend — een diepe
+					opluchting in lichaam en systeem.
+				</p>
+			</div>
+		</section>
+		<section class="service-text-section">
+			<div class="service-text-section__container">
+				<h2>Voor wie is een psoas massage geschikt?</h2>
+				<ul class="icon-list icon-list--compact">
+					<li class="icon-list__item">
+						<img src="/icon/heart.svg" alt="" class="icon-list__icon" />
+						<p>terugkerende onderrug- of bekkenklachten</p>
+					</li>
+					<li class="icon-list__item">
+						<img src="/icon/heart.svg" alt="" class="icon-list__icon" />
+						<p>beperkte mobiliteit in heupen, benen of borstgebied</p>
+					</li>
+					<li class="icon-list__item">
+						<img src="/icon/heart.svg" alt="" class="icon-list__icon" />
+						<p>chronische stress, vermoeidheid of burn-outklachten</p>
+					</li>
+					<li class="icon-list__item">
+						<img src="/icon/heart.svg" alt="" class="icon-list__icon" />
+						<p>emotionele blokkades zoals angst, spanning of oud verdriet</p>
+					</li>
+					<li class="icon-list__item">
+						<img src="/icon/heart.svg" alt="" class="icon-list__icon" />
+						<p>herstel na zwangerschap of geboorte</p>
+					</li>
+				</ul>
+				<p>Deze massage is bedoeld voor vrouwen die voelen dat spanning diep in het lichaam vastzit en via aanraking willen werken aan herstel en ontspanning.</p>
+			</div>
+		</section>
+		<Cta
+			layout="split"
+			title="Voel je dat je lichaam meer rust nodig heeft?"
+			description="Gun jezelf een diepgaande sessie waarin je mag loslaten, verzachten en opnieuw verbinding maakt met je centrum."
+			ctaText="Plan een sessie"
+			ctaLink="/contact"
+			ctaStyle="secondary"
+			backgroundImage="/images/bloemen-cta.webp"
+			textColor="light"
+		/>
+	</main>
+</Layout>

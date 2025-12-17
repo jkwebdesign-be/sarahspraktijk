@@ -1,0 +1,53 @@
+---
+import Layout from '../../layouts/layout.astro';
+import ContentBlock from '../../components/content-block.astro';
+import Cta from '../../components/cta.astro';
+---
+
+<Layout title="Zwangerschapsmassage | Sarah's Praktijk" description="Lomi Lomi zwangerschapsmassage in Keerbergen voor diepe ontspanning tijdens je zwangerschap. Een ceremoniële ervaring van rust en verbinding met je baby.">
+	<main>
+		<section class="service-hero">
+			<div class="service-hero__container">
+				<h1>Zwangerschapsmassage: een exclusieve ceremonie voor moeder en kind</h1>
+				<p class="service-hero__subtitle">Stap even uit de drukte van “moeten” en geef jezelf en je baby een ceremonie van aanwezigheid en geborgenheid. Twee uur waarin je lichaam ontspant en de band tussen moeder en kind voelbaar verdiept.</p>
+			</div>
+		</section>
+		<ContentBlock
+			leftWidth="65%"
+			rightWidth="35%"
+			gap="large"
+			verticalAlign="center"
+		>
+			<div slot="left">
+				<h2>Ontspanning tijdens je zwangerschap</h2>
+				<p>Gun jezelf en je baby een liefdevol moment van ontspanning met de Lomi Lomi zwangerschapsmassage. In comfortabele zijligging word je volledig ondersteund terwijl je lichaam en geest tot rust komen.</p>
+				<p>Deze massage wordt als zeer exclusief ervaren en geeft een enorm geborgen en koesterend gevoel. Ze is ideaal tijdens de zwangerschap en werkt bijzonder rustgevend wanneer de geboorte nadert, zodat je helemaal zen en ontspannen de bevalling tegemoet kunt gaan.</p>
+				<p>De massage helpt je emotioneel evenwicht te herstellen, veelvoorkomende zwangerschapskwaaltjes te verlichten en de band met je baby te versterken. Met mijn medische achtergrond deel ik graag tips zodat je nog bewuster van je zwangerschap kunt genieten.</p>
+			</div>
+			<img slot="right" src="/images/aanbod/zwangerschapsmassage-content.webp" alt="Zwangere vrouw ontvangt ontspannende Lomi Lomi massage"/>
+		</ContentBlock>
+		<section class="service-text-section">
+			<div class="service-text-section__container">
+				<h2>Wat deze zwangerschapsmassage bijzonder maakt</h2>
+				<p>Tijdens deze zwangerschapsmassage draait het niet om praktische tips of moeten. Het is een bijna ceremoniële ervaring van twee uur, volledig afgestemd op jou en je baby.</p>
+				<p>De massage nodigt je uit om te vertragen, spanning los te laten en opnieuw te voelen wat jij en je kind nodig hebben.</p>
+				<ul class="icon-list icon-list--compact">
+					<li><p><strong>Fysiek:</strong> verlichting van rug-, schouder- en bekkenklachten.</p></li>
+					<li><p><strong>Emotioneel & energetisch:</strong> rust in je hoofd en ruimte voor je intuïtieve kracht als moeder.</p></li>
+					<li><p><strong>Verbinding:</strong> een bewust moment van aanwezigheid en koestering met je baby.</p></li>
+				</ul>
+				<p>Deze sessie is een uitnodiging om even uit het “moeten” te stappen en je te laten dragen door het moment — een diep weten dat vaak krachtiger is dan eender welke handleiding.</p>
+			</div>
+		</section>
+		<Cta
+			layout="split"
+			title="Laat jezelf verwennen en voel de diepe ontspanning"
+			description="Gun jezelf een moment van rust en verbinding."
+			ctaText="Boek je sessie"
+			ctaLink="/contact"
+			ctaStyle="secondary"
+			backgroundImage="/images/bloemen-cta.webp"
+			textColor="light"
+		/>
+	</main>
+</Layout>
