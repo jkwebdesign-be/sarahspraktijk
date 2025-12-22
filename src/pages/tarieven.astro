@@ -16,16 +16,9 @@ import Cta from '../components/cta.astro';
 				<p class="service-hero__subtitle">Hier vind je mijn sessies, duur en tarieven. Voor sommige sessies zijn er aangepaste prijzen voor jongeren.</p>
 			</div>
 		</section>
-
-		<section class="service-text-section">
-			<div class="service-text-section__container">
-				<p>De prijzen reflecteren de diepgang, persoonlijke afstemming en holistische aanpak van elke sessie. Een totale investering in jouw lichaam, energie en welzijn.</p>
-				<p><strong>VLOW®-sessies</strong> hebben een basisduur van 1u30–2u - extra tijd wordt per 30 minuten aangerekend.</p>
-			</div>
-		</section>
-
 		<section class="pricing-table-section">
 			<div class="pricing-table-section__container">
+				<p><i>De prijzen reflecteren de diepgang, persoonlijke afstemming en holistische aanpak van elke sessie. Een totale investering in jouw lichaam, energie en welzijn.</i></p>
 				<div class="pricing-table-wrapper">
 					<table class="pricing-table">
 						<thead>
@@ -34,74 +27,79 @@ import Cta from '../components/cta.astro';
 								<th>Duur</th>
 								<th>Tarief volwassenen</th>
 								<th>Tarief jongeren<br/>(±15–20 jaar)</th>
+								<th>Praktische informatie</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
 								<td>Kennismaking (introductie)</td>
-								<td>40 min</td>
-								<td>€65</td>
-								<td>€45</td>
+								<td>60 min</td>
+								<td>€95</td>
+								<td>€75</td>
+								<td>Eerste kennismaking, invoelen en afstemmen op jouw behoeften</td>
 							</tr>
 							<tr>
-								<td>Relaxatiesessie</td>
-								<td>1u</td>
-								<td>€60</td>
-								<td>€55</td>
+								<td>Levensbegeleiding volwassenen</td>
+								<td>1u30</td>
+								<td>€130</td>
+								<td>–</td>
+								<td>Helende gesprek-sessie, kan gecombineerd worden met therapeutisch lichaamswerk</td>
+							</tr>
+							<tr>
+								<td>Therapeutische behandeling</td>
+								<td>2u</td>
+								<td>€200</td>
+								<td>–</td>
+								<td>Mijn favoriete sessie om diep te werken met lichaam en energie - altijd inclusief een helend invoelend gesprek</td>
+							</tr>
+							<tr>
+								<td>Diepe healing</td>
+								<td>2u30</td>
+								<td>€250</td>
+								<td>–</td>
+								<td>Voor wie voelt dat er meer tijd nodig is om echt te zakken en lagen te openen, inclusief helend invoel moment</td>
+							</tr>
+							<tr>
+								<td>Transformatieve sessie</td>
+								<td>3u</td>
+								<td>€320</td>
+								<td>–</td>
+								<td>Voor wie voelt dat het tijd is voor een diepe verschuiving en volledige transformatie, altijd inclusief helend invoel moment.</td>
+							</tr>
+							<tr>
+								<td>Zwangerschapsmassage</td>
+								<td>2u</td>
+								<td>€200</td>
+								<td>–</td>
+								<td>Inclusief voorbereiding, speciale olie en volledige nazorg voor mama en baby</td>
 							</tr>
 							<tr>
 								<td>VLOW®-sessie</td>
 								<td>1u30–2u</td>
 								<td>€160</td>
 								<td>–</td>
-							</tr>
-							<tr>
-								<td>Extra tijd VLOW®</td>
-								<td>per 30 min</td>
-								<td>+€45</td>
-								<td>–</td>
-							</tr>
-							<tr>
-								<td>Therapeutische behandeling</td>
-								<td>vanaf 1u</td>
-								<td>€105</td>
-								<td>–</td>
-							</tr>
-							<tr>
-								<td>Dieptesessie</td>
-								<td>2u</td>
-								<td>€200</td>
-								<td>–</td>
-							</tr>
-							<tr>
-								<td>Uitgebreide healing</td>
-								<td>2u30</td>
-								<td>€250</td>
-								<td>–</td>
-							</tr>
-							<tr>
-								<td>Transformatieve sessie</td>
-								<td>3u</td>
-								<td>€300–€320</td>
-								<td>–</td>
+								<td>Max. 1x 30 min extra indien nodig voor release of integratie - <strong>extra tijd per 30 min: €45</strong></td>
 							</tr>
 							<tr>
 								<td>Levensbegeleiding jongeren</td>
 								<td>1u30</td>
 								<td>–</td>
 								<td>€95</td>
+								<td>Trajecten en begeleiding aangepast aan leeftijd en draagkracht</td>
 							</tr>
 							<tr>
 								<td>Introductie lichaamswerk jongeren</td>
 								<td>1u</td>
 								<td>–</td>
 								<td>€80</td>
+								<td>Eerste kennismaking met lichaamsgericht werk</td>
 							</tr>
 							<tr>
 								<td>Langer traject jongeren</td>
 								<td>1u30–2u</td>
 								<td>–</td>
 								<td>€130</td>
+								<td>Meerdere sessies geïntegreerd en afgestemd op proces</td>
 							</tr>
 						</tbody>
 					</table>
@@ -123,15 +121,23 @@ import Cta from '../components/cta.astro';
 			faqs={[
 				{
 					question: "Wat houdt een therapeutische behandeling of healing precies in?",
-					answer: "Tijdens deze sessies werk ik altijd met een invoelmoment, waarin ik afstem op wat er op dat moment in jouw leven en lichaam speelt. Op basis hiervan wordt de sessie doelgericht opgebouwd en afgestemd. Daarna combineer ik verschillende lagen van ondersteuning: lichaamsgericht werk (bindweefsel, zenuwstelsel, spierspanning), energetisch werk (heling en transformatie op diepere lagen), healing en integratie (het lichaam krijgt ruimte om te ontspannen en blokkades los te laten), en zelfzorg, leefstijl en voedingsadvies (concrete oefeningen en tips om thuis verder te ondersteunen). Op deze manier ontstaat een volledige holistische aanpak, waarbij we lichaam, energie, emoties en dagelijkse gewoonten meenemen."
+					answer: `<p>Tijdens deze sessies werk ik altijd met een invoel moment, waarin ik afstem op wat er op dat moment in jouw leven en lichaam speelt. Op basis hiervan wordt de sessie doelgericht opgebouwd en afgestemd.</p>
+					<p>Daarna combineer ik verschillende lagen van ondersteuning:</p>
+					<ul class="icon-list icon-list--compact">
+					<li class="icon-list__item icon-list__item--small"><img src="/icon/heart.svg" alt="" class="icon-list__icon" /><p>Lichaamsgericht werk: bindweefsel, zenuwstelsel, spierspanning</p></li>
+					<li class="icon-list__item icon-list__item--small"><img src="/icon/heart.svg" alt="" class="icon-list__icon" /><p>Energetisch werk (heling en transformatie op diepere lagen)</p></li>
+					<li class="icon-list__item icon-list__item--small"><img src="/icon/heart.svg" alt="" class="icon-list__icon" /><p>Healing en integratie: het lichaam krijgt ruimte om te ontspannen en blokkades los te laten</p></li>
+					<li class="icon-list__item icon-list__item--small"><img src="/icon/heart.svg" alt="" class="icon-list__icon" /><p>Zelfzorg, leefstijl en voedingsadvies: concrete oefeningen en tips om thuis verder te ondersteunen</p></li>
+					</ul>
+					<p>Op deze manier ontstaat een volledige holistische aanpak, waarbij we lichaam, energie, emoties en dagelijkse gewoonten meenemen. Afhankelijk van jouw behoefte kan dit variëren van diepe ontspanning tot een volledige transformatieve sessie.</p>`
 				},
 				{
 					question: "Waarom verschillen de prijzen?",
-					answer: "De prijs reflecteert de duur en intensiteit van de sessie, de mate van diepgang en persoonlijke afstemming, en de combinatie van technisch, energetisch en educatief werk. Elke sessie is een investering in jouw lichaam, energie en welzijn."
+					answer: "De prijs hangt af van de duur, intensiteit en diepgang van de sessie, plus de persoonlijke afstemming en de mix van technisch, energetisch en het psycho- educatieve werk. Elke sessie is een investering in jouw lichaam, energie en welzijn."
 				},
 				{
 					question: "Kan ik bij twijfel eerst kennismaken?",
-					answer: "Ja, een korte kennismaking van 40 minuten (€65 voor volwassenen / €45 voor jongeren) helpt om te voelen of mijn werk bij je past. Daarna kan je beslissen of je sessies wenst te starten."
+					answer: "Ja, een kennismakinggesprek van 60 minuten helpt om te voelen of mijn werk bij je past. Daarna kan je beslissen of je sessies wenst te starten"
 				},
 				{
 					question: "Zijn er speciale tarieven voor jongeren (15-20 jaar)?",
@@ -139,15 +145,23 @@ import Cta from '../components/cta.astro';
 				},
 				{
 					question: "Voor wie is dit werk bedoeld?",
-					answer: "Dit werk is bedoeld voor mensen die bereid zijn te vertragen en te luisteren naar hun lichaam, die écht tijd en aandacht willen voor heling, en die geen quick fix zoeken, maar wel diepgaande verandering."
+					answer: `<ul class="icon-list icon-list--compact">
+					<li class="icon-list__item icon-list__item--small"><img src="/icon/heart.svg" alt="" class="icon-list__icon" /><p>Je bent bereid te vertragen en te luisteren naar je lichaam</p></li>
+					<li class="icon-list__item icon-list__item--small"><img src="/icon/heart.svg" alt="" class="icon-list__icon" /><p>Je wilt écht tijd en aandacht voor heling</p></li>
+					<li class="icon-list__item icon-list__item--small"><img src="/icon/heart.svg" alt="" class="icon-list__icon" /><p>Je zoekt geen quick fix, wel diepgaande verandering</p></li>
+					</ul>`
 				},
 				{
 					question: "Praktische info rond locatie en duur van de sessies",
-					answer: "Sessies gaan door in mijn praktijk, uitsluitend op afspraak. De sessieduur is een richtlijn, het lichaam bepaalt het tempo. Voor vragen of om te voelen of dit bij je past, neem contact op."
+					answer: `<ul class="icon-list icon-list--compact">
+					<li class="icon-list__item icon-list__item--small"><img src="/icon/heart.svg" alt="" class="icon-list__icon" /><p>Sessies gaan door in mijn praktijk, uitsluitend op afspraak</p></li>
+					<li class="icon-list__item icon-list__item--small"><img src="/icon/heart.svg" alt="" class="icon-list__icon" /><p>De sessieduur is een richtlijn, het lichaam bepaalt het tempo</p></li>
+					<li class="icon-list__item icon-list__item--small"><img src="/icon/heart.svg" alt="" class="icon-list__icon" /><p>Voor vragen of om te voelen of dit bij je past, neem contact op</p></li>
+					</ul>`
 				}
 			]}
 		/>
-
+				
 		<Cta
 			layout="split"
 			title="Klaar om te starten?"
@@ -166,12 +180,12 @@ import Cta from '../components/cta.astro';
 	.pricing-table-section {
 		width: 100%;
 		padding: var(--space-16) 0;
+		padding: var(--container-padding);
 	}
 
 	.pricing-table-section__container {
 		max-width: var(--container-max);
 		margin: 0 auto;
-		padding: 0 var(--container-padding);
 	}
 
 	.pricing-table-wrapper {
@@ -239,70 +253,64 @@ import Cta from '../components/cta.astro';
 		.pricing-table th,
 		.pricing-table td {
 			padding: var(--space-3) var(--space-4);
-			white-space: nowrap;
+		}
+	}
+
+	/* Card layout on small screens */
+	@media (max-width: 600px) {
+		.pricing-table-wrapper {
+			box-shadow: none;
+			background: transparent;
+			border-radius: 0;
 		}
 
-		/* Stack table on very small screens */
-		@media (max-width: 768px) {
-	.pricing-table {
-		font-size: var(--font-size-sm);
-	}
+		.pricing-table thead {
+			display: none;
+		}
 
-	.pricing-table th,
-	.pricing-table td {
-		padding: var(--space-3) var(--space-4);
-		white-space: nowrap; /* Prevent text wrapping */
-	}
-}
+		.pricing-table,
+		.pricing-table tbody,
+		.pricing-table tr,
+		.pricing-table td {
+			display: block;
+			width: 100%;
+		}
 
-/* Card layout on small screens */
-@media (max-width: 600px) {
-	.pricing-table-wrapper {
-		box-shadow: none;
-		background: transparent;
-		border-radius: 0;
-	}
+		.pricing-table tr {
+			margin-bottom: var(--space-6);
+			border-radius: var(--radius-md);
+			padding: var(--space-4);
+			background: white;
+			box-shadow: var(--shadow-sm);
+		}
 
-	.pricing-table thead {
-		display: none;
-	}
+		.pricing-table td {
+			padding: var(--space-2) 0;
+			border: none;
+			white-space: normal;
+		}
 
-	.pricing-table,
-	.pricing-table tbody,
-	.pricing-table tr,
-	.pricing-table td {
-		display: block;
-		width: 100%;
-	}
+		/* Only show labels for first 4 columns */
+		.pricing-table tbody tr td:nth-child(1),
+		.pricing-table tbody tr td:nth-child(2),
+		.pricing-table tbody tr td:nth-child(3),
+		.pricing-table tbody tr td:nth-child(4) {
+			display: grid;
+			grid-template-columns: 140px 1fr;
+			gap: var(--space-2);
+		}
 
-	.pricing-table tr {
-		margin-bottom: var(--space-6);
-		border-radius: var(--radius-md);
-		padding: var(--space-4);
-		background: white;
-		box-shadow: var(--shadow-sm);
-	}
-
-	.pricing-table td {
-		text-align: left;
-		padding: var(--space-2) 0;
-		border: none;
-		display: grid;
-		grid-template-columns: 140px 1fr;
-		gap: var(--space-2);
-		white-space: normal;
-	}
-
-	.pricing-table td:before {
-		content: attr(data-label);
-		font-weight: var(--font-weight-semibold);
-	}
-
-	/* Labels */
-	.pricing-table tbody tr td:nth-child(1):before { content: "Sessie"; }
-	.pricing-table tbody tr td:nth-child(2):before { content: "Duur"; }
-	.pricing-table tbody tr td:nth-child(3):before { content: "Volwassenen"; }
-	.pricing-table tbody tr td:nth-child(4):before { content: "Jongeren"; }
-}
+		.pricing-table tbody tr td:nth-child(1)::before { content: "Sessie"; font-weight: var(--font-weight-semibold); }
+		.pricing-table tbody tr td:nth-child(2)::before { content: "Duur"; font-weight: var(--font-weight-semibold); }
+		.pricing-table tbody tr td:nth-child(3)::before { content: "Volwassenen"; font-weight: var(--font-weight-semibold); }
+		.pricing-table tbody tr td:nth-child(4)::before { content: "Jongeren"; font-weight: var(--font-weight-semibold); }
+		
+		/* Info column - no label, special styling */
+		.pricing-table tbody tr td:nth-child(5) {
+			margin-top: var(--space-2);
+			font-size: var(--font-size-base);
+			color: var(--color-text);
+			opacity: 0.9;
+		}
 	}
 </style>

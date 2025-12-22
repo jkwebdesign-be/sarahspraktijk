@@ -15,11 +15,11 @@ interface Props {
 }
 
 const {
-	title = "Sarah's Praktijk - Holistische Therapie in Keerbergen",
+	title = "Sarahs Praktijk - Holistische Therapie in Keerbergen",
 	description = 'Professionele systemische therapie en coaching in Keerbergen. Begeleiding bij relaties, persoonlijke groei en levenskwesties.',
 	ogImage = '/og-image.jpg',
 	transparentHeader = true,
-	author = "Sarah's Praktijk",
+	author = "Sarahs Praktijk",
 	robotsIndex = true
 } = Astro.props;
 
@@ -52,7 +52,7 @@ const socialLinks = [
 const organizationSchema = {
 	"@context": "https://schema.org",
 	"@type": "MedicalBusiness",
-	"name": "Sarah's Praktijk",
+	"name": "Sarahs Praktijk",
 	"description": description,
 	"url": Astro.site?.toString(),
 	"logo": new URL('/logo/logo_header.png', Astro.url),
@@ -77,7 +77,7 @@ const organizationSchema = {
 const localBusinessSchema = {
 	"@context": "https://schema.org",
 	"@type": "LocalBusiness",
-	"name": "Sarah's Praktijk",
+	"name": "Sarahs Praktijk",
 	"description": description,
 	"url": Astro.site?.toString(),
 	"telephone": "+32468489373",
@@ -107,7 +107,7 @@ const localBusinessSchema = {
 const websiteSchema = {
 	"@context": "https://schema.org",
 	"@type": "WebSite",
-	"name": "Sarah's Praktijk",
+	"name": "Sarahs Praktijk",
 	"url": Astro.site?.toString(),
 	"description": description,
 	"inLanguage": "nl-BE"
@@ -137,7 +137,7 @@ const websiteSchema = {
 		<meta property="og:type" content="website" />
 		<meta property="og:locale" content="nl_BE" />
 		{canonicalURL && <meta property="og:url" content={canonicalURL} />}
-		<meta property="og:site_name" content="Sarah's Praktijk" />
+		<meta property="og:site_name" content="Sarahs Praktijk" />
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:image" content={new URL(ogImage, Astro.url)} />
@@ -198,7 +198,7 @@ const websiteSchema = {
 			phone="0468 48 93 73"
 			navLinks={footerNavLinks}
 			socialLinks={socialLinks}
-			copyrightText="© 2025 Sarah's Praktijk. Gemaakt door <a href='https://www.jkwebdesign.be' target='_blank' rel='noopener noreferrer'>JK Webdesign</a>."
+			copyrightText="© 2025 Sarahs Praktijk. Gemaakt door <a href='https://www.jkwebdesign.be' target='_blank' rel='noopener noreferrer'>JK Webdesign</a>."
 		/>
 	</body>
 </html>

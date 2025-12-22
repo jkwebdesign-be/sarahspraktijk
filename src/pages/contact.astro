@@ -8,17 +8,30 @@ import FaqSidebar from '../components/faq-sidebar.astro';
 	<main>
 		<ContactInfo
 			title="Neem contact op"
-			description="Ik luister graag naar je vragen en help je met plezier verder. Bel me gerust voor meer informatie of om een afspraak te maken."
 			phone="+32 468 48 93 73"
 			email="info@sarahspraktijk.be"
 			address="Bollostraat 104 - 3140 Keerbergen"
 			mapImageSrc="/images/maps.png"
 			mapLink="https://www.google.com/maps/place/Bollostraat+104,+3140+Keerbergen"
-		/>
+		>
+			<div slot="intro">
+				<p>Elke stap die je zet richting zelfzorg is een uitnodiging aan jezelf om gezien en gehoord te worden.</p>
+				<p>Je bent welkom om te vragen, te ontdekken en te groeien. Ik nodig je uit om te beginnen met de FAQ, zodat we samen meteen bij de kern kunnen starten.</p>
+			</div>
+			<p slot="before-contact">Contact met me opnemen kan voor een afspraak of een vraag die <strong>echt niet</strong> in de FAQ of website vernoemd staat.</p>
+			<p slot="phone-note">Mijn favoriet, meestal krijg je een antwoord dezelfde dag.</p>
+			<p slot="email-note">Ik lees dagelijks, er kan een dag over gaan voor je een antwoord ontvangt.</p>
+			<div slot="footer-note">
+				<p>Tijdens sessies staat mijn telefoon op <strong>stil</strong>, uit respect voor het werk dat we doen en de klant die op mijn behandeltafel ligt.</p>
+				<p>Bedankt voor je begrip en je geduld, zo kunnen we allebei gefocust blijven!</p>
+			</div>
+		</ContactInfo>
 
 		<FaqSidebar
 			title="Veelgestelde vragen"
 			description="Hier vind je antwoorden op de meest voorkomende vragen over praktische zaken rondom mijn praktijk en sessies."
+			sidebarImage="/images/contact.webp"
+  			sidebarImageAlt="Neem contact op voor een rustgevend moment dat bij jou past"
 			faqs={[
 				{
 					question: "Hoeveel kost een sessie?",
@@ -34,15 +47,20 @@ import FaqSidebar from '../components/faq-sidebar.astro';
 				},
 				{
 					question: "Werk je met terugbetaling via de mutualiteit?",
-					answer: "Holistische therapie wordt momenteel nog niet erkend door de mutualiteiten, waardoor er geen terugbetaling mogelijk is. Ik begrijp dat dit een belangrijke overweging kan zijn en beantwoord graag al je vragen hierover."
+					answer: "Holistische therapie wordt momenteel nog niet erkend door de mutualiteiten, waardoor er geen terugbetaling mogelijk is."
 				},
 				{
 					question: "Moet ik iets meenemen naar mijn eerste sessie?",
-					answer: "Het is handig om, indien mogelijk, een lijst van je medicatie, supplementen en eventuele recente onderzoeken of bloedresultaten mee te brengen, dat kan extra inzicht geven. Verder hoef je niets mee te nemen, alles is aanwezig in de praktijk. Uit respect voor elkaar en omdat ik gevoelig ben voor geuren, vraag ik bij therapeutische sessies om parfum te vermijden en indien mogelijk even te douchen vooraf. Zo creëren we samen een prettige en ontspannen sfeer."
+					answer: `<p>Het is handig om, indien mogelijk, een lijst van je medicatie, supplementen en eventuele recente onderzoeken of bloedresultaten mee te brengen, dat kan extra inzicht geven. Verder hoef je niets mee te nemen, alles is aanwezig in de praktijk.</p>
+					<p>Uit respect voor elkaar en omdat ik gevoelig ben voor geuren, vraag ik bij therapeutische sessies om parfum te vermijden en indien mogelijk even te douchen vooraf. Zo creëren we samen een prettige en ontspannen sfeer.</p>`
 				},
 				{
 					question: "Kan ik makkelijk parkeren?",
 					answer: "Ja, zeker! Je kunt parkeren op mijn oprit of langs de straat. De ingang vind je achteraan, naast de garagepoorten. Zo ben je meteen welkom in een ontspannen sfeer."
+				},
+				{
+					question: "Waarom staat je telefoon op stil tijdens sessies?",
+					answer: "Tijdens sessies staat mijn telefoon op stil uit respect voor het werk dat we doen en de klant die op mijn behandeltafel ligt. Dit zorgt ervoor dat we beide volledig aanwezig kunnen zijn en gefocust blijven op jouw proces."
 				}
 			]}
 		/>

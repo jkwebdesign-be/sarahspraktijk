@@ -11,13 +11,15 @@ import Cta from '../components/cta.astro';
 			<div class="therapie-hero__container">
 				<div class="therapie-hero__content">
 					<h1>Therapie bij Sarah</h1>
-					<p>Een veilige plek waar emoties en spanningen erkend worden. Samen werken we aan rust, herstel en balans, zodat jij je lichaam opnieuw als een thuis kan ervaren.</p>
+					<p>Er komt een moment waarop een 'goed leven' niet meer volstaat. Niet gezonder worden, niet meer weten, niet nog een methode of belofte volgen. De vermoeidheid of pijn die je voelt, komt niet uit het doen, wel uit het blijven dragen terwijl je diep vanbinnen iets anders verlangt.</p>
+					<p>Dit is geen falen. Het is een teken dat je verlangt naar iets échts. Hier, in mijn praktijk, vind je een veilige plek waar emoties en spanningen erkend worden. Samen werken we aan rust, herstel en balans, zodat je je lichaam opnieuw als een thuis kunt ervaren.</p>
 					<p>Therapie is voor mij meer dan een methode, het is samen zoeken naar wat jou vooruithelpt. Ik nodig je uit om in vertrouwen je eerste stap te zetten.</p>
+					<p><strong>Je bent welkom om de eerste stap te zetten.</strong></p>
 					<a href="/contact" class="btn btn--primary">Plan je eerste sessie</a>
 				</div>
 				<div class="therapie-hero__images">
-					<img src="/images/therapie-hero.webp" alt="Sarah tijdens een therapeutische sessie" class="therapie-hero__image-main" loading="eager"/>
-					<img src="/images/therapie-overlay.webp" alt="Ontspannende therapie omgeving met bloemen" class="therapie-hero__image-overlay" loading="eager"/>
+					<img src="/images/therapie-hero.webp" alt="Sarah tijdens een therapeutische sessie" class="therapie-hero__image-main" loading="eager" fetchpriority="high"/>
+					<img src="/images/therapie-overlay.webp" alt="Ontspannende therapie omgeving met bloemen" class="therapie-hero__image-overlay" loading="eager" fetchpriority="high"/>
 				</div>
 			</div>
 		</section>
@@ -58,7 +60,6 @@ import Cta from '../components/cta.astro';
 		<ContentBlock 
 			leftWidth="40%" 
 			rightWidth="60%" 
-			gap="large" 
 			verticalAlign="center"
 		>
 			<div slot="left" class="content-text icon-section-left">
@@ -86,7 +87,6 @@ import Cta from '../components/cta.astro';
 		<ContentBlock
 			leftWidth="65%"
 			rightWidth="35%"
-			gap="large"
 			verticalAlign="top"
 			backgroundColor="var(--color-background-secondary)"
 		>
@@ -112,7 +112,7 @@ import Cta from '../components/cta.astro';
 						<p>Emotionele blokkades</p>
 					</li>
 				</ul>
-				<p>Door te werken met adem, fascia, lymfe en energiebalans ontstaat er opnieuw ruimte voor herstel, zelfzorg en emotionele gezondheid, op jouw tempo.</p>
+				<p>Door te werken met adem, fascia, lymfe en energiebalans ontstaat er opnieuw ruimte voor herstel, zelfzorg en emotionele gezondheid op jouw tempo.</p>
 			</div>
 			<div slot="right" style="border-left: 2px solid var(--color-text); padding-left: var(--space-6);">
 				<h3>Voor wie is deze therapie?</h3>
@@ -173,8 +173,8 @@ import Cta from '../components/cta.astro';
   margin: 0 auto;
   padding: 0 var(--container-padding);
   display: grid;
-  grid-template-columns: 45fr 55fr;
-  gap: var(--space-16);
+  grid-template-columns: 55fr 45fr;
+  gap: var(--space-10);
   align-items: center;
 }
 
@@ -200,8 +200,7 @@ import Cta from '../components/cta.astro';
 .therapie-hero__images {
   position: relative;
   width: 100%;
-  aspect-ratio: 1 / 1;
-  min-height: 500px;
+  min-height: 450px;
 }
 
 .therapie-hero__image-main {
@@ -243,7 +242,6 @@ import Cta from '../components/cta.astro';
 
   .therapie-hero__images {
     min-height: 400px;
-    aspect-ratio: 3 / 4;
 	max-height: 400px;
   }
 

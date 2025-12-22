@@ -9,13 +9,17 @@ interface Props {
   description?: string;
   faqs: FaqItem[];
   backgroundColor?: string;
+  sidebarImage?: string;
+  sidebarImageAlt?: string;
 }
 
 const {
   title,
   description,
   faqs,
-  backgroundColor = 'transparent'
+  backgroundColor = 'transparent',
+  sidebarImage,
+  sidebarImageAlt = ''
 } = Astro.props;
 ---
 
@@ -24,6 +28,13 @@ const {
     <div class="faq-sidebar__sidebar">
       <h2>{title}</h2>
       {description && <p>{description}</p>}
+      {sidebarImage && (
+        <img 
+          src={sidebarImage} 
+          alt={sidebarImageAlt} 
+          class="faq-sidebar__image"
+        />
+      )}
     </div>
 
     <div class="faq-sidebar__list">
@@ -37,7 +48,7 @@ const {
             </svg>
           </button>
           <div class="faq-sidebar__answer" data-faq-answer>
-            <p set:html={faq.answer}></p>
+            <div set:html={faq.answer}></div>
           </div>
         </div>
       ))}
@@ -120,6 +131,13 @@ const {
     margin: 0;
   }
 
+  .faq-sidebar__image {
+    margin-top: var(--space-6);
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-md);
+  }
+
   .faq-sidebar__list {
     display: flex;
     flex-direction: column;
@@ -174,11 +192,23 @@ const {
     transition: max-height 0.3s ease;
   }
 
-  .faq-sidebar__answer p {
+  .faq-sidebar__answer > div {
     padding: 0 var(--space-6) var(--space-6) var(--space-6);
-    margin: 0;
     line-height: var(--line-height-normal);
     color: var(--color-text);
+  }
+
+  .faq-sidebar__answer p {
+    margin: 0 0 var(--space-4) 0;
+  }
+
+  .faq-sidebar__answer p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Icon list inherits from global.css */
+  .faq-sidebar__answer .icon-list {
+    margin: var(--space-4) 0;
   }
   
   .faq-sidebar__item.is-open .faq-sidebar__answer {
