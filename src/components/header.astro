@@ -20,7 +20,13 @@ const currentPath = Astro.url.pathname;
 <header class={`header ${transparentOnTop ? 'header--transparent' : ''}`}>
   <div class="header__inner">
     <a class="header__brand" href="/" aria-label="home">
-      <img class="header__logo" src={logoSrc} alt={logoAlt} />
+      <img 
+        class="header__logo" 
+        src={logoSrc} 
+        alt={logoAlt}
+        width="90"
+        height="90"
+      />
     </a>
     
     <button class="header__toggle" aria-label="menu openen" aria-controls="primary-nav" aria-expanded="false">
